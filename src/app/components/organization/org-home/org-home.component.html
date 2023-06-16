@@ -1,1 +1,42 @@
-<p>org-home works!</p>
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="\assets\qwert-(1)-1.png" style="width: 160px;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><b>Home</b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/organization/my-events"><b>My Events</b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><b>Organization</b></a>
+          </li>
+        </ul>
+        <form class="d-flex mx-auto">
+          <input class="form-control" type="text" placeholder="Search">
+        </form>
+        
+        <div ngbDropdown class="profile-dropdown">
+          <img src="\assets\administrator.png" alt="Profile Icon" class="profile-icon" id="profileDropdown" ngbDropdownToggle>
+          <ul ngbDropdownMenu class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+        
+    </div>
+  </div>

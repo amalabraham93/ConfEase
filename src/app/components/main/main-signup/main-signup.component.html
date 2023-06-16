@@ -1,1 +1,37 @@
-<p>main-signup works!</p>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #F0F0F0;">
+    <a class="navbar-brand" href="#"><img src="\assets\qwert-(1)-1.png" style="width: 160px;"></a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      
+       </div>
+  </nav>
+   
+
+    <div class="d-flex w-100 justify-content-center align-items-center " style="background-color: #F0F0F0; height: 90vh;">
+        <div class="container h-100">
+          <div class="row justify-content-center align-items-center" style="background-color: #ffff; height:80%; border-radius: 2%; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+            <h5 class="center-text">JOIN AS USER OR ORGANIZATION</h5>
+            <div class="col-md-5"> 
+              <div class="card"  routerLink = '/user/signup'>
+                <div class="card-body text-center">
+                  <h5 class="card-title">User</h5>
+                  <!-- <i class="tick fa fa-check"></i> -->
+                  <img src="\assets\administrator.png" style="width: 30%;">
+                  <!-- Add content for the User card here -->
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="card"  routerLink = '/organization/signup'>
+                <div class="card-body text-center">
+                  <h5 class="card-title">Organization</h5>
+                  <!-- <i class="tick fa fa-check"></i> -->
+
+                  <img src="\assets\pngaaa-1.png" style="width: 40%;">
+                  <!-- Add content for the Organization card here -->
+                </div>
+              </div>
+            </div>
+            <p class="center-text" style="font-size: small;">Don't have an account, please <a routerLink="/login">Login</a> first!</p>
+          </div>
+        </div>
+      </div>

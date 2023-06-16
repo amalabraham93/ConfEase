@@ -1,1 +1,105 @@
-<p>org-signup works!</p>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f0f0f0">
+    <a class="navbar-brand" href="#"><img src="\assets\qwert-(1)-1.png" style="width: 160px" /></a>
+    <div class="collapse navbar-collapse" id="navbarNav"></div>
+  </nav>
+  
+  <section class="vh-100" style="background-color: #f0f0f0">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <div class="image-overlay">
+                  <img
+                    src="https://images.unsplash.com/photo-1581084243124-209fc8f93cf6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZGFyayUyMGJsdWUlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww&w=1000&q=80"
+                    alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem" />
+                  <div class="overlay-content">
+                    <h2 style="width: 108%">The best platform for Conferences</h2>
+                    <p style="width: 104%">
+                      This website is a platform for organizing and managing
+                      events. It includes features like online registration,
+                      speaker and agenda management, and communication tools. This
+                      platform streamlines the organization of conferences and
+                      makes it easier for organizers to deliver a successful
+                      event. Don't have an account, please SignUp first!
+                    </p>
+                    <button class="btn btn-primary" routerLink="/user/login">
+                      Login
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+                  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()"> 
+                    <!-- organizer name -->
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="organizername">Organizer name</label>
+                      <input type="text" id="organizername" class="form-control form-control-lg" formControlName="organizername"
+                      />
+                      <div *ngIf="organizername?.touched && organizername?.errors" class="text-danger">
+                        <div *ngIf="organizername?.errors?.['required']">Organizer name is required</div>
+                      </div>
+                    </div>
+                    <!-- Email -->
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="email">Email address</label>
+                      <input type="email" id="email" class="form-control form-control-lg" formControlName="email" />
+                      <div *ngIf="email?.touched && email?.errors" class="text-danger">
+                        <div *ngIf="email?.errors?.['required']">
+                          Email is required
+                        </div>
+                        <div *ngIf="email?.errors?.['email']">
+                          Invalid email format
+                        </div>
+                      </div>
+                    </div>
+  
+                     
+                    <!-- Password -->
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="password">Password</label>
+                      <input type="password" id="password" class="form-control form-control-lg"
+                        formControlName="password" />
+                      <div *ngIf="password?.touched && password?.errors" class="text-danger">
+                        <div *ngIf="password?.errors?.['required']">
+                          Password is required
+                        </div>
+                      </div>
+                    </div>
+  
+                    <!-- Confirm Password -->
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="confirmPassword">Confirm Password</label>
+                      <input type="password" id="confirmPassword" class="form-control form-control-lg"
+                        formControlName="confirmPassword" />
+                      <div *ngIf="
+                          confirmPassword?.touched && confirmPassword?.errors
+                        " class="text-danger">
+                        <div *ngIf="confirmPassword?.errors?.['required']">
+                          Confirm Password is required
+                        </div>
+                      </div>
+                      <div *ngIf="confirmPassword?.hasError('passwordMismatch') && confirmPassword?.touched"
+                        class="text-danger">
+                        Passwords do not match
+                      </div>
+                    </div>
+  
+                    <div class="pt-1 mb-4">
+                      <button class="btn btn-dark btn-lg btn-block" type="submit">
+                        SignUp
+                      </button>
+                    </div>
+  
+                    <a class="small text-muted" href="#!">Forgot password?</a>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

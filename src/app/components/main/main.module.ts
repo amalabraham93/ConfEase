@@ -5,8 +5,21 @@ import { MainHomeComponent } from './main-home/main-home.component';
 import { MainLoginComponent } from './main-login/main-login.component';
 import { MainSignupComponent } from './main-signup/main-signup.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
+import { RouterModule, Routes } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; 
 
 
+const mainRoutes : Routes = [
+  {path: '', component:MainComponent,
+   children: [
+   
+     { path: 'home', component: MainHomeComponent },
+     { path: 'login', component: MainLoginComponent },
+     { path: 'signup', component: MainSignupComponent },
+     
+     // Add more routes for other views or pages in the admin side
+   ]
+ }]
 
 @NgModule({
   declarations: [
@@ -17,7 +30,13 @@ import { MainNavComponent } from './main-nav/main-nav.component';
     MainNavComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild(mainRoutes),
+    NgbModule,
+
+  ],
+  exports: [
+    RouterModule
   ]
 })
 export class MainModule { }

@@ -1,0 +1,432 @@
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="\assets\qwert-(1)-1.png" style="width: 160px;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><b>Home</b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><b>My Events</b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><b>Organization</b></a>
+          </li>
+        </ul>
+        <form class="d-flex mx-auto">
+          <input class="form-control" type="text" placeholder="Search">
+        </form>
+        
+        <div ngbDropdown class="profile-dropdown">
+          <img src="\assets\administrator.png" alt="Profile Icon" class="profile-icon" id="profileDropdown" ngbDropdownToggle>
+          <ul ngbDropdownMenu class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+
+
+
+<section class="section mt-5">
+  <div class="container">
+    <div class=" mb-4">
+      <div class="col-sm-12 col-md-6">
+        <h2 class="posts-entry-title"><b>My conferences</b></h2>
+      </div>
+      <div class="col-sm-6 col-md-12 d-flex mt-4">
+        <div class="input-group me-md-3">
+          <input type="text" class="form-control" placeholder="Search...">
+          <button class="btn btn-primary" type="button">Search</button>
+        </div>
+        <select class="custom-select custom-select-lg mt-3 mt-md-0 me-md-3 form-control">
+          <option selected>Choose...</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+        <button class="btn btn-lg btn-outline-primary mt-3 mt-md-0" style="width: 100%;" (click)="open(content)">Create Event</button>
+      </div>
+    </div>
+
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Create Event</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="eventForm">
+          <div class="mb-3">
+            <label for="eventName">Event Name</label>
+            <input
+              id="eventName"
+              class="form-control"
+              placeholder="Enter event name"
+              formControlName="eventName"
+            />
+            <div *ngIf="eventName.invalid && (eventName.dirty || eventName.touched)" class="text-danger">
+              <div *ngIf="eventName.errors?.['required']">Event Name is required</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="eventDate">Event Date</label>
+            <div class="input-group">
+              <input
+                id="eventDate"
+                class="form-control"
+                placeholder="yyyy-mm-dd"
+                name="dp"
+                ngbDatepicker
+                #dp="ngbDatepicker"
+                formControlName="eventDate"
+              />
+              <button class="btn btn-outline-secondary bi bi-calendar3" (click)="dp.toggle()" type="button"></button>
+            </div>
+            <div *ngIf="eventDate.invalid && (eventDate.dirty || eventDate.touched)" class="text-danger">
+              <div *ngIf="eventDate.errors?.['required']">Event Date is required</div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="saveEvent()">Create</button>
+          </div>
+        </form>
+      </div>
+    </ng-template>
+    
+   
+
+
+
+
+
+
+
+
+
+
+
+    <div class="row">
+      <div class="col-lg-4 mb-4">
+        <div class="post-entry-alt">
+          <a href="single.html" class="img-link"
+            ><img
+              src="\assets\unsplash_6vajp0pscx0.jpeg"
+              alt="Image"
+              class="img-fluid"
+          /></a>
+          <div class="excerpt">
+            <h2>
+              <a href="single.html"
+                >Startup vs corporate: What job suits you best?</a
+              >
+            </h2>
+            <div class="post-meta align-items-center text-left clearfix">
+              <figure class="author-figure mb-0 me-3 float-start">
+                <img src="images/person_1.jpg" alt="Image" class="img-fluid" />
+              </figure>
+              <span class="d-inline-block mt-1"
+                >By <a href="#">David Anderson</a></span
+              >
+              <span>&nbsp;-&nbsp; July 19, 2019</span>
+            </div>
+
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt
+              tempora dolor laudantium sed optio, explicabo ad deleniti impedit
+              facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro
+              id est.
+            </p>
+            <p><a href="#" class="read-more">Continue Reading</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="post-entry-alt">
+          <a href="single.html" class="img-link"
+            ><img
+              src="\assets\unsplash_6vajp0pscx0.jpeg"
+              alt="Image"
+              class="img-fluid"
+          /></a>
+          <div class="excerpt">
+            <h2>
+              <a href="single.html"
+                >Startup vs corporate: What job suits you best?</a
+              >
+            </h2>
+            <div class="post-meta align-items-center text-left clearfix">
+              <figure class="author-figure mb-0 me-3 float-start">
+                <img src="images/person_2.jpg" alt="Image" class="img-fluid" />
+              </figure>
+              <span class="d-inline-block mt-1"
+                >By <a href="#">David Anderson</a></span
+              >
+              <span>&nbsp;-&nbsp; July 19, 2019</span>
+            </div>
+
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt
+              tempora dolor laudantium sed optio, explicabo ad deleniti impedit
+              facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro
+              id est.
+            </p>
+            <p><a href="#" class="read-more">Continue Reading</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="post-entry-alt">
+          <a href="single.html" class="img-link"
+            ><img
+              src="\assets\unsplash_6vajp0pscx0.jpeg"
+              alt="Image"
+              class="img-fluid"
+          /></a>
+          <div class="excerpt">
+            <h2>
+              <a href="single.html"
+                >Startup vs corporate: What job suits you best?</a
+              >
+            </h2>
+            <div class="post-meta align-items-center text-left clearfix">
+              <figure class="author-figure mb-0 me-3 float-start">
+                <img src="images/person_3.jpg" alt="Image" class="img-fluid" />
+              </figure>
+              <span class="d-inline-block mt-1"
+                >By <a href="#">David Anderson</a></span
+              >
+              <span>&nbsp;-&nbsp; July 19, 2019</span>
+            </div>
+
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt
+              tempora dolor laudantium sed optio, explicabo ad deleniti impedit
+              facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro
+              id est.
+            </p>
+            <p><a href="#" class="read-more">Continue Reading</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 mb-4">
+        <div class="post-entry-alt">
+          <a href="single.html" class="img-link"
+            ><img
+              src="\assets\unsplash_6vajp0pscx0.jpeg"
+              alt="Image"
+              class="img-fluid"
+          /></a>
+          <div class="excerpt">
+            <h2>
+              <a href="single.html"
+                >Startup vs corporate: What job suits you best?</a
+              >
+            </h2>
+            <div class="post-meta align-items-center text-left clearfix">
+              <figure class="author-figure mb-0 me-3 float-start">
+                <img src="images/person_4.jpg" alt="Image" class="img-fluid" />
+              </figure>
+              <span class="d-inline-block mt-1"
+                >By <a href="#">David Anderson</a></span
+              >
+              <span>&nbsp;-&nbsp; July 19, 2019</span>
+            </div>
+
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt
+              tempora dolor laudantium sed optio, explicabo ad deleniti impedit
+              facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro
+              id est.
+            </p>
+            <p><a href="#" class="read-more">Continue Reading</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="post-entry-alt">
+          <a href="single.html" class="img-link"
+            ><img
+              src="\assets\unsplash_6vajp0pscx0.jpeg"
+              alt="Image"
+              class="img-fluid"
+          /></a>
+          <div class="excerpt">
+            <h2>
+              <a href="single.html"
+                >Startup vs corporate: What job suits you best?</a
+              >
+            </h2>
+            <div class="post-meta align-items-center text-left clearfix">
+              <figure class="author-figure mb-0 me-3 float-start">
+                <img src="images/person_5.jpg" alt="Image" class="img-fluid" />
+              </figure>
+              <span class="d-inline-block mt-1"
+                >By <a href="#">David Anderson</a></span
+              >
+              <span>&nbsp;-&nbsp; July 19, 2019</span>
+            </div>
+
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt
+              tempora dolor laudantium sed optio, explicabo ad deleniti impedit
+              facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro
+              id est.
+            </p>
+            <p><a href="#" class="read-more">Continue Reading</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="post-entry-alt">
+          <a href="single.html" class="img-link"
+            ><img
+              src="\assets\unsplash_6vajp0pscx0.jpeg"
+              alt="Image"
+              class="img-fluid"
+          /></a>
+          <div class="excerpt">
+            <h2>
+              <a href="single.html"
+                >Startup vs corporate: What job suits you best?</a
+              >
+            </h2>
+            <div class="post-meta align-items-center text-left clearfix">
+              <figure class="author-figure mb-0 me-3 float-start">
+                <img src="images/person_4.jpg" alt="Image" class="img-fluid" />
+              </figure>
+              <span class="d-inline-block mt-1"
+                >By <a href="#">David Anderson</a></span
+              >
+              <span>&nbsp;-&nbsp; July 19, 2019</span>
+            </div>
+
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt
+              tempora dolor laudantium sed optio, explicabo ad deleniti impedit
+              facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro
+              id est.
+            </p>
+            <p><a href="#" class="read-more">Continue Reading</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 mb-4">
+        <div class="post-entry-alt">
+          <a href="single.html" class="img-link"
+            ><img
+              src="\assets\unsplash_6vajp0pscx0.jpeg"
+              alt="Image"
+              class="img-fluid"
+          /></a>
+          <div class="excerpt">
+            <h2>
+              <a href="single.html"
+                >Startup vs corporate: What job suits you best?</a
+              >
+            </h2>
+            <div class="post-meta align-items-center text-left clearfix">
+              <figure class="author-figure mb-0 me-3 float-start">
+                <img src="images/person_3.jpg" alt="Image" class="img-fluid" />
+              </figure>
+              <span class="d-inline-block mt-1"
+                >By <a href="#">David Anderson</a></span
+              >
+              <span>&nbsp;-&nbsp; July 19, 2019</span>
+            </div>
+
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt
+              tempora dolor laudantium sed optio, explicabo ad deleniti impedit
+              facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro
+              id est.
+            </p>
+            <p><a href="#" class="read-more">Continue Reading</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="post-entry-alt">
+          <a href="single.html" class="img-link"
+            ><img
+              src="\assets\unsplash_6vajp0pscx0.jpeg"
+              alt="Image"
+              class="img-fluid"
+          /></a>
+          <div class="excerpt">
+            <h2>
+              <a href="single.html"
+                >Startup vs corporate: What job suits you best?</a
+              >
+            </h2>
+            <div class="post-meta align-items-center text-left clearfix">
+              <figure class="author-figure mb-0 me-3 float-start">
+                <img src="images/person_2.jpg" alt="Image" class="img-fluid" />
+              </figure>
+              <span class="d-inline-block mt-1"
+                >By <a href="#">David Anderson</a></span
+              >
+              <span>&nbsp;-&nbsp; July 19, 2019</span>
+            </div>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt
+              tempora dolor laudantium sed optio, explicabo ad deleniti impedit
+              facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro
+              id est.
+            </p>
+            <p><a href="#" class="read-more">Continue Reading</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="post-entry-alt">
+          <a href="single.html" class="img-link"
+            ><img
+              src="\assets\unsplash_6vajp0pscx0.jpeg"
+              alt="Image"
+              class="img-fluid"
+          /></a>
+          <div class="excerpt">
+            <h2>
+              <a href="single.html"
+                >Startup vs corporate: What job suits you best?</a
+              >
+            </h2>
+            <div class="post-meta align-items-center text-left clearfix">
+              <figure class="author-figure mb-0 me-3 float-start">
+                <img src="images/person_5.jpg" alt="Image" class="img-fluid" />
+              </figure>
+              <span class="d-inline-block mt-1"
+                >By <a href="#">David Anderson</a></span
+              >
+              <span>&nbsp;-&nbsp; July 19, 2019</span>
+            </div>
+
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt
+              tempora dolor laudantium sed optio, explicabo ad deleniti impedit
+              facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro
+              id est.
+            </p>
+            <p><a href="#" class="read-more">Continue Reading</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,49 @@
+/* .container {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  .img-fluid {
+    width: 100%;
+    height: auto;
+  } */
+  
+  /* h1 {
+    font-size: 24px;
+    line-height: 1.5;
+    margin: 0 0 16px 0;
+  } */
+  
+  /* .btn {
+    width: 100%;
+  } */
+
+  .cliens {
+    padding: 12px 0;
+    text-align: center;
+  }
+  
+  .cliens img {
+    max-width: 50%;
+    transition: all 0.4s ease-in-out;
+    display: inline-block;
+    padding: 15px 0;
+    filter: grayscale(100);
+  }
+  
+  .cliens img:hover {
+    filter: none;
+    transform: scale(1.1);
+  }
+  
+  @media (max-width: 768px) {
+    .cliens img {
+      max-width: 40%;
+    }
+  }
+  
+  .section-bg {
+    background-color: #f3f5fa;
+  }
+
+
