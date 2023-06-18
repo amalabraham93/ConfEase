@@ -10,11 +10,17 @@ import { environment } from 'src/environments/environment';
 export class ConferenceService  {
   
   private api = environment.apiUrl
-  private backendUrl = `${this.api}/create-conference`; // Replace with your actual backend URL
+  private backendUrl = `${this.api}/organizers/create-conference`; 
 
   constructor(private http: HttpClient) { }
 
   saveEvent(eventData: any): Observable<any> {
-    return this.http.post<any>(this.backendUrl, eventData);
+    return this.http.post<any>(this.backendUrl, eventData,{withCredentials:true});
   }
+  
+  getConfByOrgId(): Observable<any>{
+    return this.http.get<any>(`${this.api}/organizers/conferences`,{withCredentials:true})
+
+  }
+  
 }

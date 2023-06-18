@@ -83,25 +83,25 @@
             </div>
           </div>
           <div class="mb-3">
-            <label for="eventDate">Event Date</label>
+            <label for="startDate">Event Date</label>
             <div class="input-group">
               <input
-                id="eventDate"
+                id="startDate"
                 class="form-control"
                 placeholder="yyyy-mm-dd"
                 name="dp"
                 ngbDatepicker
                 #dp="ngbDatepicker"
-                formControlName="eventDate"
+                formControlName="startDate"
               />
               <button class="btn btn-outline-secondary bi bi-calendar3" (click)="dp.toggle()" type="button"></button>
             </div>
-            <div *ngIf="eventDate.invalid && (eventDate.dirty || eventDate.touched)" class="text-danger">
-              <div *ngIf="eventDate.errors?.['required']">Event Date is required</div>
+            <div *ngIf="startDate.invalid && (startDate.dirty || startDate.touched)" class="text-danger">
+              <div *ngIf="startDate.errors?.['required']">Event Date is required</div>
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-outline-dark" (click)="saveEvent()">Create</button>
+            <button type="button" class="btn btn-outline-dark" (click)="saveEvent();  modal.close('Save click')">Create</button>
           </div>
         </form>
       </div>

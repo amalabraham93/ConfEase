@@ -7,7 +7,8 @@ import { OrgHomeComponent } from './org-home/org-home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule,NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
-import { MyConferenceComponent } from './my-conference/my-conference.component'; 
+import { MyConferenceComponent } from './my-conference/my-conference.component';
+import { ConferenceDashboardComponent } from './conference-dashboard/conference-dashboard.component'; 
 
 
 
@@ -20,6 +21,7 @@ const organizationRoutes : Routes = [
      { path: 'login', component: OrgLoginComponent },
      { path: 'signup', component: OrgSignupComponent },
      { path: 'my-events', component: MyConferenceComponent },
+     { path: 'conf-dashboard', component: ConferenceDashboardComponent },
      
      // Add more routes for other views or pages in the admin side
    ]
@@ -31,7 +33,8 @@ const organizationRoutes : Routes = [
     OrgLoginComponent,
     OrgSignupComponent,
     OrgHomeComponent,
-    MyConferenceComponent
+    MyConferenceComponent,
+    ConferenceDashboardComponent
   ],
   imports: [
     CommonModule,

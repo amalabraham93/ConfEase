@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConferenceService } from 'src/app/services/organizer/conference.service';
 import { Observer } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,10 +15,10 @@ export class MyConferenceComponent {
   closeResult = '';
   eventForm: FormGroup;
 
-  constructor(private _modalService: NgbModal, private _formBuilder: FormBuilder , private _conferenceService: ConferenceService) {
+  constructor(private _modalService: NgbModal, private _formBuilder: FormBuilder , private _conferenceService: ConferenceService, private _router: Router) {
     this.eventForm = this._formBuilder.group({
       eventName: ['', Validators.required],
-      eventDate: [null, Validators.required],
+      startDate: [null, Validators.required],
     });
   }
 
@@ -25,8 +26,8 @@ export class MyConferenceComponent {
     return this.eventForm.controls['eventName'];
   }
 
-  get eventDate() {
-    return this.eventForm.controls['eventDate'];
+  get startDate() {
+    return this.eventForm.controls['startDate'];
   }
 
   open(content: any) {
@@ -59,12 +60,12 @@ export class MyConferenceComponent {
 
   saveEvent() {
     const eventName = this.eventForm.get('eventName')?.value;
-    const eventDate = this.eventForm.get('eventDate')?.value;
-    const formattedEventDate = new Date(eventDate.year, eventDate.month - 1, eventDate.day);
+    const startDate = this.eventForm.get('startDate')?.value;
+    const formattedEventDate = new Date(startDate.year, startDate.month - 1, startDate.day);
 
     const eventData = {
       name: eventName,
-      date: formattedEventDate.toISOString(),
+      startDate: formattedEventDate.toISOString(),
     };
 
     console.log(eventData);
@@ -72,7 +73,7 @@ export class MyConferenceComponent {
     .subscribe({
       next: () => {
         console.log('Event saved successfully');
-        // Handle any success actions
+        this._router.navigate(['/organization/conf-dashboard'])
       },
       error: (error) => {
         console.error('Error saving event:', error);

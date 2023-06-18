@@ -1,0 +1,110 @@
+
+
+.logo {
+    width: 120px;
+    height: auto;
+  }
+  
+  .profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .navbar {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    background-color: #f0f0f0;
+  }
+  
+  .navbar-nav {
+    margin-right: auto;
+  }
+  
+  .navbar-nav .nav-item {
+    margin-right: 10px;
+  }
+  
+  .navbar-nav .nav-item:last-child {
+    margin-right: 0;
+  }
+  
+  .profile-dropdown {
+    margin-left: 10px;
+    position: relative;
+  }
+  
+  .profile-dropdown .dropdown-menu {
+    right: 0;
+    left: auto;
+    margin-top: 10px;
+  }
+  
+  @media (max-width: 576px) {
+    .navbar-brand {
+      margin-right: auto;
+    }
+  
+    .navbar-toggler {
+      margin-left: auto;
+    }
+  
+    .navbar-collapse {
+      margin-top: 10px;
+    }
+  
+    .form-control {
+      width: 100%;
+    }
+  }
+
+
+
+
+
+  .card {
+    margin: 20px auto;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .card-header {
+    background-color: #2293BD;
+    color: #FFF;
+  }
+
+  .card-body {
+    background-color: #F9F9F9;
+  }
+
+  .card-title {
+    margin-bottom: 0.5rem;
+  }
+
+  .card-subtitle {
+    color: #6C757D;
+  }
+
+  .card-text {
+    margin-bottom: 0.5rem;
+  }
+  
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Apply Animation to Dropdown Menu */
+  .dropdown-menu.fadeIn {
+    animation: fadeIn 0.3s;
+  }
