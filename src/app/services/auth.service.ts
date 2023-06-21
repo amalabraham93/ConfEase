@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { Router } from '@angular/router';
 
 
 
@@ -12,7 +13,7 @@ export class AuthService {
   private isLoggedIn = false;
    private readonly  apiUrl = environment.apiUrl;
 
-  constructor(private _http: HttpClient ) {}
+  constructor(private _http: HttpClient ,private _router:Router) {}
 
   login(email: string, password: string): Observable<any> {
     // return this._http.post('http://localhost:5000/users/login', { email, password }, {withCredentials:true});
@@ -38,9 +39,18 @@ export class AuthService {
     return this._http.post(`${this.apiUrl}/organizers/signup`, { organizername, email, password });
   }
   
-  logout(): void {
-    // Implement logout functionality here
-   
+  logout():Observable<any> {
+    return this._http.post(`${this.apiUrl}/users/logout`, {}, {withCredentials:true}).pipe(tap(()=>{
+      this.isLoggedIn = false;
+      this._router.navigate(['/user/login']);
+     }));
+
+  }
+  org_logout():Observable<any> {
+    return this._http.post(`${this.apiUrl}/users/logout`, {}, {withCredentials:true}).pipe(tap(()=>{
+      this.isLoggedIn = false;
+      this._router.navigate(['/organization/login']);
+     }));
 
   }
 

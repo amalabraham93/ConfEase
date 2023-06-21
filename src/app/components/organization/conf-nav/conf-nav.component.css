@@ -1,0 +1,101 @@
+.logo {
+    width: 120px;
+    height: auto;
+  }
+  
+  .profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .navbar {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    background-color: #f0f0f0;
+  }
+  
+  .navbar-nav {
+    margin-right: auto;
+  }
+  
+  .navbar-nav .nav-item {
+    margin-right: 10px;
+  }
+  
+  .navbar-nav .nav-item:last-child {
+    margin-right: 0;
+  }
+  
+  .profile-dropdown {
+    margin-left: 10px;
+    position: relative;
+  }
+  
+  .profile-dropdown .dropdown-menu {
+    right: 0;
+    left: auto;
+    margin-top: 10px;
+  }
+  
+  @media (max-width: 576px) {
+    .navbar-brand {
+      margin-right: auto;
+    }
+  
+    .navbar-toggler {
+      margin-left: auto;
+    }
+  
+    .navbar-collapse {
+      margin-top: 10px;
+    }
+  
+    .form-control {
+      width: 100%;
+    }
+  }
+
+  
+/* Customizing the dropdowns */
+.dropdown-menu {
+    background-color: #84b9c4; /* Light grey background color */
+    animation: fadeIn 0.3s ease-in-out; /* Animation effect */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+    padding: 0.5rem; /* Adjust padding as needed */
+    margin-top: 1.2rem; /* Add margin to separate from parent element */
+    position: absolute; /* Position the dropdown absolutely */
+    top: 100%; /* Position the dropdown below the navbar */
+    left: 0; /* Align the dropdown with the left edge */
+    z-index: 9999; /* Set a high z-index to ensure it's on top of other elements */
+  }
+  
+  .dropdown-item {
+    padding: 0.5rem 1rem; /* Adjust padding as needed */
+  }
+  
+  /* Position the dropdown arrow */
+  .dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -7px; /* Adjust arrow position */
+    left: 65%; /* Center arrow horizontally */
+    transform: translateX(-50%) rotate(45deg); /* Rotate arrow */
+    background-color: #84b9c4; /* Match background color */
+    width: 16px;
+    height: 16px;
+  }
+  
+  /* Position the dropdown arrow (for right-aligned dropdowns) */
+  .dropdown-menu.dropdown-menu-end::before {
+    left: auto;
+    right: 15px; /* Adjust arrow position */
+    transform: translateX(0) rotate(45deg);
+  }
+  
+  /* Hide the default dropdown arrow */
+  .dropdown-toggle::after {
+    display: none;
+  }

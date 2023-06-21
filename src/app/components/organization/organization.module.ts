@@ -9,7 +9,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule,NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { MyConferenceComponent } from './my-conference/my-conference.component';
 import { ConferenceDashboardComponent } from './conference-dashboard/conference-dashboard.component'; 
-
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
+import { ConfNavComponent } from './conf-nav/conf-nav.component';
+import { ConfConfigComponent } from './conf-config/conf-config.component';
 
 
 
@@ -21,7 +24,8 @@ const organizationRoutes : Routes = [
      { path: 'login', component: OrgLoginComponent },
      { path: 'signup', component: OrgSignupComponent },
      { path: 'my-events', component: MyConferenceComponent },
-     { path: 'conf-dashboard', component: ConferenceDashboardComponent },
+     { path: 'conf-dashboard/:id', component: ConferenceDashboardComponent },
+     { path: 'conf-config', component: ConfConfigComponent },
      
      // Add more routes for other views or pages in the admin side
    ]
@@ -34,14 +38,18 @@ const organizationRoutes : Routes = [
     OrgSignupComponent,
     OrgHomeComponent,
     MyConferenceComponent,
-    ConferenceDashboardComponent
+    ConferenceDashboardComponent,
+    ConfNavComponent,
+    ConfConfigComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(organizationRoutes),
     ReactiveFormsModule,
     NgbModule,
-    NgbDropdownModule
+    NgbDropdownModule,
+    MatMenuModule,
+    MatButtonModule
   ]
 })
 export class OrganizationModule { }

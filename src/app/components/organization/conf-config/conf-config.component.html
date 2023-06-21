@@ -1,0 +1,178 @@
+<app-conf-nav></app-conf-nav>
+
+<div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-lg-3 col-md-4">
+        <div class="sidebar">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">General</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Theme and colors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Committee</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Payments</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+
+
+      <div class="col-lg-9 col-md-8 mt-4">
+        <div class="main-content">
+          <form [formGroup]="conferenceForm" (ngSubmit)="submitForm()">
+            <div class="card">
+              <div class="card-header">
+                Informations
+              </div>
+              <div class="card-body">
+                <div class="mb-3">
+                  <label for="eventName" class="form-label">Event name</label>
+                  <input type="text" class="form-control" id="eventName" formControlName="eventName">
+                  <div *ngIf="formSubmitted && conferenceForm.get('eventName')?.invalid" class="text-danger">
+                    Event name is required.
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="acronym" class="form-label">Acronym</label>
+                  <input type="text" class="form-control" id="acronym" formControlName="acronym">
+                </div>
+                <div class="mb-3">
+                  <label for="contactEmail" class="form-label">Contact email</label>
+                  <input type="email" class="form-control" id="contactEmail" formControlName="contactEmail">
+                </div>
+                <div class="mb-3">
+                  <label for="websiteLanguage" class="form-label">Website language</label>
+                  <select class="form-select" id="websiteLanguage" formControlName="websiteLanguage">
+                    <option value="english">English</option>
+                    <option value="spanish">Spanish</option>
+                    <option value="french">French</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+      
+            <div class="card mt-4">
+              <div class="card-header">
+                Dates
+              </div>
+              <div class="card-body">
+                <div class="mb-3">
+                  <label for="eventTimezone" class="form-label">Event dates and time zone</label>
+                  <select class="form-select" id="eventTimezone" formControlName="eventTimezone">
+                    <option value="timezone1">(GMT -5:00) Eastern Time (US & Canada), Bogota, Lima</option>
+                    <option value="timezone2">(GMT +1:00) Central European Time</option>
+                    <option value="timezone3">(GMT -8:00) Pacific Time (US & Canada)</option>
+                  </select>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="mb-3">
+                      <label for="startDate" class="form-label">Start date</label>
+                      <input type="date" class="form-control" id="startDate" formControlName="startDate">
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="mb-3">
+                      <label for="startTime" class="form-label">Time</label>
+                      <input type="time" class="form-control" id="startTime" formControlName="startTime">
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="mb-3">
+                      <label for="endDate" class="form-label">End date</label>
+                      <input type="date" class="form-control" id="endDate" formControlName="endDate">
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="mb-3">
+                      <label for="endTime" class="form-label">Time</label>
+                      <input type="time" class="form-control" id="endTime" formControlName="endTime">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+            <div class="card mt-4">
+              <div class="card-header">
+                Location
+              </div>
+              <div class="card-body">
+                <div class="mb-3">
+                  <label for="eventType" class="form-label">Event type</label>
+                  <select class="form-select" id="eventType" formControlName="eventType">
+                    <option value="physical">Physical event</option>
+                    <option value="virtual">Virtual event</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="venueName" class="form-label">Venue name</label>
+                  <input type="text" class="form-control" id="venueName" formControlName="venueName">
+                </div>
+                <div class="mb-3">
+                  <label for="venueAddress" class="form-label">Venue address</label>
+                  <input type="text" class="form-control" id="venueAddress" formControlName="venueAddress">
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="mb-3">
+                      <label for="streetNumber" class="form-label">Street Number</label>
+                      <input type="text" class="form-control" id="streetNumber" formControlName="streetNumber">
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="mb-3">
+                      <label for="streetName" class="form-label">Street Name</label>
+                      <input type="text" class="form-control" id="streetName" formControlName="streetName">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="mb-3">
+                      <label for="city" class="form-label">City</label>
+                      <input type="text" class="form-control" id="city" formControlName="city">
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="mb-3">
+                      <label for="state" class="form-label">State or Province</label>
+                      <input type="text" class="form-control" id="state" formControlName="state">
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="mb-3">
+                      <label for="country" class="form-label">Country</label>
+                      <input type="text" class="form-control" id="country" formControlName="country">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+            <button type="submit" class="btn btn-primary mt-4">Save</button>
+          </form>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+

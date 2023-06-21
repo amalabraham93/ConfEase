@@ -6,6 +6,7 @@ const routes: Routes = [
   { path: 'organization', loadChildren: () => import('./components/organization/organization.module').then( m => m.OrganizationModule)},
   { path: 'user', loadChildren: () => import('./components/user/user.module').then(m => m.UserModule) },
   { path: 'admin', loadChildren: () => import('./components/admin/admin.module').then(m => m.AdminModule) },
+  { path: 'conferecne', loadChildren: () => import('./components/conference/conference.module').then(m => m.ConferenceModule) },
 
 ];
 

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ConferenceService } from 'src/app/services/organizer/conference.service';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-conference-dashboard',
@@ -7,20 +10,28 @@ import { ConferenceService } from 'src/app/services/organizer/conference.service
   styleUrls: ['./conference-dashboard.component.css']
 })
 export class ConferenceDashboardComponent implements OnInit {
-  conferences: any[] = [];
+  conference: any 
+  conferenceId: string = '';
 
-  constructor(private conferenceService: ConferenceService) { }
+  constructor(
+    private conferenceService: ConferenceService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-    this.getConferences();
+    this.route.params.subscribe(params => {
+      this.conferenceId = params['id'];
+      this.getConference();
+    });
   }
 
-  getConferences(): void {
-    this.conferenceService.getConfByOrgId().subscribe(
+  getConference(): void {
+    this.conferenceService.getConfById(this.conferenceId).subscribe(
       (response: any) => {
         console.log(response);
+        this.conference = response.conferences; 
+        console.log(this.conference);
         
-        this.conferences = response.conferences; // Assuming the response is an array of conferences
       },
       (error: any) => {
         console.error('Error retrieving conferences:', error);

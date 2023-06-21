@@ -1,0 +1,9 @@
+.sidebar {
+    width: 200px;
+    background-color: #f8f9fa;
+    padding: 20px;
+  }
+
+  .content {
+    padding: 10px;
+  }

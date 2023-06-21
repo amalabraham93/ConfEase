@@ -11,21 +11,26 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; 
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './shared/guard/auth/auth.guard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ConferenceModule } from './components/conference/conference.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MainModule,
     UserModule,
+    ConferenceModule,
     OrganizationModule,
     AdminModule,
     ReactiveFormsModule,
     NgbModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     AuthService,

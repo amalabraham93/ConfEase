@@ -15,9 +15,9 @@ import { NgbModule,NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 const userRoutes : Routes = [
   {path: '', component:UserComponent,
    children: [
-   
+     
      { path: 'home', component: UserHomeComponent ,
-    //  canActivate: [AuthGuard]
+      canActivate: [AuthGuard]
     },
      { path: 'login', component: UserLoginComponent },
      { path: 'signup', component: UserSignupComponent },  

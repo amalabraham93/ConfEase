@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConferenceService } from 'src/app/services/organizer/conference.service';
@@ -11,15 +11,19 @@ import { Router } from '@angular/router';
   templateUrl: './my-conference.component.html',
   styleUrls: ['./my-conference.component.css'],
 })
-export class MyConferenceComponent {
+export class MyConferenceComponent implements OnInit {
   closeResult = '';
   eventForm: FormGroup;
+  conferences:any
 
   constructor(private _modalService: NgbModal, private _formBuilder: FormBuilder , private _conferenceService: ConferenceService, private _router: Router) {
     this.eventForm = this._formBuilder.group({
       eventName: ['', Validators.required],
       startDate: [null, Validators.required],
     });
+  }
+  ngOnInit(): void {
+    this.getConference();
   }
 
   get eventName() {
@@ -71,9 +75,10 @@ export class MyConferenceComponent {
     console.log(eventData);
     this._conferenceService.saveEvent(eventData)
     .subscribe({
-      next: () => {
-        console.log('Event saved successfully');
-        this._router.navigate(['/organization/conf-dashboard'])
+      next: (conference) => {
+        console.log(conference);
+        const confId = conference._id
+        this._router.navigate(['/organization/conf-dashboard',confId])
       },
       error: (error) => {
         console.error('Error saving event:', error);
@@ -83,5 +88,21 @@ export class MyConferenceComponent {
         // Handle any complete actions
       },
     });
+  }
+
+
+  getConference(){
+    this._conferenceService.getConfByOrgId().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.conferences = response.conferences
+        
+        
+        
+      },
+      (error: any) => {
+        console.error('Error retrieving conferences:', error);
+      }
+    );
   }
 }

@@ -12,7 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 const mainRoutes : Routes = [
   {path: '', component:MainComponent,
    children: [
-   
+      {path: '', redirectTo: 'home', pathMatch: 'full'},
      { path: 'home', component: MainHomeComponent },
      { path: 'login', component: MainLoginComponent },
      { path: 'signup', component: MainSignupComponent },

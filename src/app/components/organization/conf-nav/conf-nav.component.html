@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="\assets\qwert-(1)-1.png" style="width: 160px" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/organization/conf-dashboard/:id">Dashboard</a>
+          </li>
+          <li class="nav-item dropdown" ngbDropdown>
+            <a class="nav-link dropdown-toggle" routerLink="/organization/conf-config" id="configurationDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
+              Configuration
+            </a>
+            <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="configurationDropdown">
+              <li><a class="dropdown-item" href="#">General</a></li>
+              <li><a class="dropdown-item" href="#">Theme and colors</a></li>
+              <li><a class="dropdown-item" href="#">Committee</a></li>
+              <li><a class="dropdown-item" href="#">Payments</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown" ngbDropdown>
+            <a class="nav-link dropdown-toggle" href="#" id="websitePagesDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
+              Website Pages
+            </a>
+            <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="websitePagesDropdown">
+              <li><a class="dropdown-item" href="#">Home</a></li>
+              <li><a class="dropdown-item" href="#">Registration</a></li>
+              <li><a class="dropdown-item" href="#">Submission</a></li>
+              <li><a class="dropdown-item" href="#">Schedule</a></li>
+              <li><a class="dropdown-item" href="#">Presentations</a></li>
+              <li><a class="dropdown-item" href="#">Participants</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown" ngbDropdown>
+            <a class="nav-link dropdown-toggle" href="#" id="eventDataDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
+              Event Data
+            </a>
+            <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="eventDataDropdown">
+              <li><a class="dropdown-item" href="#">Participants</a></li>
+              <li><a class="dropdown-item" href="#">Submissions</a></li>
+              <li><a class="dropdown-item" href="#">Transactions</a></li>
+              <li><a class="dropdown-item" href="#">Reviews</a></li>
+              <li><a class="dropdown-item" href="#">Communications</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex mx-auto">
+          <input class="form-control" type="text" placeholder="Search" />
+        </form>
+        <div class="profile-dropdown" ngbDropdown>
+          <img src="\assets\administrator.png" alt="Profile Icon" class="profile-icon" id="profileDropdown" ngbDropdownToggle />
+          <ul class="dropdown-menu dropdown-menu-end fadeIn" ngbDropdownMenu aria-labelledby="profileDropdown">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  

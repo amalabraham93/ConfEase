@@ -1,92 +1,59 @@
-<nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img src="\assets\qwert-(1)-1.png" style="width: 160px" />
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Dashboard</a>
-        </li>
-        <li class="nav-item dropdown" ngbDropdown>
-          <a class="nav-link dropdown-toggle" href="#" id="configurationDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Configuration
-          </a>
-          <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="configurationDropdown">
-            <li><a class="dropdown-item" href="#">Option 1</a></li>
-            <li><a class="dropdown-item" href="#">Option 2</a></li>
-            <li><a class="dropdown-item" href="#">Option 3</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown" ngbDropdown>
-          <a class="nav-link dropdown-toggle" href="#" id="websitePagesDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Website Pages
-          </a>
-          <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="websitePagesDropdown">
-            <li><a class="dropdown-item" href="#">Option 1</a></li>
-            <li><a class="dropdown-item" href="#">Option 2</a></li>
-            <li><a class="dropdown-item" href="#">Option 3</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown" ngbDropdown>
-          <a class="nav-link dropdown-toggle" href="#" id="eventDataDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Event Data
-          </a>
-          <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="eventDataDropdown">
-            <li><a class="dropdown-item" href="#">Option 1</a></li>
-            <li><a class="dropdown-item" href="#">Option 2</a></li>
-            <li><a class="dropdown-item" href="#">Option 3</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="d-flex mx-auto">
-        <input class="form-control" type="text" placeholder="Search" />
-      </form>
-      <div class="profile-dropdown" ngbDropdown>
-        <img src="\assets\administrator.png" alt="Profile Icon" class="profile-icon" id="profileDropdown" ngbDropdownToggle />
-        <ul class="dropdown-menu dropdown-menu-end fadeIn" ngbDropdownMenu aria-labelledby="profileDropdown">
-          <li><a class="dropdown-item" href="#">Profile</a></li>
-          <li><a class="dropdown-item" href="#">Settings</a></li>
-          <li><a class="dropdown-item" href="#">Logout</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</nav>
+<app-conf-nav></app-conf-nav>
 
-
-
-
-<div class="container">
+<div class="container col-sm-10">
   <div class="card">
     <div class="card-header">
       <h1>Hi AMAL,</h1>
-      <p class="util--color-steel">
-        Here are some statistics for your event.
-      </p>
+      <p class="util--color-steel">Here are some statistics for your event.</p>
     </div>
     <div class="card-body">
       <h2 class="util--mb-16 js-event-name">
-        confEase conference 2 2023
+        {{ conference.name }}
       </h2>
       <p class="util--icon-text util--color-steel">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
-          <path fill="#2293bd" fill-rule="evenodd" d="M11.504 0a.493.493 0 00-.493.493v.597H5.176V.493a.493.493 0 10-.986 0v.597H1a1 1 0 00-1 1V15a1 1 0 001 1h14a1 1 0 001-1V2.09a1 1 0 00-1-1h-3.003V.493A.493.493 0 0011.504 0zm0 3.114c.272 0 .493-.22.493-.493v-.596h3.017v3.239H.985V2.025H4.19v.596a.493.493 0 10.986 0v-.596h5.835v.596c0 .272.22.493.493.493zM.985 15.064h14.029V6.199H.985v8.865z" clip-rule="evenodd"></path>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="none"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill="#2293bd"
+            fill-rule="evenodd"
+            d="M11.504 0a.493.493 0 00-.493.493v.597H5.176V.493a.493.493 0 10-.986 0v.597H1a1 1 0 00-1 1V15a1 1 0 001 1h14a1 1 0 001-1V2.09a1 1 0 00-1-1h-3.003V.493A.493.493 0 0011.504 0zm0 3.114c.272 0 .493-.22.493-.493v-.596h3.017v3.239H.985V2.025H4.19v.596a.493.493 0 10.986 0v-.596h5.835v.596c0 .272.22.493.493.493zM.985 15.064h14.029V6.199H.985v8.865z"
+            clip-rule="evenodd"
+          ></path>
         </svg>
-        <span>June 28, 2023 - 08:00 until June 29, 2023 - 18:00</span>
+        <span>{{ conference.startDate | date : "longDate" }}</span>
       </p>
       <p class="util--icon-text util--color-steel">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-          <path fill="#2293BD" d="M8 0C4.7 0 2 2.7 2 6c0 4.2 5.4 9.6 5.6 9.9.1.1.3.1.4.1s.3 0 .4-.1c.2-.3 5.6-5.7 5.6-9.9 0-3.3-2.7-6-6-6zm0 8.2c-1.3 0-2.4-1.1-2.4-2.4S6.7 3.4 8 3.4s2.4 1.1 2.4 2.4-1.1 2.4-2.4 2.4z"></path>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill="#2293BD"
+            d="M8 0C4.7 0 2 2.7 2 6c0 4.2 5.4 9.6 5.6 9.9.1.1.3.1.4.1s.3 0 .4-.1c.2-.3 5.6-5.7 5.6-9.9 0-3.3-2.7-6-6-6zm0 8.2c-1.3 0-2.4-1.1-2.4-2.4S6.7 3.4 8 3.4s2.4 1.1 2.4 2.4-1.1 2.4-2.4 2.4z"
+          ></path>
         </svg>
         <span>Location: New York City</span>
       </p>
       <p class="util--icon-text util--color-steel">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-          <path fill="#2293BD" fill-rule="evenodd" d="M11.5 3a2.5 2.5 0 10-5 0A2.5 2.5 0 0011.5 3zm-3-1.5a3.5 3.5 0 11-7 0 3.5 3.5 0 017 0zm3 10a5.507 5.507 0 01-4-1.708A5.503 5.503 0 014 11c0-1.064.307-2.068.841-2.922l.338-.563a.5.5 0 01.822-.053l.536.647a4.494 4.494 0 001.993 1.559l.29.108A5.503 5.503 0 0111 11c0 1.523-1.177 2.776-2.672 2.968a6.508 6.508 0 01-1.95 2.393l-.465.323A.5.5 0 016 17h4a.5.5 0 01.455.29l.465.932a.5.5 0 00.89 0l.465-.932A.5.5 0 0114 17h2a.5.5 0 01.485-.628l.465-.322a6.508 6.508 0 01-1.95-2.393A5.5 5.5 0 0114 11z" clip-rule="evenodd"></path>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill="#2293BD"
+            fill-rule="evenodd"
+            d="M11.5 3a2.5 2.5 0 10-5 0A2.5 2.5 0 0011.5 3zm-3-1.5a3.5 3.5 0 11-7 0 3.5 3.5 0 017 0zm3 10a5.507 5.507 0 01-4-1.708A5.503 5.503 0 014 11c0-1.064.307-2.068.841-2.922l.338-.563a.5.5 0 01.822-.053l.536.647a4.494 4.494 0 001.993 1.559l.29.108A5.503 5.503 0 0111 11c0 1.523-1.177 2.776-2.672 2.968a6.508 6.508 0 01-1.95 2.393l-.465.323A.5.5 0 016 17h4a.5.5 0 01.455.29l.465.932a.5.5 0 00.89 0l.465-.932A.5.5 0 0114 17h2a.5.5 0 01.485-.628l.465-.322a6.508 6.508 0 01-1.95-2.393A5.5 5.5 0 0114 11z"
+            clip-rule="evenodd"
+          ></path>
         </svg>
         <span>Registered Participants: 500</span>
       </p>
@@ -98,102 +65,97 @@
   </div>
 </div>
 
-
-
 <div class="container">
-  <div class="row">
-    <div class="col-sm-6 col-lg-4">
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Registrations</h3>
-        </div>
-        <div class="card-body">
-          <div class="card-text">Registered</div>
-          <h4 class="card-subtitle">0</h4>
-          <div class="card-text">With a submission</div>
-          <h4 class="card-subtitle">0</h4>
-          <div class="card-text">On waitlist</div>
-          <h4 class="card-subtitle">0</h4>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Registration period</small>
-          <p class="card-text">Closes on June 29, 2023 - 18:00</p>
-          <a href="#" class="btn btn-sm btn-primary">Change dates</a>
-        </div>
+  <div class="card col-sm-6 col-lg-10">
+    <div class="card-header">
+      <h3 class="card-title">Registrations</h3>
+    </div>
+    <div class="card-body">
+      <div class="card-text">Registered</div>
+      <h4 class="card-subtitle">0</h4>
+      <div class="card-text">With a submission</div>
+      <h4 class="card-subtitle">0</h4>
+      <div class="card-text">On waitlist</div>
+      <h4 class="card-subtitle">0</h4>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Registration period</small>
+      <p class="card-text">Closes on June 29, 2023 - 18:00</p>
+      <a href="#" class="btn btn-sm btn-primary">Change dates</a>
+    </div>
+  </div>
+
+  <div class="col-sm-6 col-lg-10">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Submissions</h3>
+      </div>
+      <div class="card-body">
+        <div class="card-text">Submissions</div>
+        <h4 class="card-subtitle">0</h4>
+        <div class="card-text">In conflict</div>
+        <h4 class="card-subtitle">0</h4>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Submission period</small>
+        <p class="card-text">Closes on June 29, 2023 - 18:00</p>
+        <a href="#" class="btn btn-sm btn-primary">Change dates</a>
       </div>
     </div>
-    <div class="col-sm-6 col-lg-4">
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Submissions</h3>
-        </div>
-        <div class="card-body">
-          <div class="card-text">Submissions</div>
-          <h4 class="card-subtitle">0</h4>
-          <div class="card-text">In conflict</div>
-          <h4 class="card-subtitle">0</h4>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Submission period</small>
-          <p class="card-text">Closes on June 29, 2023 - 18:00</p>
-          <a href="#" class="btn btn-sm btn-primary">Change dates</a>
-        </div>
+  </div>
+  <div class="col-sm-6 col-lg-10">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Reviews</h3>
+      </div>
+      <div class="card-body">
+        <div class="card-text">Pending</div>
+        <h4 class="card-subtitle">0</h4>
+        <div class="card-text">Completed</div>
+        <h4 class="card-subtitle">0</h4>
+        <div class="card-text">Conflict of interest</div>
+        <h4 class="card-subtitle">0</h4>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Review period</small>
+        <p class="card-text">Closes on June 22, 2023 - 20:00</p>
+        <a href="#" class="btn btn-sm btn-primary">Change dates</a>
       </div>
     </div>
-    <div class="col-sm-6 col-lg-4">
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Reviews</h3>
-        </div>
-        <div class="card-body">
-          <div class="card-text">Pending</div>
-          <h4 class="card-subtitle">0</h4>
-          <div class="card-text">Completed</div>
-          <h4 class="card-subtitle">0</h4>
-          <div class="card-text">Conflict of interest</div>
-          <h4 class="card-subtitle">0</h4>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Review period</small>
-          <p class="card-text">Closes on June 22, 2023 - 20:00</p>
-          <a href="#" class="btn btn-sm btn-primary">Change dates</a>
-        </div>
+  </div>
+  <div class="col-sm-6 col-lg-10">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Payments</h3>
+      </div>
+      <div class="card-body">
+        <div class="card-text">Profit</div>
+        <h4 class="card-subtitle">$0.00</h4>
+        <div class="card-text">Paid</div>
+        <h4 class="card-subtitle">$0.00</h4>
+        <div class="card-text">Refunded</div>
+        <h4 class="card-subtitle">$0.00</h4>
+        <div class="card-text">Transaction fees</div>
+        <h4 class="card-subtitle">$0.00</h4>
       </div>
     </div>
-    <div class="col-sm-6 col-lg-4">
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Payments</h3>
-        </div>
-        <div class="card-body">
-          <div class="card-text">Profit</div>
-          <h4 class="card-subtitle">$0.00</h4>
-          <div class="card-text">Paid</div>
-          <h4 class="card-subtitle">$0.00</h4>
-          <div class="card-text">Refunded</div>
-          <h4 class="card-subtitle">$0.00</h4>
-          <div class="card-text">Transaction fees</div>
-          <h4 class="card-subtitle">$0.00</h4>
-        </div>
+  </div>
+  <div class="col-sm-6 col-lg-10">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Communications</h3>
       </div>
-    </div>
-    <div class="col-sm-6 col-lg-4">
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Communications</h3>
-        </div>
-        <div class="card-body">
-          <div class="card-text">Delivered</div>
-          <h4 class="card-subtitle">2</h4>
-          <div class="card-text">Deferred</div>
-          <h4 class="card-subtitle">0</h4>
-          <div class="card-text">Bounce</div>
-          <h4 class="card-subtitle">0</h4>
-          <div class="card-text">Dropped</div>
-          <h4 class="card-subtitle">0</h4>
-          <div class="card-text">Unprocessed</div>
-          <h4 class="card-subtitle">0</h4>
-        </div>
+      <div class="card-body">
+        <div class="card-text">Delivered</div>
+        <h4 class="card-subtitle">2</h4>
+        <div class="card-text">Deferred</div>
+        <h4 class="card-subtitle">0</h4>
+        <div class="card-text">Bounce</div>
+        <h4 class="card-subtitle">0</h4>
+        <div class="card-text">Dropped</div>
+        <h4 class="card-subtitle">0</h4>
+        <div class="card-text">Unprocessed</div>
+        <h4 class="card-subtitle">0</h4>
       </div>
     </div>
   </div>
