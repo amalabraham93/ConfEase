@@ -9,10 +9,15 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class UserSignupComponent implements OnInit {
   signupForm!: FormGroup;
-
+  public loader:boolean = true
   constructor(private formBuilder: FormBuilder, private _auth: AuthService) {}
 
   ngOnInit() {
+    setTimeout(() => {
+      this.loader = false
+    }, 2000);
+
+
     this.signupForm = this.formBuilder.group(
       {
         name: ['', [Validators.required]],

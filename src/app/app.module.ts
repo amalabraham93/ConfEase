@@ -13,6 +13,9 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './shared/guard/auth/auth.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConferenceModule } from './components/conference/conference.module';
+import { JwtModule } from '@auth0/angular-jwt';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
 
 
 @NgModule({
@@ -31,6 +34,7 @@ import { ConferenceModule } from './components/conference/conference.module';
     ReactiveFormsModule,
     NgbModule,
     BrowserAnimationsModule,
+    CKEditorModule
   ],
   providers: [
     AuthService,

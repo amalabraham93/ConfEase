@@ -17,6 +17,7 @@ export class UserHomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getConference();
+    this._auth.isLoggedInn()
   }
   getConference(){
     this._conferenceservices.getAllconferences().subscribe (

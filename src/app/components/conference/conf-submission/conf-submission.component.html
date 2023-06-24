@@ -1,1 +1,60 @@
-<p>conf-submission works!</p>
+<app-conf-nav></app-conf-nav>
+
+
+
+
+<div class="submission">
+    <h1 class="ms-5 ps-5">Submission</h1>
+</div>
+    
+
+
+
+
+
+<div class="container my-5 ">
+    <div class="row justify-content-center">
+      <div class="col-lg-9 mb-5 ">
+         <h5 class="mb-5">Contact Information</h5>
+        <form>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="your-name" class="form-label">First Name</label>
+              <input type="text" class="form-control" id="your-name" name="your-name" required>
+            </div>
+            <div class="col-md-6">
+              <label for="your-surname" class="form-label">Last Name</label>
+              <input type="text" class="form-control" id="your-surname" name="your-surname" required>
+            </div>
+            <div class="col-md-12">
+              <label for="your-email" class="form-label">Your Email</label>
+              <input type="email" class="form-control" id="your-email" name="your-email" required>
+            </div>
+            <div class="col-md-12">
+              <label for="your-subject" class="form-label">Confirm Email</label>
+              <input type="text" class="form-control" id="your-subject" name="your-subject">
+            </div>
+      
+             
+            <ckeditor [editor]="Editor" data="<p>Add your Abstract here..!</p>" ></ckeditor>
+    
+<!-- 
+            <div class="container">
+                <ckeditor [editor]="editor" [config]="{ toolbar: [ 'bold', 'italic', 'link' ] }"></ckeditor>
+              </div> -->
+
+
+           
+            <div class="col-12">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <button  type="submit" class="btn btn-dark w-100 fw-bold" >Send</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

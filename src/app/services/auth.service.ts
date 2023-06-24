@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 
 
@@ -13,7 +14,7 @@ export class AuthService {
   private isLoggedIn = false;
    private readonly  apiUrl = environment.apiUrl;
 
-  constructor(private _http: HttpClient ,private _router:Router) {}
+  constructor(private _http: HttpClient ,private _router:Router, private _cookie : CookieService) {}
 
   login(email: string, password: string): Observable<any> {
     // return this._http.post('http://localhost:5000/users/login', { email, password }, {withCredentials:true});
@@ -58,8 +59,35 @@ export class AuthService {
     return this.isLoggedIn;
   }
 
+  isStoredAuthenticationValid(): boolean {
+    // Implement logic to check if stored authentication is valid
+    // Return true if valid, false otherwise
+    const jwt = this._cookie.get("jwt-user")
+      console.log(jwt);
+     
+     if (jwt) {
+        
+       
+        return true;
+      }
+    return false;
+  }
+
+  setLoggedInState(value: boolean): void {
+    // Implement logic to update the session authentication state
+    this.isLoggedIn = value;
+  }
+
+
   getUserRole(): string {
     // Implement logic to get the user's role
     return 'user';
+  }
+
+
+  active(){
+  
+    
+    return this._http.get(`${this.apiUrl}/users/active`, {withCredentials:true})
   }
 }

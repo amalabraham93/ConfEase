@@ -1,0 +1,17 @@
+.banner {
+    background-image: url("../../../../assets/unsplash_6vajp0pscx0.jpeg");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 150px 0;
+  }
+
+  .banner h1 {
+    font-size: 32px;
+    font-weight: bold;
+  }
+
+  .banner p {
+    font-size: 18px;
+  }

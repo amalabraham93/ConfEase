@@ -323,3 +323,83 @@ body {
   }
   
   
+
+
+  /* new card */
+
+  @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+
+.card {
+       border-radius: 40px; 
+       overflow: hidden;
+       border: 0;
+       box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06),
+                   0 2px 4px rgba(0, 0, 0, 0.07);
+       transition: all 0.15s ease;
+}
+
+.card:hover {
+             box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1),
+                         0 10px 8px rgba(0, 0, 0, 0.015);
+}
+
+.card-body .card-title {
+                  font-family: 'Lato', sans-serif;
+                  font-weight: 700;
+                  letter-spacing: 0.3px;
+                  font-size: 24px;
+                  color: #121212;
+}
+
+.card-text {
+             font-family: 'Lato', sans-serif;
+             font-weight: 400;
+             font-size: 15px;
+             letter-spacing: 0.3px;
+             color: #4E4E4E;
+  
+}
+
+.card .container {
+           width: 88%;
+          background: #F0EEF8;
+           border-radius: 30px;
+           height: 140px;
+         display: flex;
+        align-items: center;
+         justify-content: center;
+}
+
+.container:hover > img {
+                       transform: scale(1.2);
+}
+
+.container img {
+                padding: 25px;  
+               margin-top: 10px;
+               margin-bottom:   10px;
+              transition: 0.4s ease;
+              cursor: pointer;
+              border-radius: 26px;
+}
+
+.btn {
+      background: #EEECF7;
+      border: 0;
+      color: #5535F0;
+      width: 98%;
+      font-weight: bold;
+      border-radius: 20px;
+      height: 40px;
+      transition: all 0.2s ease;
+}
+
+.btn:hover {
+            background: #441CFF;
+}
+
+.btn:focus {
+            background: #441CFF;
+            outline: 0;  
+}
+ 

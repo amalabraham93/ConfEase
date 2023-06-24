@@ -1,1 +1,75 @@
-<p>conf-register works!</p>
+<app-conf-nav></app-conf-nav>
+
+<div class="register">
+    <h1 class="ms-5 ps-5">Registration</h1>
+</div>
+    
+
+
+<div class="container my-5" *ngIf="!showSuccess && !showError">
+  <div class="row justify-content-center">
+    <div class="col-lg-9 mb-5">
+      <h5 class="mb-5">Contact Information</h5>
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="your-name" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="your-name" formControlName="firstName" required>
+            <div *ngIf="isFieldInvalid('firstName')" class="text-danger">First Name is required.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="your-surname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="your-surname" formControlName="lastName" required>
+            <div *ngIf="isFieldInvalid('lastName')" class="text-danger">Last Name is required.</div>
+          </div>
+          <div class="col-md-12">
+            <label for="your-email" class="form-label">Your Email</label>
+            <input type="email" class="form-control" id="your-email" formControlName="email" required>
+            <div *ngIf="isFieldInvalid('email')" class="text-danger">Please enter a valid email address.</div>
+          </div>
+          <div class="col-md-12">
+            <label for="confirm-email" class="form-label">Confirm Email</label>
+            <input type="email" class="form-control" id="confirm-email" formControlName="confirmEmail" required>
+            <div *ngIf="isFieldInvalid('confirmEmail')" class="text-danger">Please enter a valid email address.</div>
+            <div *ngIf="isEmailMismatch" class="text-danger">Email addresses do not match.</div>
+          </div>
+          <div class="col-12">
+            <div class="row">
+              <div class="col-md-6">
+                <button type="submit" class="btn btn-dark w-100 fw-bold">Send</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="container" *ngIf="isLoading">
+  <div class="loading">
+    <div class="spinner"></div>
+    <p>Loading...</p>
+  </div>
+</div>
+
+
+
+
+
+<div class="container" *ngIf="showSuccess">
+  <div class="success">
+    <h2>Success!</h2>
+    <div class="tick"></div>
+    <p>Your registration was successful.</p>
+  </div>
+</div>
+
+<div class="container" *ngIf="showError">
+  <div class="error">
+    <h2>Error!</h2>
+    <div class="cross"></div>
+    <p>There was an error with your registration.</p>
+  </div>
+</div>

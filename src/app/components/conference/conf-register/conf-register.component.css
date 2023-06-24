@@ -1,0 +1,183 @@
+.register {
+  background-color: rgba(6, 27, 79, 0.862);
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: left;
+  padding: 140px 0;
+}
+
+.container {
+  position: relative;
+}
+
+.success,
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  opacity: 0;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.success {
+  animation-name: successFadeIn;
+}
+
+.error {
+  animation-name: errorFadeIn;
+}
+
+.success .tick {
+  animation-name: tickFadeIn;
+  opacity: 1;
+}
+
+.error .cross {
+  animation-name: crossFadeIn;
+  opacity: 1;
+}
+
+.success h2,
+.error h2 {
+  margin-bottom: 10px;
+}
+
+.tick,
+.cross {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.success .tick:before,
+.success .tick:after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 10px;
+  background-color: #54c156;
+  opacity: 0;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.success .tick:before {
+  transform: rotate(-45deg);
+  top: 28px;
+  left: 14px;
+}
+
+.success .tick:after {
+  transform: rotate(45deg);
+  top: 28px;
+  left: 14px;
+}
+
+.error .cross:before,
+.error .cross:after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 25px;
+  background-color: #d9534f;
+  opacity: 0;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.error .cross:before {
+  transform: rotate(45deg);
+  top: 28px;
+  left: 14px;
+}
+
+.error .cross:after {
+  transform: rotate(-45deg);
+  top: 28px;
+  left: 14px;
+}
+
+@keyframes successFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes errorFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes tickFadeIn {
+  0% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes crossFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -11,16 +11,20 @@ import { ConfParticipantsComponent } from './conf-participants/conf-participants
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 const conferenceRoutes : Routes = [
   {path: '', component: ConferenceComponent,
    children: [
    
-     { path: 'home', component: ConfHomeComponent },
-     { path: 'register', component: ConfRegisterComponent},
-     {path: 'submission',component:ConfSubmissionComponent},
-     {path:'schedule',component:ConfScheduleComponent}
+     { path: ':id/home', component: ConfHomeComponent },
+     { path: ':id/register', component: ConfRegisterComponent},
+     {path: ':id/submission',component:ConfSubmissionComponent},
+     {path:':id/schedule',component:ConfScheduleComponent},
+     {path:':id/participants',component:ConfParticipantsComponent},
+     {path:':id/presentation',component:ConfPresentationsComponent},
+     
      
      // Add more routes for other views or pages in the admin side
    ]
@@ -43,7 +47,8 @@ const conferenceRoutes : Routes = [
     CommonModule,
     RouterModule.forChild(conferenceRoutes),
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CKEditorModule
   ]
 })
 export class ConferenceModule { }

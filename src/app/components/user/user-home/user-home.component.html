@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <img src="\assets\qwert-(1)-1.png" style="width: 160px;">
+      <img src="\assets\qwert-(1)-1.png" style="width: 160px" />
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,11 +20,12 @@
         </li>
       </ul>
       <form class="d-flex mx-auto">
-        <input class="form-control" type="text" placeholder="Search">
+        <input class="form-control" type="text" placeholder="Search" />
       </form>
-      
+
       <div ngbDropdown class="profile-dropdown">
-        <img src="\assets\administrator.png" alt="Profile Icon" class="profile-icon" id="profileDropdown" ngbDropdownToggle>
+        <img src="\assets\administrator.png" alt="Profile Icon" class="profile-icon" id="profileDropdown"
+          ngbDropdownToggle />
         <ul ngbDropdownMenu class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
           <li><a class="dropdown-item" href="#">Profile</a></li>
           <li><a class="dropdown-item" href="#">Settings</a></li>
@@ -35,22 +36,19 @@
   </div>
 </nav>
 
-
-
 <div class="container-fluid mt-2">
-  <div class="row">
-    <div class="col-12">
-      <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+  <div class="row justify-content-center">
+    <div class="col-12 w-50">
+      <div id="carouselExample" class="carousel slide " data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active" *ngFor="let conference of conferences">
-            <img src="\assets\{{conference.banner}}" alt="Conference Image" class="d-block">
+            <img src="\assets\{{ conference.banner }}" alt="Conference Image" class="d-block w-100" />
             <div class="carousel-caption">
-              <h2>{{conference.name}}</h2>
+              <h2>{{ conference.name }}</h2>
               <p>Conference description goes here.</p>
-              <button class="btn btn-primary">Register</button>
+              <a class="btn btn-primary" routerLink="/conference/{{conference._id}}/home">Register</a>
             </div>
           </div>
-         
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -65,16 +63,15 @@
   </div>
 </div>
 
-
-
-
-
 <div class="container-fluid" id="causesListing">
   <h2 class="text-center">Explore by Topics</h2>
-  <p class="text-center head-sub">View the upcoming conferences in various categories and topics of  your interest.</p>
+  <p class="text-center head-sub">
+    View the upcoming conferences in various categories and topics of your
+    interest.
+  </p>
   <div class="clearfix d-flex flex-wrap" id="topCauses">
     <div class="col-md-5 col-sm-12 cause">
-      <img src="https://smartconference.in/assets/images/chemistry.jpg">
+      <img src="https://smartconference.in/assets/images/chemistry.jpg" />
       <a href="https://smartconference.in/confreg/catwiseconf/2">
         <h2>
           <span class="health icons-catgeory"></span>
@@ -83,7 +80,7 @@
       </a>
     </div>
     <div class="col-md-4 col-xs-12 cause">
-      <img src="https://smartconference.in/assets/images/sci-communication.jpg">
+      <img src="https://smartconference.in/assets/images/sci-communication.jpg" />
       <a href="https://smartconference.in/confreg/catwiseconf/5">
         <h2>
           <span class="children icons-catgeory"></span>
@@ -93,7 +90,7 @@
       </a>
     </div>
     <div class="col-md-3 col-xs-12 cause">
-      <img src="https://smartconference.in/assets/images/health.jpg">
+      <img src="https://smartconference.in/assets/images/health.jpg" />
       <a href="https://smartconference.in/confreg/catwiseconf/16">
         <h2>
           <span class="entrepreneurship icons-catgeory"></span>
@@ -103,7 +100,7 @@
       </a>
     </div>
     <div class="col-md-4 col-xs-12 cause">
-      <img src="https://smartconference.in/assets/images/education.jpg">
+      <img src="https://smartconference.in/assets/images/education.jpg" />
       <a href="https://smartconference.in/confreg/catwiseconf/15">
         <h2>
           <span class="education icons-catgeory"></span>
@@ -113,7 +110,7 @@
       </a>
     </div>
     <div class="col-md-3 col-xs-12 cause">
-      <img src="https://smartconference.in/assets/images/sci-tech.jpg">
+      <img src="https://smartconference.in/assets/images/sci-tech.jpg" />
       <a href="https://smartconference.in/confreg/catwiseconf/1">
         <h2>
           <span class="technology icons-catgeory"></span>
@@ -123,7 +120,7 @@
       </a>
     </div>
     <div class="col-md-3 col-xs-12 cause">
-      <img src="https://smartconference.in/assets/images/social-science.jpg">
+      <img src="https://smartconference.in/assets/images/social-science.jpg" />
       <a href="https://smartconference.in/confreg/catwiseconf/13">
         <h2>
           <span class="sports icons-catgeory"></span>
@@ -133,7 +130,7 @@
       </a>
     </div>
     <div class="col-md-2 col-xs-12 cause view-all">
-      <img src="https://smartconference.in/assets/images/view-all.jpg">
+      <img src="https://smartconference.in/assets/images/view-all.jpg" />
       <a href="https://smartconference.in/confreg/getallcat/">
         <h2>
           <span>View all categories</span>
