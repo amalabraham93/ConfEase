@@ -4,57 +4,139 @@
 
 
 <div class="submission">
-    <h1 class="ms-5 ps-5">Submission</h1>
+  <h1 class="ms-5 ps-5">Submission</h1>
 </div>
-    
 
 
 
 
 
-<div class="container my-5 ">
-    <div class="row justify-content-center">
-      <div class="col-lg-9 mb-5 ">
-         <h5 class="mb-5">Contact Information</h5>
-        <form>
-          <div class="row g-3">
-            <div class="col-md-6">
-              <label for="your-name" class="form-label">First Name</label>
-              <input type="text" class="form-control" id="your-name" name="your-name" required>
+
+<div class="container my-5" *ngIf="!showSuccess && !showError">
+  <div class="row justify-content-center">
+    <div class="col-lg-9 mb-5 ">
+      <h5 class="mb-5">Contact Information</h5>
+      <!-- Add the formGroup directive to the <form> element -->
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="your-name" class="form-label">First Name</label>
+            <!-- Use the formControlName directive to bind the input to the form control -->
+            <input type="text" class="form-control" id="your-name" formControlName="firstName">
+            <!-- Display an error message if the field is invalid -->
+            <div class="text-danger" *ngIf="form.get('firstName')!.invalid && form.get('firstName')!.touched">
+              First Name is required.
             </div>
-            <div class="col-md-6">
-              <label for="your-surname" class="form-label">Last Name</label>
-              <input type="text" class="form-control" id="your-surname" name="your-surname" required>
+          </div>
+          <!-- Repeat the same pattern for other form fields -->
+          <div class="col-md-6">
+            <label for="your-surname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="your-surname" formControlName="lastName">
+            <div class="text-danger" *ngIf="form.get('lastName')!.invalid && form.get('lastName')!.touched">
+              Last Name is required.
             </div>
-            <div class="col-md-12">
-              <label for="your-email" class="form-label">Your Email</label>
-              <input type="email" class="form-control" id="your-email" name="your-email" required>
+          </div>
+          <!-- email -->
+          <div class="col-md-12">
+            <label for="your-email" class="form-label">Your Email</label>
+            <input type="email" class="form-control" id="your-email" formControlName="email">
+            <div class="text-danger" *ngIf="form.get('email')!.invalid && form.get('email')!.touched">
+              <ng-container *ngIf="form.get('email')!.hasError('required')">Email is required.</ng-container>
+              <ng-container *ngIf="form.get('email')!.hasError('email')">Invalid email format.</ng-container>
             </div>
-            <div class="col-md-12">
-              <label for="your-subject" class="form-label">Confirm Email</label>
-              <input type="text" class="form-control" id="your-subject" name="your-subject">
-            </div>
-      
-             
-            <ckeditor [editor]="Editor" data="<p>Add your Abstract here..!</p>" ></ckeditor>
-    
-<!-- 
-            <div class="container">
-                <ckeditor [editor]="editor" [config]="{ toolbar: [ 'bold', 'italic', 'link' ] }"></ckeditor>
-              </div> -->
+          </div>
+
+        <!-- Button to open the author modal -->
+        <button type="button" class="btn btn-primary " (click)="openAuthorModal()">Add Author</button>
+
+        <ng-template #authorModal let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title">Add Author</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="authorForm">
+              <div class="form-group">
+                <label for="authorName">Name</label>
+                <input type="text" class="form-control" id="authorName" formControlName="name">
+              </div>
+              <div class="form-group">
+                <label for="authorEmail">Email</label>
+                <input type="email" class="form-control" id="authorEmail" formControlName="email">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Close</button>
+            <button type="button" class="btn btn-primary" (click)="addAuthor()">Add</button>
+          </div>
+        </ng-template>
 
 
-           
-            <div class="col-12">
-              <div class="row">
-                <div class="col-md-6 ">
-                  <button  type="submit" class="btn btn-dark w-100 fw-bold" >Send</button>
-                </div>
+        <div class="col-md-12">
+          <label for="submission-title" class="form-label">Submission Title</label>
+          <input type="text" class="form-control" id="submission-title" formControlName="submissionTitle">
+          <div class="text-danger" *ngIf="form.get('submissionTitle')!.invalid && form.get('submissionTitle')!.touched">
+            Submission Title is required.
+          </div>
+        </div>
+        
+
+
+        
+          <div class="col-md-12">
+            <label for="your-subject" class="form-label">Affliation </label>
+            <input type="text" class="form-control" id="your-subject" formControlName="affliation">
+          </div>
+          <!-- CKEditor code remains the same -->
+          <ckeditor [config]="{placeholder: 'Enter your Abstract here'}" [editor]="Editor" formControlName="abstract">
+          </ckeditor>
+          <div class="text-danger" *ngIf="form.get('abstract')!.invalid && form.get('abstract')!.touched">
+            Abstract is requied
+          </div>
+          <div class="col-12">
+            <div class="row">
+              <div class="col-md-6 ">
+                <button type="submit" class="btn btn-dark w-100 fw-bold">Send</button>
               </div>
             </div>
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
+
     </div>
   </div>
-  
+</div>
+
+
+<div class="container" *ngIf="isLoading">
+  <div class="loading">
+    <div class="spinner"></div>
+    <p>Loading...</p>
+  </div>
+</div>
+
+
+
+
+
+<div class="container" *ngIf="showSuccess">
+  <div class="success">
+    <h2>Success!</h2>
+    <div class="tick"></div>
+    <p>Your registration was successful.</p>
+  </div>
+</div>
+
+<div class="container" *ngIf="showError">
+  <div class="error">
+    <h2>Error!</h2>
+    <div class="cross"></div>
+    <p>There was an error with your registration.</p>
+  </div>
+</div>
+
+
+

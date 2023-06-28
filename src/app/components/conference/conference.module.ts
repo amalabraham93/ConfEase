@@ -10,8 +10,10 @@ import { ConfPresentationsComponent } from './conf-presentations/conf-presentati
 import { ConfParticipantsComponent } from './conf-participants/conf-participants.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CKEditorModule,CKEditorComponent } from '@ckeditor/ckeditor5-angular';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 const conferenceRoutes : Routes = [
@@ -48,7 +50,10 @@ const conferenceRoutes : Routes = [
     RouterModule.forChild(conferenceRoutes),
     HttpClientModule,
     ReactiveFormsModule,
-    CKEditorModule
+    CKEditorModule,
+    FormsModule,
+    NgbModule
+   
   ]
 })
 export class ConferenceModule { }

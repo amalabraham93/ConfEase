@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class UserSignupComponent implements OnInit {
   signupForm!: FormGroup;
   public loader:boolean = true
-  constructor(private formBuilder: FormBuilder, private _auth: AuthService) {}
+  constructor(private formBuilder: FormBuilder, private _auth: AuthService,private _router:Router) {}
 
   ngOnInit() {
     setTimeout(() => {
@@ -54,6 +55,7 @@ export class UserSignupComponent implements OnInit {
         (response) => {
           console.log('Signup successful!', response);
           console.log(response);
+          this._router.navigate(['/user/verify-email'])
         },
         (error) => {
           console.error('Signup failed!', error);

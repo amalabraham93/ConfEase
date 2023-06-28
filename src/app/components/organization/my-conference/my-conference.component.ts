@@ -105,4 +105,8 @@ export class MyConferenceComponent implements OnInit {
       }
     );
   }
+
+  gotoconf(id:string){
+    this._router.navigate(['/organization/conf-dashboard',id])
+  }
 }

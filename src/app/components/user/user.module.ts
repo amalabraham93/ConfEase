@@ -9,18 +9,20 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from 'src/app/shared/guard/auth/auth.guard';
 import { AuthService } from 'src/app/services/auth.service';
-import { NgbModule,NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap'; 
+import { NgbModule,NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { UserConferenceComponent } from './user-conference/user-conference.component';
+import { UserEmailverifyComponent } from './user-emailverify/user-emailverify.component'; 
 
 
 const userRoutes : Routes = [
   {path: '', component:UserComponent,
    children: [
      
-     { path: 'home', component: UserHomeComponent ,
-      canActivate: [AuthGuard]
-    },
-     { path: 'login', component: UserLoginComponent },
+     { path: 'home', component: UserHomeComponent , canActivate: [AuthGuard]},
+     { path: 'login', component: UserLoginComponent ,canActivate: [AuthGuard]},
      { path: 'signup', component: UserSignupComponent },  
+     { path: 'conferenece', component: UserConferenceComponent },  
+     { path: 'verify-email', component: UserEmailverifyComponent },  
      
      // Add more routes for other views or pages in the admin side
    ]
@@ -31,7 +33,9 @@ const userRoutes : Routes = [
     UserComponent,
     UserLoginComponent,
     UserSignupComponent,
-    UserHomeComponent
+    UserHomeComponent,
+    UserConferenceComponent,
+    UserEmailverifyComponent
   ],
   imports: [
     CommonModule,

@@ -8,14 +8,14 @@ import { UserModule } from './components/user/user.module';
 import { OrganizationModule } from './components/organization/organization.module';
 import { AdminModule } from './components/admin/admin.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; 
+import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap'; 
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './shared/guard/auth/auth.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConferenceModule } from './components/conference/conference.module';
 import { JwtModule } from '@auth0/angular-jwt';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-
+import { CKEditorModule,CKEditorComponent } from '@ckeditor/ckeditor5-angular';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -34,7 +34,8 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     ReactiveFormsModule,
     NgbModule,
     BrowserAnimationsModule,
-    CKEditorModule
+    CKEditorModule,
+    MatDialogModule
   ],
   providers: [
     AuthService,

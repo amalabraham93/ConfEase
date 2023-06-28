@@ -79,13 +79,13 @@ export class AuthService {
   }
 
 
-  getUserRole(): string {
+  getUserRole():Observable<any>  {
     // Implement logic to get the user's role
-    return 'user';
+    return this._http.get(`${this.apiUrl}/users/active`, {withCredentials:true})
   }
 
 
-  active(){
+  active():Observable<any>{
   
     
     return this._http.get(`${this.apiUrl}/users/active`, {withCredentials:true})

@@ -4,11 +4,11 @@ import { AuthService } from 'src/app/services/auth.service';
 import { ConferenceService } from 'src/app/services/organizer/conference.service';
 
 @Component({
-  selector: 'app-user-home',
-  templateUrl: './user-home.component.html',
-  styleUrls: ['./user-home.component.css']
+  selector: 'app-user-conference',
+  templateUrl: './user-conference.component.html',
+  styleUrls: ['./user-conference.component.css']
 })
-export class UserHomeComponent implements OnInit {
+export class UserConferenceComponent implements OnInit {
   conferences:any
   role:any
    constructor (private _conferenceservices: ConferenceService, private route: ActivatedRoute,  private _auth: AuthService, private _router:Router){}

@@ -10,10 +10,10 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#"><b>Home</b></a>
+          <a class="nav-link" href="#"><b>Home </b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><b>Conference</b></a>
+          <a class="nav-link" routerLink="/user/conferenece"><b>Conference</b></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#"><b>Organization</b></a>
@@ -35,7 +35,7 @@
     </div>
   </div>
 </nav>
-
+{{role.user.role}}
 <div class="container-fluid mt-2">
   <div class="row justify-content-center">
     <div class="col-12 w-50">
@@ -46,7 +46,8 @@
             <div class="carousel-caption">
               <h2>{{ conference.name }}</h2>
               <p>Conference description goes here.</p>
-              <a class="btn btn-primary" routerLink="/conference/{{conference._id}}/home">Register</a>
+              <a *ngIf="role.user.role == 'author'" class="btn btn-primary" routerLink="/conference/{{conference._id}}/home">Register</a>
+              <a *ngIf="role.user.role == 'attendee'" class="btn btn-primary" routerLink="/conference/{{conference._id}}/home">Buy Ticket</a>
             </div>
           </div>
         </div>

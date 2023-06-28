@@ -12,6 +12,10 @@ export class RegsiterConfService {
 
   registerConference(id:string,fullName:string,email:string): Observable<any>{
     
-    return this._http.post<any>(`${this.api}/organizers/conferece/register/${id}`,{fullName,email},{withCredentials:true})
+    return this._http.post<any>(`${this.api}/organizers/conference/register/${id}`,{fullName,email},{withCredentials:true})
+  }
+
+  submitPaper(confId:string,name:string,submissionTitle:string, abstract:string, author:string, affiliation:string, userId:string ,date:Date): Observable<any>{
+    return this._http.post<any>(`${this.api}/organizers/conference/${confId}/paper-submit`,{name,submissionTitle,abstract,author,affiliation,userId,date},{withCredentials:true})
   }
 }

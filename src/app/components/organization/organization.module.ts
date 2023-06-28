@@ -13,6 +13,10 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import { ConfNavComponent } from './conf-nav/conf-nav.component';
 import { ConfConfigComponent } from './conf-config/conf-config.component';
+import { ConfParticipantsComponent } from './conf-participants/conf-participants.component';
+import { ConfPresentationsComponent } from '../conference/conf-presentations/conf-presentations.component';
+import { ConfSubmissionsComponent } from './conf-submissions/conf-submissions.component';
+import { ConfPresentationComponent } from './conf-presentation/conf-presentation.component';
 
 
 
@@ -26,6 +30,9 @@ const organizationRoutes : Routes = [
      { path: 'my-events', component: MyConferenceComponent },
      { path: 'conf-dashboard/:id', component: ConferenceDashboardComponent },
      { path: 'conf-config', component: ConfConfigComponent },
+     { path: 'conf-participants/:id', component: ConfParticipantsComponent},
+     { path: 'conf-submission/:id', component: ConfSubmissionsComponent},
+     { path: 'conf-presentation', component: ConfPresentationComponent},
      
      // Add more routes for other views or pages in the admin side
    ]
@@ -40,7 +47,10 @@ const organizationRoutes : Routes = [
     MyConferenceComponent,
     ConferenceDashboardComponent,
     ConfNavComponent,
-    ConfConfigComponent
+    ConfConfigComponent,
+    ConfParticipantsComponent,
+    ConfSubmissionsComponent,
+    ConfPresentationComponent
   ],
   imports: [
     CommonModule,

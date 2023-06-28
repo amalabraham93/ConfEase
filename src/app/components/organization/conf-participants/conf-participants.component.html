@@ -1,0 +1,76 @@
+
+<app-conf-nav></app-conf-nav>
+
+<div class="container d-flex justify-content-end mt-5" >
+    <h4>Participants</h4>
+<div class="col d-flex justify-content-end align-items-end  me-5">
+    <input class="border rounded-pill shadow form-control-lg mt-auto" type="search" autocomplete="on" placeholder="Search ..." />
+</div>
+</div>
+  
+<div class="container col-12-md mt-5">
+    <div class="row ">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                  </div>
+                </th>
+                <th scope="col">Full name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Status</th>
+                <th scope="col">Submitted</th>
+                <th scope="col">Creation date</th>
+
+              </tr>
+            </thead>
+            <tbody *ngFor="let user of conference.users">
+              <tr>
+                <th scope="row">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                  </div>
+                </th>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>Registered</td>
+                <td>{{ getSubmittedStatus(user) }}</td>
+                <td></td>
+              </tr>
+              <!-- <tr>
+                <th scope="row">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                  </div>
+                </th>
+                <td>Adipisicing</td>
+                <td>Elit</td>
+                <td>Sint</td>
+                <td>Sint</td>
+                <td>Sint</td>
+              </tr> -->
+              <!-- <tr>
+                <th scope="row">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                  </div>
+                </th>
+                <td>Hic</td>
+                <td>Fugiat</td>
+                <td>Temporibus</td>
+                <td>Temporibus</td>
+                <td>Temporibus</td>
+              </tr> -->
+            </tbody>
+          </table>
+    </div>
+</div>
+
+
+
+<!-- <div class="row" *ngFor="let paper of papers">
+  <div [innerHTML]="paper.abstract"></div>
+  
+</div> -->

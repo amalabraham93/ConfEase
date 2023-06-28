@@ -2,15 +2,16 @@
 
 
 <div class="banner">
-    <h1>confEase conference 2023</h1>
-    <p>June 28-30, 2023</p>
-    <a href="#" class="btn btn-primary">Register</a>
+    <h1>{{conference.name}}</h1>
+    <p>{{conference.startDate |date:'longDate'}}</p>
+    <a  routerLink="/conference/{{conferenceId}}/register" class="btn btn-primary">Register</a>
+    
   </div>
 
 
 
   <div class="container">
-    <h2>Welcome</h2>
+    <h2>Welcome </h2>
     <p>The organizing committee is happy to welcome you to our new event website! Here you will find more information about the objectives of the event, the speakers, and the schedule.</p>
 
     <p>You will also be able to explore the content and see the list of participants. You can also register, pay the registration costs, and submit an abstract directly through this website.</p>
