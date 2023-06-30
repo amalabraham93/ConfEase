@@ -23,7 +23,7 @@ export class UserHomeComponent implements OnInit {
      this.role = response
     })
 
-    
+    this._auth.isStoredAuthenticationValid()
     
   }
   getConference(){

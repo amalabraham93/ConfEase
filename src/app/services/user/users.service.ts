@@ -16,4 +16,11 @@ export class UsersService {
     return this._http.get<any>(`${this.api}/users/get-user-by-id`,{withCredentials:true})
   }
 
+  verifyUser(token:string): Observable<any>{
+    
+    return this._http.post<any>(`${this.api}/users/verify/${token}`,{withCredentials:true})
+  }
+
+
+
 }

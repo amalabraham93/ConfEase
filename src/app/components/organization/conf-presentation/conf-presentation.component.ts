@@ -49,7 +49,7 @@ export class ConfPresentationComponent implements OnInit {
       roomName: this.room,
       configOverWrite: { proJoinPageEnabe: false },
       interfaceConfigOverWrite: {
-        TILE_VIEW_MAX_COLUMNS: 8
+        TILE_VIEW_MAX_COLUMNS: 12
       },
       parentNode: document.querySelector('#jist-iframe'),
       userInfo: {

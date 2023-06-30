@@ -1,0 +1,26 @@
+<app-conf-nav></app-conf-nav>
+
+<div class="container-fluid">
+    <div class="d-flex ">
+      <!-- Sidebar -->
+  <app-conf-sidebar-config class="me-4" ></app-conf-sidebar-config>   
+
+
+
+<div class="card col-md-10  me-4">
+    <div class="card-header">Add Reviewer</div>
+    <div class="card-body">
+      <form [formGroup]="reviewerForm" (ngSubmit)="submitForm()">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" formControlName="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" formControlName="email" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+  

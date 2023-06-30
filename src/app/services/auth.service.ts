@@ -17,10 +17,8 @@ export class AuthService {
   constructor(private _http: HttpClient ,private _router:Router, private _cookie : CookieService) {}
 
   login(email: string, password: string): Observable<any> {
-    // return this._http.post('http://localhost:5000/users/login', { email, password }, {withCredentials:true});
      
-
-     return this._http.post(`${this.apiUrl}/users/login`, { email, password }, {withCredentials:true}).pipe(tap(()=>{
+     return this._http.post(`${this.apiUrl}/users/login`, { email, password }).pipe(tap(()=>{
       this.isLoggedIn = true;
      }));
 
@@ -41,7 +39,7 @@ export class AuthService {
   }
   
   logout():Observable<any> {
-    return this._http.post(`${this.apiUrl}/users/logout`, {}, {withCredentials:true}).pipe(tap(()=>{
+    return this._http.post(`${this.apiUrl}/users/logout`, {}).pipe(tap(()=>{
       this.isLoggedIn = false;
       this._router.navigate(['/user/login']);
      }));
@@ -62,8 +60,11 @@ export class AuthService {
   isStoredAuthenticationValid(): boolean {
     // Implement logic to check if stored authentication is valid
     // Return true if valid, false otherwise
+    debugger
+    const allCookies: {} = this._cookie.getAll();
     const jwt = this._cookie.get("jwt-user")
       console.log(jwt);
+     console.log('asdfasdfasdf');
      
      if (jwt) {
         

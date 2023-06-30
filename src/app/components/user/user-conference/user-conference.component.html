@@ -47,7 +47,7 @@
     <figure class="snip1527">
         <div class="image"><img src="\assets\{{ conference.banner }}" alt="pr-sample23" /></div>
         <figcaption>
-            <div class="date"><span class="day">28</span><span class="month">Oct</span></div>
+            <div class="date"><span class="day">{{conference.startDate | date:'d'}}</span><span class="month">{{conference.startDate | date:'LLL'}}</span></div>
             <h3>{{conference.name}}</h3>
             <p>
 

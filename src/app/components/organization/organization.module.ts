@@ -17,6 +17,8 @@ import { ConfParticipantsComponent } from './conf-participants/conf-participants
 import { ConfPresentationsComponent } from '../conference/conf-presentations/conf-presentations.component';
 import { ConfSubmissionsComponent } from './conf-submissions/conf-submissions.component';
 import { ConfPresentationComponent } from './conf-presentation/conf-presentation.component';
+import { ConfSidebarConfigComponent } from './conf-sidebar-config/conf-sidebar-config.component';
+import { ConfCommitteComponent } from './conf-committe/conf-committe.component';
 
 
 
@@ -29,10 +31,11 @@ const organizationRoutes : Routes = [
      { path: 'signup', component: OrgSignupComponent },
      { path: 'my-events', component: MyConferenceComponent },
      { path: 'conf-dashboard/:id', component: ConferenceDashboardComponent },
-     { path: 'conf-config', component: ConfConfigComponent },
+     { path: 'conf-config/:id', component: ConfConfigComponent },
      { path: 'conf-participants/:id', component: ConfParticipantsComponent},
      { path: 'conf-submission/:id', component: ConfSubmissionsComponent},
      { path: 'conf-presentation', component: ConfPresentationComponent},
+     { path: 'conf-committe/:id', component: ConfCommitteComponent},
      
      // Add more routes for other views or pages in the admin side
    ]
@@ -50,7 +53,9 @@ const organizationRoutes : Routes = [
     ConfConfigComponent,
     ConfParticipantsComponent,
     ConfSubmissionsComponent,
-    ConfPresentationComponent
+    ConfPresentationComponent,
+    ConfSidebarConfigComponent,
+    ConfCommitteComponent
   ],
   imports: [
     CommonModule,

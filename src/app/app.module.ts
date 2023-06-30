@@ -16,11 +16,15 @@ import { ConferenceModule } from './components/conference/conference.module';
 import { JwtModule } from '@auth0/angular-jwt';
 import { CKEditorModule,CKEditorComponent } from '@ckeditor/ckeditor5-angular';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { AuthUserInterceptor } from './interceptors/users/auth-user.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import {CookieService} from 'ngx-cookie-service';
+import { SpinnerComponent } from './shared/spinner/spinner/spinner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    SpinnerComponent,
    
   ],
   imports: [
@@ -40,6 +44,8 @@ import { MatDialogModule } from '@angular/material/dialog';
   providers: [
     AuthService,
     AuthGuard,
+    CookieService
+   
   ],
   bootstrap: [AppComponent]
 })

@@ -36,6 +36,7 @@ export class ConfSubmissionComponent implements OnInit {
   }
 
   ngOnInit() {
+   
     this._route.params.subscribe(params => {
       this.conferenceId = params['id'];
     });

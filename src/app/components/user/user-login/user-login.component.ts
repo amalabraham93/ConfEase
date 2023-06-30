@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
- import { AuthService} from 'src/app/services/auth.service';
- import { Router} from '@angular/router'
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-user-login',
@@ -13,14 +13,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class UserLoginComponent implements OnInit {
   loginForm!: FormGroup;
   submitted = false;
-  public errorms:string = ''
-  constructor(private _formBuilder: FormBuilder, private _auth: AuthService, private _router:Router) {}
+  public errorms: string = ''
+  constructor(private _formBuilder: FormBuilder, private _auth: AuthService, private _router: Router) { }
 
   ngOnInit() {
     this.loginForm = this._formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
-      // role: ['', [Validators.required]]
+      password: ['', [Validators.required]]
     });
   }
 
@@ -29,6 +28,7 @@ export class UserLoginComponent implements OnInit {
   }
 
   onSubmit() {
+
     this.submitted = true;
 
     // stop here if form is invalid
@@ -38,21 +38,21 @@ export class UserLoginComponent implements OnInit {
 
     const email = this.focus['email'].value;
     const password = this.focus['password'].value;
-    // const role = this.focus['role'].value;
+  
 
     this._auth.login(email, password)
       .subscribe(
         response => {
           // handle successful login
-         this._router.navigate(['/user/home'])
-          console.log(response);
-          
+
+          this._router.navigate(['/user/home'])
+
         },
         error => {
           // handle login error
           this.errorms = error.error.error
           console.log(error.error);
-          
+
         }
       );
   }

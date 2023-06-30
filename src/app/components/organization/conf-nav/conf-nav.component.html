@@ -12,13 +12,13 @@
             <a class="nav-link" routerLink="/organization/conf-dashboard/{{conferenceId}}">Dashboard</a>
           </li>
           <li class="nav-item dropdown" ngbDropdown>
-            <a class="nav-link dropdown-toggle" routerLink="/organization/conf-config" id="configurationDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
+            <a class="nav-link dropdown-toggle" routerLink="/organization/conf-config/{{conferenceId}}" id="configurationDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
               Configuration
             </a>
             <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="configurationDropdown">
               <li><a class="dropdown-item" href="#">General</a></li>
               <li><a class="dropdown-item" href="#">Theme and colors</a></li>
-              <li><a class="dropdown-item" href="#">Committee</a></li>
+              <li><a class="dropdown-item"  routerLink="/organization/conf-committe/{{conferenceId}}">Committee</a></li>
               <li><a class="dropdown-item" href="#">Payments</a></li>
             </ul>
           </li>
