@@ -32,4 +32,4 @@ export class UserEmailverifyComponent implements OnInit {
       console.log('Invalid form');
     }
   }
-}
+}     
