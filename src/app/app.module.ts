@@ -20,6 +20,13 @@ import { AuthUserInterceptor } from './interceptors/users/auth-user.interceptor'
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
 import { SpinnerComponent } from './shared/spinner/spinner/spinner.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { ConferenceEffects } from './store/conference/conference.effects';
+import { conferenceReducer } from './store/conference/conference.reducer';
+
+
+
 
 @NgModule({
   declarations: [
@@ -39,7 +46,9 @@ import { SpinnerComponent } from './shared/spinner/spinner/spinner.component';
     NgbModule,
     BrowserAnimationsModule,
     CKEditorModule,
-    MatDialogModule
+    MatDialogModule,
+    StoreModule.forRoot({ conference: conferenceReducer }),
+    EffectsModule.forRoot([ConferenceEffects])
   ],
   providers: [
     AuthService,

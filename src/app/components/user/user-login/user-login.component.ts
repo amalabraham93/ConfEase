@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router'
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-user-login',
@@ -14,7 +15,7 @@ export class UserLoginComponent implements OnInit {
   loginForm!: FormGroup;
   submitted = false;
   public errorms: string = ''
-  constructor(private _formBuilder: FormBuilder, private _auth: AuthService, private _router: Router) { }
+  constructor(private _formBuilder: FormBuilder, private _auth: AuthService, private _router: Router,private _cookie:CookieService) { }
 
   ngOnInit() {
     this.loginForm = this._formBuilder.group({
@@ -44,7 +45,8 @@ export class UserLoginComponent implements OnInit {
       .subscribe(
         response => {
           // handle successful login
-
+          this._cookie.set('jwt-user', response.token);
+          localStorage.setItem('jwt-user',response.token)
           this._router.navigate(['/user/home'])
 
         },

@@ -1,50 +1,18 @@
-<nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="\assets\qwert-(1)-1.png" style="width: 160px" />
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#"><b>Home </b></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><b>Conference</b></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><b>Organization</b></a>
-          </li>
-        </ul>
-        <form class="d-flex mx-auto">
-          <input class="form-control" type="text" placeholder="Search" />
-        </form>
-  
-        <div ngbDropdown class="profile-dropdown">
-          <img src="\assets\administrator.png" alt="Profile Icon" class="profile-icon" id="profileDropdown"
-            ngbDropdownToggle />
-          <ul ngbDropdownMenu class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
-          </ul>
-        </div>
-      </div>
+
+<app-user-nav></app-user-nav>
+
+  <div class="mt-5">
+    <div class="col-md-12 d-flex justify-content-end">
+      <button  routerLink="/user/my-conference" class="btn btn-primary ">My Conferences</button>
     </div>
-  </nav>
+    <div class="col-md-12">
+      <h1 class="fw-bold text-center mb-auto">Conferences</h1>
+    </div>
+  </div>
 
 
-
-  <div class="container mb-auto">
-    <h1 class="fw-bold text-center mb-auto">conferences</h1>
-</div>
-
-
-<div *ngFor="let conference of conferences">
-    <figure class="snip1527">
+<div *ngFor="let conference of conferences.conferences" class="col-md-12  m-5">
+    <figure class="snip1527 m-4"  >
         <div class="image"><img src="\assets\{{ conference.banner }}" alt="pr-sample23" /></div>
         <figcaption>
             <div class="date"><span class="day">{{conference.startDate | date:'d'}}</span><span class="month">{{conference.startDate | date:'LLL'}}</span></div>
@@ -53,28 +21,6 @@
 
                 You know what we need, Hobbes? We need an attitude. Yeah, you can&#39;t be cool if you don&#39;t have an attitude.
             </p>
-        </figcaption><a href="#"></a>
+        </figcaption><a routerLink="/conference/{{conference._id}}/home"></a>
     </figure>
-    <!-- <figure class="snip1527 hover">
-        <div class="image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample24.jpg" alt="pr-sample24" /></div>
-        <figcaption>
-            <div class="date"><span class="day">17</span><span class="month">Nov</span></div>
-            <h3>An Abstract Post Heading</h3>
-            <p>
-
-                Sometimes the surest sign that intelligent life exists elsewhere in the universe is that none of it has tried to contact us.
-            </p>
-        </figcaption><a href="#"></a>
-    </figure>
-    <figure class="snip1527">
-        <div class="image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample25.jpg" alt="pr-sample25" /></div>
-        <figcaption>
-            <div class="date"><span class="day">01</span><span class="month">Dec</span></div>
-            <h3>Down with this sort of thing</h3>
-            <p>
-
-                I don&#39;t need to compromise my principles, because they don&#39;t have the slightest bearing on what happens to me anyway.
-            </p>
-        </figcaption><a href="#"></a>
-    </figure> -->
 </div>

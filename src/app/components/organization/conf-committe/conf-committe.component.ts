@@ -40,6 +40,7 @@ export class ConfCommitteComponent implements OnInit {
    })
     
    
+   
     this.reviewerForm.reset();
   }
 }

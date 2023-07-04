@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UsersService } from 'src/app/services/user/users.service';
 
 @Component({
   selector: 'app-user-emailverify',
@@ -8,8 +10,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class UserEmailverifyComponent implements OnInit {
   verificationForm!: FormGroup;
-
-  constructor(private formBuilder: FormBuilder) { }
+  verify:boolean =false; 
+  constructor(private formBuilder: FormBuilder,private _userService:UsersService,private _router: Router) { }
 
   ngOnInit() {
     this.buildForm();
@@ -24,6 +26,19 @@ export class UserEmailverifyComponent implements OnInit {
   submitVerificationForm() {
     if (this.verificationForm.valid) {
       const verifyCode = this.verificationForm.value.verifyCode;
+
+      this._userService.verifyUser(verifyCode).subscribe((response)=>{
+        console.log(response);
+        this.verify = response.verified
+        if (this.verify) {
+          // this.toastr.success('Verification successful!', 'Success');
+          this._router.navigate(['/user/home']);
+        } else {
+          // this.toastr.error('Verification failed!', 'Error');
+          // You can display the response message on the page here
+        }
+
+      })
       // Send the verifyCode to the backend
       // You can make an API call here using Angular's HttpClient
       console.log(verifyCode);

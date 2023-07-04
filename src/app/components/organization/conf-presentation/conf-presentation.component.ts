@@ -30,7 +30,7 @@ export class ConfPresentationComponent implements OnInit {
   startConference() {
     this.room = 'vpaas-magic-cookie-126f74bcc1c941a883de6197e188a8bd/SampleAppMagneticHospitalsDropFormerly';
     this.user = {
-      name: 'E-Club Meet'
+      name: 'ConfEase'
     };
     this.param = '1234564';
 
@@ -47,11 +47,13 @@ export class ConfPresentationComponent implements OnInit {
   videoStart() {
     this.options = {
       roomName: this.room,
+      // width: 900,
+       height: 900,
       configOverWrite: { proJoinPageEnabe: false },
       interfaceConfigOverWrite: {
         TILE_VIEW_MAX_COLUMNS: 12
       },
-      parentNode: document.querySelector('#jist-iframe'),
+      parentNode: document.querySelector('#jaas-container'),
       userInfo: {
         displayName: this.user.name
       }

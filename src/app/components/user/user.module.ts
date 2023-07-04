@@ -5,7 +5,7 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { UserSignupComponent } from './user-signup/user-signup.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms'; 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from 'src/app/shared/guard/auth/auth.guard';
 import { AuthService } from 'src/app/services/auth.service';
@@ -13,7 +13,13 @@ import { NgbModule,NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserConferenceComponent } from './user-conference/user-conference.component';
 import { UserEmailverifyComponent } from './user-emailverify/user-emailverify.component'; 
 import { AuthUserInterceptor } from 'src/app/interceptors/users/auth-user.interceptor';
-
+import { MyConferenceComponent } from './my-conference/my-conference.component';
+import { UserNavComponent } from './user-nav/user-nav.component';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { ProfileComponent } from './profile/profile.component';
+// import { StoreModule } from '@ngrx/store';
+// import { EffectsModule } from '@ngrx/effects';
+// import { ConferenceEffects } from '../../store/conference/conference.effects';
 
 const userRoutes : Routes = [
   {path: '', component:UserComponent,
@@ -24,6 +30,8 @@ const userRoutes : Routes = [
      { path: 'signup', component: UserSignupComponent },  
      { path: 'conferenece', component: UserConferenceComponent },  
      { path: 'verify-email', component: UserEmailverifyComponent },  
+     { path: 'my-conference', component: MyConferenceComponent },  
+     { path: 'profile', component: ProfileComponent },  
      
      // Add more routes for other views or pages in the admin side
    ]
@@ -36,7 +44,10 @@ const userRoutes : Routes = [
     UserSignupComponent,
     UserHomeComponent,
     UserConferenceComponent,
-    UserEmailverifyComponent
+    UserEmailverifyComponent,
+    MyConferenceComponent,
+    UserNavComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
@@ -44,7 +55,11 @@ const userRoutes : Routes = [
     RouterModule.forChild(userRoutes),
     HttpClientModule,
     NgbModule,
-    NgbDropdownModule
+    NgbDropdownModule,
+    FormsModule,
+    NgxDatatableModule,
+    // StoreModule.forRoot({}, {}),
+    // EffectsModule.forRoot([ConferenceEffects])
   ],
   exports: [
     RouterModule

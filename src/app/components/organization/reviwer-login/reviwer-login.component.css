@@ -1,0 +1,53 @@
+.formContainer {
+    padding:24px;
+    width:100%;
+    max-width:320px;
+    margin:0 auto
+  }
+  .formContainer input {
+    height:48px;
+    padding-left:48px;
+    background: rgba(255,255,255,0.1);
+    border:none;
+    color:#fff;
+  }
+  .btn-accent:active {
+    box-shadow: 0px 0px 2px #D62822;
+  }
+  .formContainer input:focus {
+    box-shadow: 0px 0px 2px #D62822;
+    background: rgba(255,255,255,0.7);
+  }
+  .inputLogo {
+    position:absolute;
+    margin-top:12px;
+    margin-left:18px;
+    color : #fff
+  }
+ 
+  #mainBgn {
+    background : url('https://cdn.wallpapersafari.com/67/67/Ofd5eA.jpg') no-repeat;
+    background-size: cover;
+    background-position: center bottom
+  }
+  .btn-accent {
+    background: rgb(214,40,34); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(214,40,34,1) 0%, rgba(216,82,76,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(214,40,34,1) 0%,rgba(216,82,76,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(214,40,34,1) 0%,rgba(216,82,76,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d62822', endColorstr='#d8524c',GradientType=0 ); /* IE6-9 */
+    height:48px;
+    color:#fff;
+    border:none;
+  }
+  .btn-accent:hover {
+    background: rgb(216,82,76); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(216,82,76,1) 0%, rgba(214,40,34,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(216,82,76,1) 0%,rgba(214,40,34,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(216,82,76,1) 0%,rgba(214,40,34,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8524c', endColorstr='#d62822',GradientType=0 ); /* IE6-9 */
+    color:#fff;
+  }
+  ::placeholder {
+    color: #ececec !important
+  }

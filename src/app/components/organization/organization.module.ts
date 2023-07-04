@@ -19,6 +19,9 @@ import { ConfSubmissionsComponent } from './conf-submissions/conf-submissions.co
 import { ConfPresentationComponent } from './conf-presentation/conf-presentation.component';
 import { ConfSidebarConfigComponent } from './conf-sidebar-config/conf-sidebar-config.component';
 import { ConfCommitteComponent } from './conf-committe/conf-committe.component';
+import { ReviwerLoginComponent } from './reviwer-login/reviwer-login.component';
+import { ReviwerHomeComponent } from './reviwer-home/reviwer-home.component';
+import { ReviwerPaperViewComponent } from './reviwer-paper-view/reviwer-paper-view.component';
 
 
 
@@ -36,6 +39,9 @@ const organizationRoutes : Routes = [
      { path: 'conf-submission/:id', component: ConfSubmissionsComponent},
      { path: 'conf-presentation', component: ConfPresentationComponent},
      { path: 'conf-committe/:id', component: ConfCommitteComponent},
+     { path: 'review-login/:id', component: ReviwerLoginComponent},
+     { path: 'review-home/:id', component: ReviwerHomeComponent},
+     { path: 'review-paper/:id/:paperId', component: ReviwerPaperViewComponent},
      
      // Add more routes for other views or pages in the admin side
    ]
@@ -55,7 +61,10 @@ const organizationRoutes : Routes = [
     ConfSubmissionsComponent,
     ConfPresentationComponent,
     ConfSidebarConfigComponent,
-    ConfCommitteComponent
+    ConfCommitteComponent,
+    ReviwerLoginComponent,
+    ReviwerHomeComponent,
+    ReviwerPaperViewComponent
   ],
   imports: [
     CommonModule,

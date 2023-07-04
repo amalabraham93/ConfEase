@@ -30,8 +30,15 @@ export class ConferenceService  {
   getAllconferences(): Observable<any>{
     return this.http.get<any>(`${this.api}/organizers/get-all-conferences`,{withCredentials:true})
   }
+ 
+  reviewerLogin(email:string,confId:string,password:string): Observable<any>{
+    return this.http.post<any>(`${this.api}/organizers/conference/reviewer-login`,{email,confId,password},{withCredentials:true})
+  }
 
   getPaperByConfId(confId:string): Observable<any>{
     return this.http.get<any>(`${this.api}/organizers/conference/${confId}/getpaper`,{withCredentials:true})
+  }
+  getPaperByUserId(): Observable<[]>{
+    return this.http.get<[]>(`${this.api}/organizers/conference/getpaper-user`,{withCredentials:true})
   }
 }

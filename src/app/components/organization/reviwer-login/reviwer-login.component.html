@@ -1,0 +1,19 @@
+<div class="vh-100 w-100 d-flex align-items-center" id="mainBgn">
+    <div class="formContainer">
+      <div class="text-center mb-4 pb-3">
+        <img src="https://www.pngfind.com/pngs/m/659-6595161_member-experience-definition-comments-reviews-icon-png-free.png" alt="Company Logo" height="48" style="mix-blend-mode: multiply;">
+      </div>
+      <form [formGroup]="loginForm" (ngSubmit)="submitLoginForm()">
+        <div>
+          <span class="inputLogo"><i class="fas fa-lock"></i></span>
+          <input type="text" class="form-control rounded-pill" formControlName="email" placeholder="Email">
+        </div>
+        <div class="my-2">
+          <span class="inputLogo"><i class="fas fa-key"></i></span>
+          <input type="password" class="form-control rounded-pill" formControlName="password" placeholder="Password">
+        </div>
+        <button class="btn btn-accent rounded-pill w-100" type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+  

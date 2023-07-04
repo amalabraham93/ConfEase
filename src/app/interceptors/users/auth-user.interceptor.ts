@@ -18,12 +18,18 @@ export class AuthUserInterceptor implements HttpInterceptor {
   constructor(private _cookie: CookieService, private _spinner: SpinnerService) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  const token = localStorage.getItem('jwt-user');
+  let authReq: HttpRequest<any>;
 
-    const authReq = request.clone({ withCredentials: true });
-
-    this._spinner.requestStarted();
-    return this.handler(next, authReq);
+  if (token) {
+    authReq = request.clone({ setHeaders: { Authorization: token } });
+  } else {
+    authReq = request.clone();
   }
+
+  this._spinner.requestStarted();
+  return this.handler(next, authReq);
+}
 
   handler(next: HttpHandler, request: HttpRequest<any>) {
     return next.handle(request)

@@ -1,0 +1,70 @@
+.logo {
+    width: 120px;
+    height: auto;
+  }
+  
+  .profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .search input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+  }
+  .navbar {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    background-color: #f0f0f0;
+  }
+  
+  .navbar-nav {
+    margin-right: auto;
+  }
+  
+  .navbar-nav .nav-item {
+    margin-right: 10px;
+  }
+  
+  .navbar-nav .nav-item:last-child {
+    margin-right: 0;
+  }
+  
+  .profile-dropdown {
+    margin-left: 10px;
+    position: relative;
+  }
+  
+  .profile-dropdown .dropdown-menu {
+    right: 0;
+    left: auto;
+    margin-top: 10px;
+  }
+  
+  @media (max-width: 576px) {
+    .navbar-brand {
+      margin-right: auto;
+    }
+  
+    .navbar-toggler {
+      margin-left: auto;
+    }
+  
+    .navbar-collapse {
+      margin-top: 10px;
+    }
+  
+    .form-control {
+      width: 100%;
+    }
+  }
+
+
+  /* Active link */
+.navbar-nav .nav-item.active {
+  color: red; /* Change the color to your desired value */
+}
