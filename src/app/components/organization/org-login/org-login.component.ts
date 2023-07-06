@@ -44,7 +44,7 @@ export class OrgLoginComponent implements OnInit {
           // handle successful login
           localStorage.setItem('jwt-organizer',response.token)
          this._router.navigate(['/organization/home'])
-          console.log(response);
+         
           
         },
         error => {

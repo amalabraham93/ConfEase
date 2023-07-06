@@ -53,18 +53,18 @@ export class ConfRegisterComponent implements OnInit {
      
 
      this._confService.registerConference(this.conferenceId,fullName,email).subscribe((responce)=>{
-      console.log(responce);
+      
       this.isLoading = false;
       this.showSuccess = true
 
       },(error)=>{
-        console.log(error);
+       
         this.isLoading = false;
         this.showError =true
       }
       )
      
-      console.log('Form submitted successfully!',this.contactForm.value);
+     
     } else {
       this.validateAllFormFields(this.contactForm);
     }

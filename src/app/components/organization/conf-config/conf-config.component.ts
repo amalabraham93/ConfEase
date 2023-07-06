@@ -45,6 +45,5 @@ export class ConfConfigComponent  implements OnInit {
     // Form is valid, proceed with submission
     // Here you can implement the logic to save the form data or perform any other actions
 
-    console.log(this.conferenceForm.value);
   }
 }

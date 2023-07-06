@@ -1,0 +1,34 @@
+.container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .conference-image {
+    width: 400px;
+    height: auto;
+    margin-bottom: 30px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0069d9;
+  }
+  
+  .btn-primary:focus {
+    outline: none;
+  }
+  

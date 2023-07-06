@@ -22,6 +22,8 @@ import { ConfCommitteComponent } from './conf-committe/conf-committe.component';
 import { ReviwerLoginComponent } from './reviwer-login/reviwer-login.component';
 import { ReviwerHomeComponent } from './reviwer-home/reviwer-home.component';
 import { ReviwerPaperViewComponent } from './reviwer-paper-view/reviwer-paper-view.component';
+import { AuthOrganizationInterceptor } from 'src/app/interceptors/organization/auth-organization.interceptor';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 
 
@@ -37,7 +39,7 @@ const organizationRoutes : Routes = [
      { path: 'conf-config/:id', component: ConfConfigComponent },
      { path: 'conf-participants/:id', component: ConfParticipantsComponent},
      { path: 'conf-submission/:id', component: ConfSubmissionsComponent},
-     { path: 'conf-presentation', component: ConfPresentationComponent},
+     { path: 'conf-presentation/:id', component: ConfPresentationComponent},
      { path: 'conf-committe/:id', component: ConfCommitteComponent},
      { path: 'review-login/:id', component: ReviwerLoginComponent},
      { path: 'review-home/:id', component: ReviwerHomeComponent},
@@ -74,6 +76,11 @@ const organizationRoutes : Routes = [
     NgbDropdownModule,
     MatMenuModule,
     MatButtonModule
+  ],
+  providers: [
+    
+    { provide: HTTP_INTERCEPTORS, useClass: AuthOrganizationInterceptor, multi: true } ,
+    
   ]
 })
 export class OrganizationModule { }

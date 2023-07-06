@@ -26,9 +26,9 @@ export class ConfSidebarConfigComponent  implements OnInit {
   getConference(): void {
     this.conferenceService.getConfById(this.conferenceId).subscribe(
       (response: any) => {
-        console.log(response);
+       
         this.conference = response.conferences; 
-        console.log(this.conference);
+        
         
       },
       (error: any) => {

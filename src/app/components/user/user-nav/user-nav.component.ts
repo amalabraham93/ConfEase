@@ -19,7 +19,6 @@ export class UserNavComponent implements OnInit {
     this.getConference();
     this._auth.isLoggedInn()
     this._auth.active().subscribe((response:any)=>{
-       console.log(response);
      this.role = response
     })
 
@@ -29,7 +28,7 @@ export class UserNavComponent implements OnInit {
   getConference(){
     this._conferenceservices.getAllconferences().subscribe (
       (response:any) =>{
-        console.log(response);
+      
         this.conferences = response.conferences
         
       },

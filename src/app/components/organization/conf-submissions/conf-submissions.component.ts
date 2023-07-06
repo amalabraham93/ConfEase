@@ -25,7 +25,7 @@ export class ConfSubmissionsComponent implements OnInit {
   getPaperByConfId(): void {
     this.conferenceService.getPaperByConfId(this.conferenceId).subscribe(
       (response: any) => {
-        console.log(response);
+     
         this.papers = response.paper
         
       },

@@ -17,7 +17,8 @@ export class OrgHomeComponent implements OnInit{
   
   logout(){
     this._auth.org_logout().subscribe((response:any)=>{
-      console.log(response)
+      
+     
     })
   }
 }

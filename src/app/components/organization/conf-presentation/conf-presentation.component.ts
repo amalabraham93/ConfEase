@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 declare var JitsiMeetExternalAPI: any;
 
@@ -21,14 +21,20 @@ export class ConfPresentationComponent implements OnInit {
   id: any;
   param!: string;
   clubdetails$: any;
+  conferenceId : string = ''
+
   showConferencePage: boolean = false; // Flag to control the visibility of the conference page
 
-  constructor(private _router: Router) {}
+  constructor(private _router: Router, private _route: ActivatedRoute) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._route.params.subscribe(params => {
+      this.conferenceId = params['id']
+    })
+  }
 
   startConference() {
-    this.room = 'vpaas-magic-cookie-126f74bcc1c941a883de6197e188a8bd/SampleAppMagneticHospitalsDropFormerly';
+    this.room = `vpaas-magic-cookie-126f74bcc1c941a883de6197e188a8bd/${this.conferenceId}`;
     this.user = {
       name: 'ConfEase'
     };
@@ -48,7 +54,7 @@ export class ConfPresentationComponent implements OnInit {
     this.options = {
       roomName: this.room,
       // width: 900,
-       height: 900,
+      height: 900,
       configOverWrite: { proJoinPageEnabe: false },
       interfaceConfigOverWrite: {
         TILE_VIEW_MAX_COLUMNS: 12

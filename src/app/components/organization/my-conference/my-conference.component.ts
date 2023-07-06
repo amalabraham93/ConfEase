@@ -72,11 +72,11 @@ export class MyConferenceComponent implements OnInit {
       startDate: formattedEventDate.toISOString(),
     };
 
-    console.log(eventData);
+   
     this._conferenceService.saveEvent(eventData)
     .subscribe({
       next: (conference) => {
-        console.log(conference);
+       
         const confId = conference._id
         this._router.navigate(['/organization/conf-dashboard',confId])
       },
@@ -94,11 +94,9 @@ export class MyConferenceComponent implements OnInit {
   getConference(){
     this._conferenceService.getConfByOrgId().subscribe(
       (response: any) => {
-        console.log(response);
+   
         this.conferences = response.conferences
-        
-        
-        
+       
       },
       (error: any) => {
         console.error('Error retrieving conferences:', error);

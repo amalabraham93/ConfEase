@@ -25,7 +25,7 @@ constructor(private _confernceService:ConferenceService,
     });
 
     this._userservice.getUser().subscribe((response)=>{
-      console.log(response);
+    
       this.user = response.user
      
     })
@@ -33,9 +33,9 @@ constructor(private _confernceService:ConferenceService,
   getConference(): void {
     this._confernceService.getConfById(this.conferenceId).subscribe(
       (response: any) => {
-        console.log(response);
+       
         this.conference = response.conferences; 
-        console.log(this.conference);
+       
         
       },
       (error: any) => {
