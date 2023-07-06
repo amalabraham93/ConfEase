@@ -17,6 +17,7 @@ import { MyConferenceComponent } from './my-conference/my-conference.component';
 import { UserNavComponent } from './user-nav/user-nav.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { ProfileComponent } from './profile/profile.component';
+import { PaymentComponent } from './payment/payment.component';
 // import { StoreModule } from '@ngrx/store';
 // import { EffectsModule } from '@ngrx/effects';
 // import { ConferenceEffects } from '../../store/conference/conference.effects';
@@ -32,6 +33,7 @@ const userRoutes : Routes = [
      { path: 'verify-email', component: UserEmailverifyComponent },  
      { path: 'my-conference', component: MyConferenceComponent },  
      { path: 'profile', component: ProfileComponent },  
+     { path: 'payment/:paperId', component: PaymentComponent },  
      
      // Add more routes for other views or pages in the admin side
    ]
@@ -47,7 +49,8 @@ const userRoutes : Routes = [
     UserEmailverifyComponent,
     MyConferenceComponent,
     UserNavComponent,
-    ProfileComponent
+    ProfileComponent,
+    PaymentComponent
   ],
   imports: [
     CommonModule,

@@ -1,6 +1,9 @@
 import { Component ,OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PaperService } from 'src/app/services/papers/paper.service';
+import { ToastrService } from 'ngx-toastr';
+
+
 
 @Component({
   selector: 'app-reviwer-paper-view',
@@ -10,8 +13,9 @@ import { PaperService } from 'src/app/services/papers/paper.service';
 export class ReviwerPaperViewComponent implements OnInit {
   selectedPaper: any;
   paperId!: string; 
-
-  constructor(private route: ActivatedRoute , private _paperService:PaperService) {}
+  acceptDisabled: boolean = false;
+  rejectDisabled: boolean = false;
+  constructor(private route: ActivatedRoute, private _paperService: PaperService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     // Get the paper ID from the URL params
@@ -27,24 +31,44 @@ export class ReviwerPaperViewComponent implements OnInit {
  
     this._paperService.getPaperById(paperId).subscribe((response) => {
       console.log(response)  
-      
+      if (response.paper.approved === true) {
+        this.acceptDisabled = true;
+        this.rejectDisabled = false;
+      }else{
+        this.rejectDisabled = true;
+        this.acceptDisabled = false;
+      }
       this.selectedPaper = response.paper;
     });
   }
 
-  // Function to handle accepting the paper
   acceptPaper() {
-    this._paperService.acceptPaper(this.paperId,true).subscribe((response) => {
-      console.log(response)
-     
-    })
+    this._paperService.acceptPaper(this.paperId, true).subscribe(
+      (response) => {
+        this.toastr.success('Paper accepted successfully', 'Success');
+        if (response.paper.approved === true) {
+          this.acceptDisabled = true;
+          this.rejectDisabled = false;
+        }
+      },
+      (error) => {
+        this.toastr.error('Error accepting paper', 'Error');
+      }
+    );
   }
 
-  // Function to handle rejecting the paper
   rejectPaper() {
-    this._paperService.acceptPaper(this.paperId,false).subscribe((response) => {
-      console.log(response)
-     
-    })
+    this._paperService.acceptPaper(this.paperId, false).subscribe(
+      (response) => {
+        this.toastr.success('Paper rejected successfully', 'Success');
+        if (response.paper.approved === false) {
+          this.rejectDisabled = true;
+          this.acceptDisabled = false;
+        }
+      },
+      (error) => {
+        this.toastr.error('Error rejecting paper', 'Error');
+      }
+    );
   }
 }

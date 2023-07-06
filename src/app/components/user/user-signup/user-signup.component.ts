@@ -11,12 +11,13 @@ import { AuthService } from 'src/app/services/auth.service';
 export class UserSignupComponent implements OnInit {
   signupForm!: FormGroup;
   public loader:boolean = true
+  errorMessage: string = '';
   constructor(private formBuilder: FormBuilder, private _auth: AuthService,private _router:Router) {}
-
+  
   ngOnInit() {
-    setTimeout(() => {
-      this.loader = false
-    }, 2000);
+    // setTimeout(() => {
+    //   this.loader = false
+    // }, 2000);
 
 
     this.signupForm = this.formBuilder.group(
@@ -58,7 +59,9 @@ export class UserSignupComponent implements OnInit {
           this._router.navigate(['/user/verify-email'])
         },
         (error) => {
+
           console.error('Signup failed!', error);
+          this.errorMessage = error.error.error; 
         }
       );
     } else {

@@ -1,26 +1,33 @@
 
 <app-user-nav></app-user-nav>
 
-  <div class="mt-5">
-    <div class="col-md-12 d-flex justify-content-end">
-      <button  routerLink="/user/my-conference" class="btn btn-primary ">My Conferences</button>
-    </div>
-    <div class="col-md-12">
-      <h1 class="fw-bold text-center mb-auto">Conferences</h1>
+
+
+<div class="row pt-5 pb-4" style="background-color: cornflowerblue; ">
+  <div class="col-md-12 d-flex justify-content-between align-items-center mb-4">
+    <h1 class="fw-bold text-left " style="color: #f8f8f8;">Conferences</h1>
+    <button routerLink="/user/my-conference" class="btn btn-primary">My Conferences</button>
+  </div>
+</div>
+
+<div class="container mt-5">
+  
+  <div class="row">
+    <div *ngFor="let conference of conferences.conferences" class="col-md-12 col-lg-4 mb-4">
+      <figure class="snip1527">
+        <div class="image"><img src="\assets\{{ conference.banner }}" alt="conference-banner" /></div>
+        <figcaption>
+          <div class="date">
+            <span class="day">{{ conference.startDate | date:'d' }}</span>
+            <span class="month">{{ conference.startDate | date:'LLL' }}</span>
+          </div>
+          <h3>{{ conference.name }}</h3>
+          <p>
+            You know what we need, Hobbes? We need an attitude. Yeah, you can't be cool if you don't have an attitude.
+          </p>
+        </figcaption>
+        <a routerLink="/conference/{{ conference._id }}/home"></a>
+      </figure>
     </div>
   </div>
-
-
-<div *ngFor="let conference of conferences.conferences" class="col-md-12  m-5">
-    <figure class="snip1527 m-4"  >
-        <div class="image"><img src="\assets\{{ conference.banner }}" alt="pr-sample23" /></div>
-        <figcaption>
-            <div class="date"><span class="day">{{conference.startDate | date:'d'}}</span><span class="month">{{conference.startDate | date:'LLL'}}</span></div>
-            <h3>{{conference.name}}</h3>
-            <p>
-
-                You know what we need, Hobbes? We need an attitude. Yeah, you can&#39;t be cool if you don&#39;t have an attitude.
-            </p>
-        </figcaption><a routerLink="/conference/{{conference._id}}/home"></a>
-    </figure>
 </div>

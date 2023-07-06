@@ -6,7 +6,8 @@ import { MainLoginComponent } from './main-login/main-login.component';
 import { MainSignupComponent } from './main-signup/main-signup.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { RouterModule, Routes } from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AboutUsComponent } from './about-us/about-us.component'; 
 
 
 const mainRoutes : Routes = [
@@ -16,6 +17,7 @@ const mainRoutes : Routes = [
      { path: 'home', component: MainHomeComponent },
      { path: 'login', component: MainLoginComponent },
      { path: 'signup', component: MainSignupComponent },
+     { path: 'about-us', component: AboutUsComponent },
      
      // Add more routes for other views or pages in the admin side
    ]
@@ -27,7 +29,8 @@ const mainRoutes : Routes = [
     MainHomeComponent,
     MainLoginComponent,
     MainSignupComponent,
-    MainNavComponent
+    MainNavComponent,
+    AboutUsComponent
   ],
   imports: [
     CommonModule,

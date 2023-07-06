@@ -11,7 +11,7 @@ export class PaperService {
   constructor(private _http:HttpClient) { }
   
 
-  getPaperById(paperId:string){
+  getPaperById(paperId:string): Observable<any>{
     return this._http.get<any>(`${this.api}/organizers/conference/getpaperbyid/${paperId}`,{withCredentials:true})
 
   }

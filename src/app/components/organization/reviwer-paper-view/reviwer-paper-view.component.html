@@ -48,8 +48,8 @@
             <h5 class="card-title">{{selectedPaper.submissionTitle}}</h5>
             <div class="paper-content" [innerHTML]="selectedPaper.abstract"></div>
             <div class="buttons-container">
-              <button class="btn btn-success me-3" (click)="acceptPaper()">Accept</button>
-              <button class="btn btn-danger  ml-3" (click)="rejectPaper()">Reject</button>
+              <button class="btn btn-success me-3" (click)="acceptPaper()" [disabled]="acceptDisabled">Accept</button>
+              <button class="btn btn-danger  ml-3" (click)="rejectPaper()" [disabled]="rejectDisabled">Reject</button>
             </div>
             <div class="comment-container">
               <label for="comment">Add Comment:</label>

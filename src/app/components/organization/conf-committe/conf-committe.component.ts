@@ -11,6 +11,8 @@ import { RegsiterConfService } from 'src/app/services/conference/regsiter-conf.s
 export class ConfCommitteComponent implements OnInit {
   reviewerForm!: FormGroup;
   conferenceId: string = '';
+  message: string = '';
+  success: boolean = false;
   constructor(private formBuilder: FormBuilder,private route: ActivatedRoute ,private _addReviewerService: RegsiterConfService) { }
 
   ngOnInit(): void {
@@ -32,15 +34,18 @@ export class ConfCommitteComponent implements OnInit {
     }
 
     const reviewerData = this.reviewerForm.value;
-    console.log(reviewerData,this.conferenceId);
-    
-   this._addReviewerService.addReviewer(reviewerData.email,this.conferenceId).subscribe((response)=>{
-    console.log(response);
-    
-   })
-    
-   
-   
+
+    this._addReviewerService.addReviewer(reviewerData.email, this.conferenceId).subscribe(
+      (response) => {
+        this.success = true;
+        this.message = 'Reviewer added successfully';
+      },
+      (error) => {
+        this.success = false;
+        this.message = 'Error adding reviewer';
+      }
+    );
+
     this.reviewerForm.reset();
   }
 }

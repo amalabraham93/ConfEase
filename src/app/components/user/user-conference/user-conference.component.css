@@ -51,7 +51,6 @@
     --bs-body-color: #212529;
     --bs-body-bg: #fff;
   }
-  
   body {
     margin: 0;
     font-family: var(--bs-body-font-family);
@@ -203,4 +202,12 @@
     border-radius: 5px;
   }
   
-      
+  .heading-banner {
+    background-color: #0d6efd;
+    padding: 10px;
+    color: #ffffff;
+  }
+  
+  .text-left {
+    text-align: left !important;
+  }    

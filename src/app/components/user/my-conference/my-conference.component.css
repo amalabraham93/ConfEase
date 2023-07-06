@@ -1,8 +1,57 @@
-.search-input {
-    width: 200px; /* Adjust the width as needed */
-  }
+/* .material {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
+.ngx-datatable .datatable-header {
+  background-color: #f0f0f0;
+  border-bottom: none;
+}
 
-  .my-datatable {
-    margin-bottom: 20px;
-  }
+.ngx-datatable .datatable-header .datatable-header-cell {
+  font-weight: bold;
+}
+
+.ngx-datatable .datatable-row {
+  transition: background-color 0.3s ease;
+}
+
+.ngx-datatable .datatable-row:hover {
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.ngx-datatable .datatable-row.even {
+  background-color: #f0f0f0;
+}
+
+.ngx-datatable-column {
+  padding: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 0.5rem;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+}
+
+.fade-in {
+  animation: fade-in 0.5s ease;
+} */

@@ -24,7 +24,9 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { ConferenceEffects } from './store/conference/conference.effects';
 import { conferenceReducer } from './store/conference/conference.reducer';
-
+import { StripeModule } from "stripe-angular"
+import { environment } from 'src/environments/environment';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -48,7 +50,9 @@ import { conferenceReducer } from './store/conference/conference.reducer';
     CKEditorModule,
     MatDialogModule,
     StoreModule.forRoot({ conference: conferenceReducer }),
-    EffectsModule.forRoot([ConferenceEffects])
+    EffectsModule.forRoot([ConferenceEffects]),
+     StripeModule,
+     ToastrModule.forRoot(),
   ],
   providers: [
     AuthService,

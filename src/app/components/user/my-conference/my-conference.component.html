@@ -1,52 +1,90 @@
 <app-user-nav></app-user-nav>
+
 <div class="mt-5">
   <div class="col-md-12">
     <h1 class="fw-bold text-center mb-auto">My Conferences</h1>
   </div>
 </div>
 
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-md-6">
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search Conference"
+          [(ngModel)]="searchValue"
+          (input)="filterTable()"
+        />
+      </div>
+    </div>
+  </div>
 
-
-<div class="container-fluid m-5">
-  <input type="text" class="form-control mb-3 search-input" placeholder="Search" [(ngModel)]="searchValue" (ngModelChange)="filterTable()">
-
-<ngx-datatable
-class="bootstrap"
-[rows]="myConference"
-[columns]="columns"
-[columnMode]="'force'"
-[headerHeight]="50"
-[rowHeight]="'auto'"
-[footerHeight]="0"
-[selectionType]="SelectionType.single"
-[selected]="selectedConference"
-(activate)="onActivate($event)">
-
-
-  <ngx-datatable-column name="Name" class="mt-3">
-    <ng-template ngx-datatable-cell-template let-value="value">
-      {{ value }}
-    </ng-template>
-  </ngx-datatable-column>
-  <ngx-datatable-column name="Paper Submitted">
-    <ng-template ngx-datatable-cell-template let-row="row">
-      {{row.isPaperSubmitted}}
-      <span *ngIf="row.isPaperSubmitted">Submitted</span>
-      <span *ngIf="!row.isPaperSubmitted">Not Submitted</span>
-    </ng-template>
-  </ngx-datatable-column>
-  <ngx-datatable-column name="startDate">
-    <ng-template ngx-datatable-cell-template let-value="value">
-      {{ value | date: 'longDate' }}
-    </ng-template>
-  </ngx-datatable-column>
-  <ngx-datatable-column name="Action">
-    <ng-template ngx-datatable-cell-template let-row="row">
-      <button class="btn btn-primary" (click)="navigateToConferenceHome(row._id)">
-        <i class="bi bi-eye"></i> View
-      </button>
-    </ng-template>
-  </ngx-datatable-column>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Paper Submitted</th>
+        <th scope="col">Date</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let conference of filteredConference">
+        <td>{{ conference.name }}</td>
+        <td>
+          <span *ngIf="conference.isPaperSubmitted">
+            Submitted
+            <button class="btn btn-link" (click)="togglePaperList(conference)">View Papers</button>
+          </span>
+          <span *ngIf="!conference.isPaperSubmitted">Not Submitted</span>
+        </td>
+        <td>{{ conference.startDate | date: 'longDate' }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="navigateToConferenceHome(conference._id)">
+            <i class="bi bi-eye"></i> View
+          </button>
+        </td>
+      </tr>
+      <tr *ngIf="selectedConference && selectedConference.isPaperSubmitted && showPaperList">
+        <td colspan="4">
+          <div class="mt-3">
+            <h4 class="fw-bold">Papers:</h4>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Paper Title</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let paper of selectedConference.papers">
+                  <td>{{ paper.submissionTitle }}</td>
+                  <td>
+                    <span *ngIf="paper.approved === true">Approved</span>
+                    <span *ngIf="paper.approved === false">Rejected</span>
+                    <span *ngIf="paper.approved ===null">Pending</span>
+                  </td>
+                  <td>
+                    <button
+                      class="btn btn-secondary"
+                      *ngIf="paper.approved"
+                      (click)="payForConference(paper._id)"
+                    >
+                      Pay Now
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 <!-- <div class="container-fluid m-5">
   <table class="table">
@@ -69,3 +107,10 @@ class="bootstrap"
     </tbody>
   </table>
 </div> -->
+
+
+
+
+
+
+

@@ -1,8 +1,8 @@
-<div *ngIf="loader" class="spinner-border container-fluid" role="status">
+<!-- <div *ngIf="loader" class="spinner-border container-fluid" role="status">
   <span class="sr-only">Loading...</span>
-</div>
+</div> -->
 
-<div *ngIf="!loader">
+<!-- <div *ngIf="!loader"> -->
 
 
 
@@ -12,9 +12,9 @@
     <div class="collapse navbar-collapse" id="navbarNav"></div>
   </nav>
   
-  <section class="vh-100" style="background-color: #f0f0f0">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
+  <section  style="background-color: #f0f0f0">
+    <div class="container py-5 ">
+      <div class="row d-flex justify-content-center align-items-center ">
         <div class="col col-xl-10">
           <div class="card" style="border-radius: 1rem">
             <div class="row g-0">
@@ -119,6 +119,9 @@
   
                     <a class="small text-muted" href="#!">Forgot password?</a>
                   </form>
+                  <div *ngIf="errorMessage" class="text-danger">
+                    {{ errorMessage }}
+                  </div>
                 </div>
               </div>
             </div>
@@ -129,4 +132,4 @@
   </section>
 
 
-</div>
+<!-- </div> -->

@@ -21,6 +21,9 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
+      <div *ngIf="message" class="mt-3 alert" [ngClass]="{ 'alert-success': success, 'alert-danger': !success }">
+        {{ message }}
+      </div>
     </div>
   </div>
   
