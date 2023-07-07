@@ -1,47 +1,49 @@
 <nav class="navbar navbar-expand-lg" style=" background-color: aliceblue;">
     <div class="container">
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand">
         Conference Name
       </a>
   
-      <a href="ticket.html" class="btn custom-btn d-lg-none ms-auto me-4">Buy Ticket</a>
-  
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- <a *ngIf="user.role === 'author'" class="btn custom-btn d-lg-none ms-auto me-4">Watch Conference</a> -->
+      <a *ngIf="user.role === 'attendee'" routerLink="/conference/{{conferenceId}}/attentte-buy-tickets" class="btn custom-btn d-lg-none ms-auto me-4">Buy Ticket</a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-  
+      
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav align-items-lg-center ms-auto me-lg-5">
           <li class="nav-item" routerLinkActive="active">
             <a class="nav-link click-scroll" routerLink="/conference/{{conferenceId}}/home">Home</a>
           </li>
-  
+      
           <li class="nav-item" routerLinkActive="active">
             <a class="nav-link click-scroll" routerLink="/conference/{{conferenceId}}/register">Register</a>
           </li>
-  
-          <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link click-scroll" routerLink="/conference/{{conferenceId}}/submission">Submission</a>
+      
+          <li *ngIf="user.role === 'author'" class="nav-item" routerLinkActive="active">
+            <a class="nav-link click-scroll" routerLink="/conference/{{conferenceId}}/presentation">Presentation</a>
           </li>
-  
+      
+          <li *ngIf="user.role === 'attendee'" class="nav-item" routerLinkActive="active">
+            <a class="nav-link click-scroll" routerLink="/conference/{{conferenceId}}/attentte-presentation">Watch Conference</a>
+          </li>
+      
           <li class="nav-item" routerLinkActive="active">
             <a class="nav-link click-scroll" routerLink="/conference/{{conferenceId}}/schedule">Schedule</a>
           </li>
-  
+      
           <li class="nav-item" routerLinkActive="active">
             <a class="nav-link click-scroll" routerLink="/conference/{{conferenceId}}/participants">Participants</a>
           </li>
-  
-          <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link click-scroll" routerLink="/conference/{{conferenceId}}/presentation">Presentation</a>
-          </li>
         </ul>
-  
-        <a href="ticket.html" class="btn custom-btn d-lg-block d-none">Buy Ticket</a>
+      
+        <!-- <a *ngIf="user.role === 'author'" href="ticket.html" class="btn custom-btn d-lg-block d-none">Watch Conference</a> -->
+        <a *ngIf="user.role === 'attendee'"  routerLink="/conference/{{conferenceId}}/attentte-buy-tickets" class="btn custom-btn d-lg-block d-none">Buy Ticket</a>
       </div>
-    </div>
-  </nav>
-  
+        </div>
+      </nav>
 
 
   

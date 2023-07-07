@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CKEditorModule,CKEditorComponent } from '@ckeditor/ckeditor5-angular';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ConfAttenttePresentationComponent } from './conf-attentte-presentation/conf-attentte-presentation.component';
+import { ConfAttentteBuyTicketsComponent } from './conf-attentte-buy-tickets/conf-attentte-buy-tickets.component';
 
 
 
@@ -26,6 +28,8 @@ const conferenceRoutes : Routes = [
      {path:':id/schedule',component:ConfScheduleComponent},
      {path:':id/participants',component:ConfParticipantsComponent},
      {path:':id/presentation',component:ConfPresentationsComponent},
+     {path:':id/attentte-presentation',component:ConfAttenttePresentationComponent},
+     {path:':id/attentte-buy-tickets',component:ConfAttentteBuyTicketsComponent},
      
      
      // Add more routes for other views or pages in the admin side
@@ -42,7 +46,9 @@ const conferenceRoutes : Routes = [
     ConfSubmissionComponent,
     ConfScheduleComponent,
     ConfPresentationsComponent,
-    ConfParticipantsComponent
+    ConfParticipantsComponent,
+    ConfAttenttePresentationComponent,
+    ConfAttentteBuyTicketsComponent
 
   ],
   imports: [

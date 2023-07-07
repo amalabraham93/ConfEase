@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { HttpClient } from '@angular/common/http';
+import { io } from 'socket.io-client';
+import { environment } from 'src/environments/environment';
 declare var JitsiMeetExternalAPI: any;
 
 @Component({
@@ -23,9 +25,9 @@ export class ConfPresentationComponent implements OnInit {
   clubdetails$: any;
   showConferencePage: boolean = false; // Flag to control the visibility of the conference page
 
-  constructor(private _router: Router) {}
+  constructor(private _router: Router, private _http: HttpClient) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   startConference() {
     this.room = 'vpaas-magic-cookie-126f74bcc1c941a883de6197e188a8bd/SampleAppMagneticHospitalsDropFormerly';
@@ -48,7 +50,7 @@ export class ConfPresentationComponent implements OnInit {
     this.options = {
       roomName: this.room,
       // width: 900,
-       height: 900,
+      height: 900,
       configOverWrite: { proJoinPageEnabe: false },
       interfaceConfigOverWrite: {
         TILE_VIEW_MAX_COLUMNS: 12
@@ -70,7 +72,21 @@ export class ConfPresentationComponent implements OnInit {
       AudioMuteStatusChanged: this.handleAudioMuteStatusChanged,
       VideoMuteStatusChanged: this.handleVideoMuteStatusChanged
     });
+
+
+    // Emit the video stream to the server using Socket.IO
+    const socket = io(environment.apiUrl);
+    this.api.on('videoConferenceJoined', () => {
+      const videoStream = this.api.getLivestreamURL();
+      socket.emit('videoStream', videoStream);
+    });
+
+
+
   }
+
+
+
 
   handleClose = () => {
     console.log('closing meet');
