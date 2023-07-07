@@ -19,7 +19,7 @@ export class RegsiterConfService {
     return this._http.post<any>(`${this.api}/organizers/conference/${confId}/paper-submit`,{name,submissionTitle,abstract,author,affiliation,userId,date},{withCredentials:true})
   }
   addReviewer(email:string,confId:string): Observable<any>{
-    console.log(confId);
+  
     
    return this._http.post<any>(`${this.api}/organizers/conference/add-reviewer`,{email,confId},{withCredentials:true})
   }

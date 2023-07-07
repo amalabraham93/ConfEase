@@ -33,13 +33,12 @@ export class ReviwerLoginComponent implements OnInit {
     if (this.loginForm.valid) {
       const email = this.loginForm.value.email;
       const password = this.loginForm.value.password;
-      console.log(this.loginForm.value);
      const confId = this.conferenceId 
       // Call the login API or service method to send the data to the backend
       this._conferenceService.reviewerLogin(email,confId, password).subscribe(
        ( response) => {
          this._router.navigate([`/organization/review-home/${this.conferenceId}`])
-          console.log('Login successful');
+    
         },
         error => {
           // Handle the error response from the backend

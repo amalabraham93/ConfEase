@@ -33,7 +33,7 @@ export class OrgSignupComponent implements OnInit {
   onSubmit() {
     if (this.signupForm.valid) {
       const { organizername, email, password} = this.signupForm.value;
-        console.log(organizername, email, password);
+      
         
       this._auth.org_signup(organizername, email, password).subscribe(
         response => {

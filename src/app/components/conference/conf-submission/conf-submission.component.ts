@@ -92,7 +92,7 @@ export class ConfSubmissionComponent implements OnInit {
     if (this.form.valid) {
       const formData = this.form.value;
 
-      console.log(formData);
+     
       
       const { firstName, lastName, email, affiliation, submissionTitle, abstract } = formData;
 
@@ -109,12 +109,12 @@ export class ConfSubmissionComponent implements OnInit {
         this.currentDate
       ).subscribe(
         (response) => {
-          console.log(response);
+         
           this.isLoading = false;
           this.showSuccess = true;
         },
         (error) => {
-          console.log(error);
+        
           this.isLoading = false;
           this.showError = true;
         }

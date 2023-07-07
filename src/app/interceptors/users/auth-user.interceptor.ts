@@ -22,7 +22,7 @@ export class AuthUserInterceptor implements HttpInterceptor {
   let authReq: HttpRequest<any>;
 
   if (token) {
-    authReq = request.clone({ setHeaders: { Authorization: token } });
+    authReq = request.clone({ setHeaders: { Authorization: token } ,withCredentials:true});
   } else {
     authReq = request.clone();
   }

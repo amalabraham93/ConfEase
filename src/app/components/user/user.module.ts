@@ -18,6 +18,7 @@ import { UserNavComponent } from './user-nav/user-nav.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { ProfileComponent } from './profile/profile.component';
 import { PaymentComponent } from './payment/payment.component';
+import { PresentationComponent } from './presentation/presentation.component';
 // import { StoreModule } from '@ngrx/store';
 // import { EffectsModule } from '@ngrx/effects';
 // import { ConferenceEffects } from '../../store/conference/conference.effects';
@@ -50,7 +51,8 @@ const userRoutes : Routes = [
     MyConferenceComponent,
     UserNavComponent,
     ProfileComponent,
-    PaymentComponent
+    PaymentComponent,
+    PresentationComponent
   ],
   imports: [
     CommonModule,

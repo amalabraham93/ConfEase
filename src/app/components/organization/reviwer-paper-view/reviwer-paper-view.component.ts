@@ -30,7 +30,7 @@ export class ReviwerPaperViewComponent implements OnInit {
   fetchPaperDetails(paperId: string) {
  
     this._paperService.getPaperById(paperId).subscribe((response) => {
-      console.log(response)  
+  
       if (response.paper.approved === true) {
         this.acceptDisabled = true;
         this.rejectDisabled = false;

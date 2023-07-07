@@ -28,7 +28,7 @@ export class UserEmailverifyComponent implements OnInit {
       const verifyCode = this.verificationForm.value.verifyCode;
 
       this._userService.verifyUser(verifyCode).subscribe((response)=>{
-        console.log(response);
+      
         this.verify = response.verified
         if (this.verify) {
           // this.toastr.success('Verification successful!', 'Success');
@@ -41,7 +41,7 @@ export class UserEmailverifyComponent implements OnInit {
       })
       // Send the verifyCode to the backend
       // You can make an API call here using Angular's HttpClient
-      console.log(verifyCode);
+      
     } else {
       // Form is invalid, handle the error or display validation messages
       console.log('Invalid form');

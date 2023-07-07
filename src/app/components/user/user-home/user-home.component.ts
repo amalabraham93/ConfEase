@@ -19,7 +19,7 @@ export class UserHomeComponent implements OnInit {
     this.getConference();
     this._auth.isLoggedInn()
     this._auth.active().subscribe((response:any)=>{
-       console.log(response);
+      
      this.role = response
     })
 
@@ -29,7 +29,7 @@ export class UserHomeComponent implements OnInit {
   getConference(){
     this._conferenceservices.getAllconferences().subscribe (
       (response:any) =>{
-        console.log(response);
+     
         this.conferences = response.conferences
         
       },
@@ -41,7 +41,7 @@ export class UserHomeComponent implements OnInit {
 
   logout(){
     this._auth.logout().subscribe((response:any)=>{
-      console.log(response)
+     
     })
   }
 
