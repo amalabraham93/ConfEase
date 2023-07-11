@@ -23,6 +23,10 @@
           </li>
       
           <li *ngIf="user.role === 'author'" class="nav-item" routerLinkActive="active">
+            <a class="nav-link click-scroll" routerLink="/conference/{{conferenceId}}/submission">Submission</a>
+          </li>
+      
+          <li *ngIf="user.role === 'author'" class="nav-item" routerLinkActive="active">
             <a class="nav-link click-scroll" routerLink="/conference/{{conferenceId}}/presentation">Presentation</a>
           </li>
       

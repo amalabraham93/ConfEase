@@ -20,7 +20,12 @@ export class UsersService {
     
     return this._http.post<any>(`${this.api}/users/verify/${token}`,{withCredentials:true})
   }
-
+  
+  makePayment(stripeToken: any,paymentData:any):Observable<any>{
+    console.log(stripeToken,paymentData);
+    
+    return this._http.post<any>(`${this.api}/users/payment/`,{stripeToken,paymentData},{withCredentials:true})
+  }
 
 
 }

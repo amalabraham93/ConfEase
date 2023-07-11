@@ -1,27 +1,31 @@
-<app-user-nav></app-user-nav>
-
 <div class="container">
-    <div class="row">
-      <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-        <h1 class="text-center mt-4">Payment Details</h1>
-        <div class="card mt-4">
-          <div class="card-body">
-            <h5 class="card-title">Conference Name: {{ conferenceName }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Paper Name: {{ paperName }}</h6>
-            <h6 class="card-subtitle mb-2 text-muted">Amount: {{ amount }}</h6>
-            <form>
-              <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" required>
-              </div>
-              <div class="mb-3">
-                <label for="phone" class="form-label">Phone Number</label>
-                <input type="tel" class="form-control" id="phone" name="phone" [(ngModel)]="phone" required>
-              </div>
-              <button class="btn btn-primary btn-lg btn-block" (click)="makePayment()">Make Payment</button>
-            </form>
+  <div class="row">
+    <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+      <h1 class="text-center mt-4">Payment Details</h1>
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title">Conference Name: {{ conferenceName }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Paper Name: {{ paperName }}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">Amount: {{ amount }}</h6>
+          <form>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" id="phone" name="phone" [(ngModel)]="phone" required>
+            </div>
+            <button class="btn btn-primary btn-lg btn-block" (click)="makePayment()">Make Payment</button>
+          </form>
+          <div *ngIf="success" class="alert alert-success mt-3" role="alert">
+            Payment has been successful!
+          </div>
+          <div *ngIf="failure" class="alert alert-danger mt-3" role="alert">
+            Payment failed. Please try again.
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>

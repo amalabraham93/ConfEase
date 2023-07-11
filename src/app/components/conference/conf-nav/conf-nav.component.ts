@@ -18,7 +18,6 @@ user:any;
       this.conferenceId = params['id']
     })
     this._userService.getUser().subscribe(res =>{
-      console.log(res);
       this.user = res.user;
     })
   

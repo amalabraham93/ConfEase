@@ -90,6 +90,8 @@ export class ConfPresentationComponent implements OnInit {
     const socket = io(environment.apiUrl);
     this.api.on('videoConferenceJoined', () => {
       const videoStream = this.api.getLivestreamURL();
+      console.log(videoStream);
+      
       socket.emit('videoStream', videoStream);
     });
 

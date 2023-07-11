@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PaperService } from 'src/app/services/papers/paper.service';
+import { UsersService } from 'src/app/services/user/users.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -15,42 +16,43 @@ export class PaymentComponent {
   email!: string;
   phone!: string;
   paperId!: string;
-
+  success: boolean = false;
+  failure: boolean = false;
   paymentHandler: any = null;
-  stripeAPIKey: any = environment.stripe.publishableKey
-  constructor(private route: ActivatedRoute,private _paperService:PaperService, ) {}
+  stripeAPIKey: any = environment.stripe.publishableKey;
+
+  constructor(
+    private route: ActivatedRoute,
+    private _paperService: PaperService,
+    private _paymentService: UsersService
+  ) {}
 
   ngOnInit() {
-
     this.invokeStripe();
-    // Get the paper ID from the route params
-
 
     this.route.params.subscribe(params => {
       this.paperId = params['paperId'];
-    
-       
-      
       this.amount = 50.00;
     });
 
-    this._paperService.getPaperById(this.paperId).subscribe((res)=>{
+    this._paperService.getPaperById(this.paperId).subscribe(res => {
       this.conferenceName = res.paper.conference.name;
       this.paperName = res.paper.submissionTitle;
-      })
+    });
   }
 
   makePayment() {
-    // Add your payment submission logic here
     console.log('Payment Details:', this.email, this.phone);
     const paymentHandler = (<any>window).StripeCheckout.configure({
       key: this.stripeAPIKey,
       locale: 'auto',
-      token: function (stripeToken: any) {
+      token: (stripeToken: any) => {
         console.log(stripeToken);
         alert('Stripe token generated!');
+        this.paymentstripe(stripeToken);
       },
     });
+
     paymentHandler.open({
       name: 'ConfEase',
       description: 'Paper Submission',
@@ -58,11 +60,32 @@ export class PaymentComponent {
     });
   }
 
+  paymentstripe(stripeToken: any) {
+    const paymentData = {
+      paperId: this.paperId,
+      amount: this.amount,
+    };
+
+    this._paymentService.makePayment(stripeToken, paymentData).subscribe(
+      (data: any) => {
+        console.log(data);
+        if (data.success) {
+          this.success = true;
+        } else {
+          this.failure = true;
+        }
+      },
+      (error: any) => {
+        console.log(error);
+        this.failure = true;
+      }
+    );
+  }
 
   invokeStripe() {
     if (!window.document.getElementById('stripe-script')) {
       const script = window.document.createElement('script');
-  
+
       script.id = 'stripe-script';
       script.type = 'text/javascript';
       script.src = 'https://checkout.stripe.com/checkout.js';
@@ -72,13 +95,12 @@ export class PaymentComponent {
           locale: 'auto',
           token: function (stripeToken: any) {
             console.log(stripeToken);
-            alert('Payment has been successfull!');
+            // alert('Payment has been successful!');
           },
         });
       };
-  
+
       window.document.body.appendChild(script);
     }
   }
-
 }

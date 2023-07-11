@@ -22,8 +22,8 @@ export class ConferenceService  {
     return this.http.get<any>(`${this.api}/organizers/conferences`,{withCredentials:true})
 
   }
-  getConfById(id:string): Observable<any>{
-    return this.http.get<any>(`${this.api}/organizers/conferences/${id}`,{withCredentials:true})
+  getConfById(confId:string): Observable<any>{
+    return this.http.get<any>(`${this.api}/organizers/conferences/${confId}`,{withCredentials:true})
 
   }
 

@@ -13,6 +13,7 @@ export class ConferenceEffects {
       mergeMap(() =>
         this.conferenceService.getAllconferences().pipe(
           map((conferences) => loadConferencesSuccess({ conferences })),
+          
           catchError((error) => of(loadConferencesFailure({ error })))
         )
       )
