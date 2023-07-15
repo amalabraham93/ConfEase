@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
-import { ConferenceService } from 'src/app/services/organizer/conference.service';
+import { AuthService } from '../../../services/auth.service';
+import { ConferenceService } from '../../../services/organizer/conference.service';
 import { Store, select } from '@ngrx/store';
-import { loadConferences } from 'src/app/store/conference/confernce.action';
+import { loadConferences } from '../../../store/conference/confernce.action';
 import { selectConferences, selectConferenceLoading, selectConferenceError } from '../../../store/conference/conference.selectors';
 import { Subscription } from 'rxjs';
 

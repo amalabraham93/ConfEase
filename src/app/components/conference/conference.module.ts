@@ -17,7 +17,6 @@ import { ConfAttenttePresentationComponent } from './conf-attentte-presentation/
 import { ConfAttentteBuyTicketsComponent } from './conf-attentte-buy-tickets/conf-attentte-buy-tickets.component';
 
 
-
 const conferenceRoutes : Routes = [
   {path: '', component: ConferenceComponent,
    children: [
@@ -58,7 +57,9 @@ const conferenceRoutes : Routes = [
     ReactiveFormsModule,
     CKEditorModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    
+    
    
   ]
 })

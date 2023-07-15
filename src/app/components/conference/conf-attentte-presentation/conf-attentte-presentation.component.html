@@ -1,12 +1,13 @@
 <app-conf-nav></app-conf-nav>
 
-
-
-
 <div class="container">
-    <img src="https://content.kumospace.com/hubfs/iStock-1225637333.jpg" alt="Conference Image" class="conference-image">
-    <h1>Live Conference Stream</h1>
-    <button class="btn btn-primary" (click)="joinConference()">Join Conference</button>
-    <div id="video-container"></div>
-    
-</div>
+  <img src="https://content.kumospace.com/hubfs/iStock-1225637333.jpg" alt="Conference Image" class="conference-image">
+  <h1>Live Conference Stream</h1>
+  <div class="container">
+    <!-- <button class="btn btn-primary" (click)="joinAgoraChannel()" [disabled]="joinedAgoraChannel">Join Live Stream</button>
+    <button class="btn btn-primary" (click)="leaveAgoraChannel()" [disabled]="!joinedAgoraChannel">Leave Live Stream</button> -->
+    <div id="video-container">
+      <div *ngFor="let user of agoraRemoteUsers" [id]="'remote-video-' + user.uid"></div>
+    </div>
+  </div>
+  </div>

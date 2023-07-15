@@ -65,15 +65,22 @@
                   <td>
                     <span *ngIf="paper.approved === true">Approved</span>
                     <span *ngIf="paper.approved === false">Rejected</span>
-                    <span *ngIf="paper.approved ===null">Pending</span>
+                    <span *ngIf="paper.approved === null">Pending</span>
                   </td>
                   <td>
                     <button
                       class="btn btn-secondary"
-                      *ngIf="paper.approved"
+                      *ngIf="paper.approved && currentUser && currentUser.transactions.includes(paper._id)"
                       (click)="payForConference(paper._id)"
                     >
-                      Pay Now
+                      Paid
+                    </button>
+                    <button
+                      class="btn btn-secondary"
+                      *ngIf="paper.approved && currentUser && !currentUser.transactions.includes(paper._id)"
+                      (click)="payForConference(paper._id)"
+                    >
+                      Pay Now 
                     </button>
                   </td>
                 </tr>
@@ -85,6 +92,7 @@
     </tbody>
   </table>
 </div>
+
 
 <!-- <div class="container-fluid m-5">
   <table class="table">

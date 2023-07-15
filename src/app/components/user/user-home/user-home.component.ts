@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
-import { ConferenceService } from 'src/app/services/organizer/conference.service';
+import { AuthService } from '../../../services/auth.service';
+import { ConferenceService } from '../../../services/organizer/conference.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -49,7 +49,5 @@ export class UserHomeComponent implements OnInit, OnDestroy {
     );
   }
 
-  logout() {
-    this._auth.logout().subscribe((response: any) => {});
-  }
+
 }

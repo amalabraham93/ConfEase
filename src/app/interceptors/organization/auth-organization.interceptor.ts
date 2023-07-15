@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
-import { SpinnerService } from 'src/app/shared/spinner/spinner.service';
+import { SpinnerService } from '../../shared/spinner/spinner.service';
 import { tap } from 'rxjs/operators';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 

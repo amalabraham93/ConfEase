@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PaperService } from 'src/app/services/papers/paper.service';
-import { UsersService } from 'src/app/services/user/users.service';
-import { environment } from 'src/environments/environment';
+import { PaperService } from '../../../services/papers/paper.service';
+import { UsersService } from '../../../services/user/users.service';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-payment',

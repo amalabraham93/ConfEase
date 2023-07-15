@@ -1,0 +1,94 @@
+<app-conf-nav></app-conf-nav>
+
+<div class="banner">
+  <h2>Schedule Conferences</h2>
+</div>
+
+<!-- Add Session Button -->
+<div class="add-session-button m-5">
+  <button class="btn btn-primary" (click)="open(demoModal)">Add Session</button>
+</div>
+
+<!-- Schedule Table -->
+<div class="schedule-table">
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Author Name</th>
+        <th>Paper Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let session of conferenceSessions">
+        <td>{{ session.date }}</td>
+        <td>{{ session.time }}</td>
+        <td>{{ session.authorName }}</td>
+        <td>{{ session.paperName }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Add Session Modal -->
+<ng-template #demoModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title">Add Session</h5>
+    <button type="button" class="close" (click)="closeAddSessionModal(modal)">
+      <span>&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input type="date" class="form-control" id="date" [(ngModel)]="newSession.date">
+    </div>
+    <div class="form-group">
+      <label for="time">Time</label>
+      <input type="time" class="form-control" id="time" [(ngModel)]="newSession.time">
+    </div>
+    <div class="form-group">
+      <label for="authorName">Author Name</label>
+      <input type="text" class="form-control" id="authorName" [(ngModel)]="newSession.authorName">
+    </div>
+    <div class="form-group">
+      <label for="paperName">Paper Name</label>
+      <input type="text" class="form-control" id="paperName" [(ngModel)]="newSession.paperName">
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="closeAddSessionModal(modal)">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="addSession(modal)">Add</button>
+  </div>
+</ng-template>
+
+
+
+
+
+
+
+
+
+<!-- <ng-template #demoModal let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="dateOfBirth">Date of birth</label>
+            <div class="input-group">
+              <input id="dateOfBirth" name="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" ngbDatepicker #dp="ngbDatepicker">
+              <button type="button" class="btn btn-outline-secondary bi bi-calendar" (click)="dp.toggle()"></button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+      </div>
+    </ng-template>
+ -->

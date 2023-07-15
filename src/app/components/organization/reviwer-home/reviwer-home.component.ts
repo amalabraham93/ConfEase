@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ConferenceService } from 'src/app/services/organizer/conference.service';
+import { ConferenceService } from '../../../services/organizer/conference.service';
 
 @Component({
   selector: 'app-reviwer-home',

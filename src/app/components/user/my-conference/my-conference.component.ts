@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { RegsiterConfService } from 'src/app/services/conference/regsiter-conf.service';
-import { ConferenceService } from 'src/app/services/organizer/conference.service';
+import { RegsiterConfService } from '../../../services/conference/regsiter-conf.service';
+import { ConferenceService } from '../../../services/organizer/conference.service';
+import { UsersService } from '../../../services/user/users.service';
 
 @Component({
   selector: 'app-my-conference',
@@ -14,11 +15,13 @@ export class MyConferenceComponent implements OnInit {
   searchValue = '';
   selectedConference: any = null;
   showPaperList = false;
+  currentUser: any ;
 
   constructor(
     private _conferenceService: RegsiterConfService,
     private router: Router,
-    private _paperService: ConferenceService
+    private _paperService: ConferenceService,
+    private _userService: UsersService
   ) {}
 
   ngOnInit(): void {
@@ -32,6 +35,12 @@ export class MyConferenceComponent implements OnInit {
       this.getMyPaper();
       this.filteredConference = [...this.myConference];
     });
+
+    this._userService.getUser().subscribe((user) => {
+      this.currentUser = user.user;
+    });
+    
+    
   }
 
   getMyPaper() {
@@ -85,6 +94,11 @@ export class MyConferenceComponent implements OnInit {
   }
 
   payForConference(paperId: any) {
-    this.router.navigate(['/user', 'payment', paperId]);
+    if (this.currentUser && this.currentUser.transactions.includes(paperId)) {
+      // User has a transaction with the paper ID, treat as paid
+      console.log('User has paid for the conference');
+    } else {
+      this.router.navigate(['/user', 'payment', paperId]);
+    }
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { RegsiterConfService } from 'src/app/services/conference/regsiter-conf.service';
+import { RegsiterConfService } from '../../../services/conference/regsiter-conf.service';
 
 @Component({
   selector: 'app-conf-register',

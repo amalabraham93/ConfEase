@@ -1,0 +1,52 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Banner Styles */
+  .banner {
+    background-color: #4287f5;
+    padding: 20px;
+    color: #fff;
+  }
+  
+  .banner h2 {
+    margin: 0;
+  }
+  
+  /* Add Session Button Styles */
+  .add-session-button {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Schedule Table Styles */
+  .schedule-table {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Modal Styles */
+  .modal-header {
+    background-color: #4287f5;
+    color: #fff;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .modal-footer {
+    background-color: #f1f1f1;
+    padding: 10px;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .schedule-table {
+      max-width: 100%;
+      padding: 0 10px;
+    }
+  }

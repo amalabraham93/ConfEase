@@ -5,7 +5,7 @@ import { OrgLoginComponent } from './org-login/org-login.component';
 import { OrgSignupComponent } from './org-signup/org-signup.component';
 import { OrgHomeComponent } from './org-home/org-home.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule,NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { MyConferenceComponent } from './my-conference/my-conference.component';
 import { ConferenceDashboardComponent } from './conference-dashboard/conference-dashboard.component'; 
@@ -24,6 +24,11 @@ import { ReviwerHomeComponent } from './reviwer-home/reviwer-home.component';
 import { ReviwerPaperViewComponent } from './reviwer-paper-view/reviwer-paper-view.component';
 import { AuthOrganizationInterceptor } from 'src/app/interceptors/organization/auth-organization.interceptor';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ConfScheduleComponent } from './conf-schedule/conf-schedule.component';
+import { AddSessionDialogComponent } from './add-session-dialog/add-session-dialog.component';
+import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
 
 
 
@@ -41,6 +46,7 @@ const organizationRoutes : Routes = [
      { path: 'conf-submission/:id', component: ConfSubmissionsComponent},
      { path: 'conf-presentation/:id', component: ConfPresentationComponent},
      { path: 'conf-committe/:id', component: ConfCommitteComponent},
+     { path: 'conf-schedule/:id', component: ConfScheduleComponent},
      { path: 'review-login/:id', component: ReviwerLoginComponent},
      { path: 'review-home/:id', component: ReviwerHomeComponent},
      { path: 'review-paper/:id/:paperId', component: ReviwerPaperViewComponent},
@@ -66,7 +72,9 @@ const organizationRoutes : Routes = [
     ConfCommitteComponent,
     ReviwerLoginComponent,
     ReviwerHomeComponent,
-    ReviwerPaperViewComponent
+    ReviwerPaperViewComponent,
+    ConfScheduleComponent,
+    AddSessionDialogComponent
   ],
   imports: [
     CommonModule,
@@ -75,7 +83,12 @@ const organizationRoutes : Routes = [
     NgbModule,
     NgbDropdownModule,
     MatMenuModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    
+
   ],
   providers: [
     

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ConferenceService } from 'src/app/services/organizer/conference.service';
+import { ConferenceService } from '../../../services/organizer/conference.service';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 

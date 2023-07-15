@@ -29,11 +29,11 @@ const userRoutes : Routes = [
      
      { path: 'home', component: UserHomeComponent , canActivate: [AuthGuard]},
      { path: 'login', component: UserLoginComponent ,canActivate: [AuthGuard]},
-     { path: 'signup', component: UserSignupComponent },  
+     { path: 'signup', component: UserSignupComponent,canActivate: [AuthGuard] },  
      { path: 'conferenece', component: UserConferenceComponent },  
      { path: 'verify-email', component: UserEmailverifyComponent },  
      { path: 'my-conference', component: MyConferenceComponent },  
-     { path: 'profile', component: ProfileComponent },  
+     { path: 'profile', component: ProfileComponent,canActivate: [AuthGuard] },  
      { path: 'payment/:paperId', component: PaymentComponent },  
      
      // Add more routes for other views or pages in the admin side

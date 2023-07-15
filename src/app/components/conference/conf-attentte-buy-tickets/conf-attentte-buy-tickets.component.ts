@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ConferenceService } from 'src/app/services/organizer/conference.service';
-import { UsersService } from 'src/app/services/user/users.service';
-import { environment } from 'src/environments/environment';
+import { ConferenceService } from '../../../services/organizer/conference.service';
+import { UsersService } from '../../../services/user/users.service';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-conf-attentte-buy-tickets',

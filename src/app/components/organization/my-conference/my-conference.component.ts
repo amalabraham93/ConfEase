@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ConferenceService } from 'src/app/services/organizer/conference.service';
+import { ConferenceService } from '../../../services/organizer/conference.service';
 import { Observer } from 'rxjs';
 import { Router } from '@angular/router';
 

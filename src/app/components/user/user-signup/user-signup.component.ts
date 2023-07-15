@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-user-signup',
@@ -54,13 +54,11 @@ export class UserSignupComponent implements OnInit {
       console.log(name, email, password, role);
       this._auth.signup(name, email, password, role).subscribe(
         (response) => {
-          console.log('Signup successful!', response);
-          console.log(response);
+         
           this._router.navigate(['/user/verify-email'])
         },
         (error) => {
 
-          console.error('Signup failed!', error);
           this.errorMessage = error.error.error; 
         }
       );

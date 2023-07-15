@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { RegsiterConfService } from 'src/app/services/conference/regsiter-conf.service';
+import { RegsiterConfService } from '../../../services/conference/regsiter-conf.service';
 import { formatDate } from '@angular/common';
 
 @Component({

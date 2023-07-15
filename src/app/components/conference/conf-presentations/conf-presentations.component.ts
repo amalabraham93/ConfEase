@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ConferenceService } from 'src/app/services/organizer/conference.service';
-import { UsersService } from 'src/app/services/user/users.service';
+import { ConferenceService } from '../../../services/organizer/conference.service';
+import { UsersService } from '../../../services/user/users.service';
 declare var JitsiMeetExternalAPI: any;
 
 @Component({
@@ -64,5 +64,7 @@ showErrorMessage: boolean = false;
     };
     
     const api = new JitsiMeetExternalAPI(domain, options);
+
+    
   }
 }

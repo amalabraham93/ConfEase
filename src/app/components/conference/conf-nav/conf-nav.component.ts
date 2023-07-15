@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { UsersService } from 'src/app/services/user/users.service';
+import { UsersService } from '../../../services/user/users.service';
 
 @Component({
   selector: 'app-conf-nav',

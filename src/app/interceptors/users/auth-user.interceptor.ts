@@ -10,7 +10,7 @@ import {
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
-import { SpinnerService } from 'src/app/shared/spinner/spinner.service';
+import { SpinnerService } from '../../shared/spinner/spinner.service';
 
 @Injectable()
 export class AuthUserInterceptor implements HttpInterceptor {
