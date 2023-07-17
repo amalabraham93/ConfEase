@@ -39,7 +39,6 @@ export class OrgSignupComponent implements OnInit {
         response => {
           this._router.navigate(['/home'])
 
-          console.log('Signup successful!', response);
         },
         error => {
           console.error('Signup failed!', error);

@@ -6,6 +6,7 @@
   <div class="container">
     <!-- <button class="btn btn-primary" (click)="joinAgoraChannel()" [disabled]="joinedAgoraChannel">Join Live Stream</button>
     <button class="btn btn-primary" (click)="leaveAgoraChannel()" [disabled]="!joinedAgoraChannel">Leave Live Stream</button> -->
+    <video src="" id="remoteVideo"></video>
     <div id="video-container">
       <div *ngFor="let user of agoraRemoteUsers" [id]="'remote-video-' + user.uid"></div>
     </div>

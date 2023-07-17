@@ -18,7 +18,8 @@ export class AuthUserInterceptor implements HttpInterceptor {
   constructor(private _cookie: CookieService, private _spinner: SpinnerService) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-  const token = localStorage.getItem('jwt-user');
+  const token = localStorage.getItem('jwt-user') ;
+ 
   let authReq: HttpRequest<any>;
 
   if (token) {

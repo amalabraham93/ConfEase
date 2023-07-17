@@ -27,6 +27,7 @@ export class ConfScheduleComponent implements OnInit {
 
     this._paperService.getPaperByConfId(this.conferenceId).subscribe((data) => {
       console.log(data);
+      
     });
   }
 

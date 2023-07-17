@@ -42,12 +42,10 @@ export class ReviwerLoginComponent implements OnInit {
         },
         error => {
           // Handle the error response from the backend
-          console.log('Login failed', error);
         }
       );
     } else {
       // Form is invalid, handle the error or display validation messages
-      console.log('Invalid form');
     }
   }
 }

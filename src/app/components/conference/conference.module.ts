@@ -15,6 +15,7 @@ import { CKEditorModule,CKEditorComponent } from '@ckeditor/ckeditor5-angular';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConfAttenttePresentationComponent } from './conf-attentte-presentation/conf-attentte-presentation.component';
 import { ConfAttentteBuyTicketsComponent } from './conf-attentte-buy-tickets/conf-attentte-buy-tickets.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 const conferenceRoutes : Routes = [
@@ -58,6 +59,7 @@ const conferenceRoutes : Routes = [
     CKEditorModule,
     FormsModule,
     NgbModule,
+    MatTabsModule
     
     
    

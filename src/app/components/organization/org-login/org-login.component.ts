@@ -49,7 +49,6 @@ export class OrgLoginComponent implements OnInit {
         },
         error => {
            this.errorms = error.error.error
-          console.log(error);
           
         }
       );

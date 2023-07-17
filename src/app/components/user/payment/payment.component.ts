@@ -47,7 +47,6 @@ export class PaymentComponent {
       key: this.stripeAPIKey,
       locale: 'auto',
       token: (stripeToken: any) => {
-        console.log(stripeToken);
         alert('Stripe token generated!');
         this.paymentstripe(stripeToken);
       },
@@ -68,7 +67,6 @@ export class PaymentComponent {
 
     this._paymentService.makePayment(stripeToken, paymentData).subscribe(
       (data: any) => {
-        console.log(data);
         if (data.success) {
           this.success = true;
         } else {
@@ -76,7 +74,6 @@ export class PaymentComponent {
         }
       },
       (error: any) => {
-        console.log(error);
         this.failure = true;
       }
     );
@@ -94,7 +91,6 @@ export class PaymentComponent {
           key: this.stripeAPIKey,
           locale: 'auto',
           token: function (stripeToken: any) {
-            console.log(stripeToken);
             // alert('Payment has been successful!');
           },
         });

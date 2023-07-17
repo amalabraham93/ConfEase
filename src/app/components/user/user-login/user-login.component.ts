@@ -46,13 +46,13 @@ export class UserLoginComponent implements OnInit {
         response => {
           // handle successful login
           localStorage.setItem('jwt-user',response.token)
+        
           this._router.navigate(['/user/home'])
 
         },
         error => {
           // handle login error
           this.errorms = error.error.error
-          console.log(error.error);
 
         }
       );

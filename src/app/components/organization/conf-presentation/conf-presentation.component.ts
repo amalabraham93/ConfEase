@@ -149,7 +149,6 @@ export class ConfPresentationComponent implements OnInit {
 
   handleParticipantJoined = async (participant: any) => {
     const data = await this.getParticipants();
-    console.log(data);
     
   };
 

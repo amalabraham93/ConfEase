@@ -85,7 +85,6 @@ export class ConfSubmissionComponent implements OnInit {
 
   onChange(event: any) {
     // Handle the change event for the CKEditor
-    console.log(event);
   }
 
   onSubmit() {

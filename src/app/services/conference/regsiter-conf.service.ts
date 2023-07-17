@@ -27,9 +27,20 @@ export class RegsiterConfService {
     return this._http.get<any>(`${this.api}/organizers/conference/users-conf`,{withCredentials:true})
     
   }
+  updateConference(id:string,name:string,startDate:Date,endDate:Date): Observable<any>{
+    return this._http.put<any>(`${this.api}/organizers/conference/update-conf/${id}`,{name,startDate,endDate},{withCredentials:true})
+    
+  }
   startPresentation(stream_key:string,confId:string): Observable<any>{
     return this._http.post<any>(`${this.api}/organizers/presentation/start`,{stream_key,confId},{withCredentials:true})
     
   }
+  
+  getConfById(confId:string): Observable<any>{
+    return this._http.get<any>(`${this.api}/organizers/conferences/${confId}`,{withCredentials:true})
+
+  }
+
+  
 
 }

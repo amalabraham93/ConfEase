@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule,DatePipe } from '@angular/common';
 import { OrganizationComponent } from './organization.component';
 import { OrgLoginComponent } from './org-login/org-login.component';
 import { OrgSignupComponent } from './org-signup/org-signup.component';
@@ -29,6 +29,7 @@ import { AddSessionDialogComponent } from './add-session-dialog/add-session-dial
 import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -87,10 +88,13 @@ const organizationRoutes : Routes = [
     FormsModule,
     MatFormFieldModule,
     MatDialogModule,
+    MatCardModule,
+    
     
 
   ],
   providers: [
+    DatePipe,
     
     { provide: HTTP_INTERCEPTORS, useClass: AuthOrganizationInterceptor, multi: true } ,
     

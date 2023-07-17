@@ -15,7 +15,7 @@ export class MyConferenceComponent implements OnInit {
   searchValue = '';
   selectedConference: any = null;
   showPaperList = false;
-  currentUser: any ;
+  currentUser: any;
 
   constructor(
     private _conferenceService: RegsiterConfService,
@@ -38,9 +38,19 @@ export class MyConferenceComponent implements OnInit {
 
     this._userService.getUser().subscribe((user) => {
       this.currentUser = user.user;
+
+      this.checkPaperPayment(); // Call checkPaperPayment() here
     });
-    
-    
+  }
+
+  checkPaperPayment() {
+    if (this.currentUser) {
+      this.myConference.forEach((conference) => {
+        conference.papers.forEach((paper: any) => {
+          paper.paid = this.currentUser.transactions.some((transaction: any) => transaction.paperId === paper._id);
+        });
+      });
+    }
   }
 
   getMyPaper() {
@@ -86,7 +96,6 @@ export class MyConferenceComponent implements OnInit {
       if (Array.isArray(res.paper)) {
         const papers = res.paper.filter((paper: any) => paper.conference === conferenceId);
         this.selectedConference.papers = papers;
-        console.log(this.selectedConference.papers);
       } else {
         console.error('Invalid response format for getPaperByUserId(). Expected an array in the "paper" property.');
       }
@@ -94,8 +103,12 @@ export class MyConferenceComponent implements OnInit {
   }
 
   payForConference(paperId: any) {
-    if (this.currentUser && this.currentUser.transactions.includes(paperId)) {
-      // User has a transaction with the paper ID, treat as paid
+    const paper = this.myConference
+      .flatMap((conference) => conference.papers)
+      .find((paper: any) => paper._id === paperId);
+
+    if (paper && paper.paid) {
+      // User has already paid for the paper
       console.log('User has paid for the conference');
     } else {
       this.router.navigate(['/user', 'payment', paperId]);

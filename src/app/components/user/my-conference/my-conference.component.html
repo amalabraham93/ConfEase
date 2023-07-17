@@ -68,19 +68,13 @@
                     <span *ngIf="paper.approved === null">Pending</span>
                   </td>
                   <td>
+                    <span *ngIf="paper.paid">Paid</span>
                     <button
                       class="btn btn-secondary"
-                      *ngIf="paper.approved && currentUser && currentUser.transactions.includes(paper._id)"
+                      *ngIf="!paper.paid"
                       (click)="payForConference(paper._id)"
                     >
-                      Paid
-                    </button>
-                    <button
-                      class="btn btn-secondary"
-                      *ngIf="paper.approved && currentUser && !currentUser.transactions.includes(paper._id)"
-                      (click)="payForConference(paper._id)"
-                    >
-                      Pay Now 
+                      Pay Now
                     </button>
                   </td>
                 </tr>
@@ -92,33 +86,3 @@
     </tbody>
   </table>
 </div>
-
-
-<!-- <div class="container-fluid m-5">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Sr.No</th>
-        <th>Name</th>
-        <th>Date</th>
-        <th>Status</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let conference of myConference">
-        <td></td>
-        <td>{{ conference.name }}</td>
-        <td>{{ conference.startDate | date: 'longDate' }}</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-</div> -->
-
-
-
-
-
-
-

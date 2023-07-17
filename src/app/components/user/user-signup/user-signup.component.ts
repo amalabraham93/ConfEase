@@ -51,7 +51,6 @@ export class UserSignupComponent implements OnInit {
   onSubmit() {
     if (this.signupForm.valid) {
       const { name, email, password, role } = this.signupForm.value;
-      console.log(name, email, password, role);
       this._auth.signup(name, email, password, role).subscribe(
         (response) => {
          

@@ -40,7 +40,6 @@ export class UserNavComponent implements OnInit {
 
   logout(){
     this._auth.logout().subscribe((response:any)=>{
-      console.log(response)
     })
   }
 
