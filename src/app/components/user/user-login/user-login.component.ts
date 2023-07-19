@@ -46,7 +46,7 @@ export class UserLoginComponent implements OnInit {
         response => {
           // handle successful login
           localStorage.setItem('jwt-user',response.token)
-        
+         
           this._router.navigate(['/user/home'])
 
         },

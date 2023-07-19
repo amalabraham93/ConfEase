@@ -3,6 +3,19 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
+
+ interface Session {
+  time: string;
+  authorName: string;
+  paperName: string;
+}
+
+ interface ScheduleDate {
+  date: Date;
+  sessions: Session[];
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -40,6 +53,11 @@ export class RegsiterConfService {
     return this._http.get<any>(`${this.api}/organizers/conferences/${confId}`,{withCredentials:true})
 
   }
+  addSession(confId:string,sessionDate:Date,session:Session): Observable<any>{
+    return this._http.post<any>(`${this.api}/organizers/conference/add-session`,{confId,sessionDate,session},{withCredentials:true})
+
+  }
+
 
   
 

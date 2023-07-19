@@ -22,7 +22,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let session of conferenceSessions">
-        <td>{{ session.date }}</td>
+        <td>{{ session.date | date :'d/M/yyyy' }}</td>
         <td>{{ session.time }}</td>
         <td>{{ session.authorName }}</td>
         <td>{{ session.paperName }}</td>
@@ -40,55 +40,52 @@
     </button>
   </div>
   <div class="modal-body">
-    <div class="form-group">
-      <label for="date">Date</label>
-      <input type="date" class="form-control" id="date" [(ngModel)]="newSession.date">
-    </div>
-    <div class="form-group">
-      <label for="time">Time</label>
-      <input type="time" class="form-control" id="time" [(ngModel)]="newSession.time">
-    </div>
-    <div class="form-group">
-      <label for="authorName">Author Name</label>
-      <input type="text" class="form-control" id="authorName" [(ngModel)]="newSession.authorName">
-    </div>
-    <div class="form-group">
-      <label for="paperName">Paper Name</label>
-      <input type="text" class="form-control" id="paperName" [(ngModel)]="newSession.paperName">
-    </div>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="closeAddSessionModal(modal)">Cancel</button>
-    <button type="button" class="btn btn-primary" (click)="addSession(modal)">Add</button>
-  </div>
-</ng-template>
-
-
-
-
-
-
-
-
-
-<!-- <ng-template #demoModal let-modal>
-      <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    <form [formGroup]="newSessionForm" (ngSubmit)="addSession(modal)">
+      <div class="form-group">
+        <label for="date">Date</label>
+        <select class="form-control" id="date" formControlName="date" [(ngModel)]="selectedDate">
+          <option value="">Select Date</option>
+          <option *ngFor="let date of availableDates" [value]="date">{{ date | date :'d/M/yyyy' }}</option>
+        </select>
+        <div *ngIf="formSubmitted && newSessionForm.get('date')!.invalid" class="text-danger">
+          Date is required.
+        </div>
       </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="dateOfBirth">Date of birth</label>
-            <div class="input-group">
-              <input id="dateOfBirth" name="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" ngbDatepicker #dp="ngbDatepicker">
-              <button type="button" class="btn btn-outline-secondary bi bi-calendar" (click)="dp.toggle()"></button>
-            </div>
-          </div>
-        </form>
+      <div class="form-group">
+        <label for="time">Time</label>
+        <select class="form-control" id="time" formControlName="time" [(ngModel)]="selectedTime">
+          <option value="">Select Time</option>
+          <option *ngFor="let time of availableTimes" [value]="time">{{ time }}</option>
+        </select>
+        <div *ngIf="formSubmitted && newSessionForm.get('time')!.invalid" class="text-danger">
+          Time is required.
+        </div>
+        <div *ngIf="formSubmitted && !isWithinTimeLimit()" class="text-danger">
+          Session time exceeds the conference time limit.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="authorName">Author Name</label>
+        <select class="form-control" id="authorName" formControlName="authorName">
+          <option value="">Select Author Name</option>
+          <option *ngFor="let author of getUniqueAuthors()" [value]="author">{{ author }}</option>
+        </select>
+        <div *ngIf="formSubmitted && newSessionForm.get('authorName')!.invalid" class="text-danger">
+          Author Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="paperName">Paper Name</label>
+        <input type="text" class="form-control" id="paperName" formControlName="paperName"
+          [value]="getPaperTitleByAuthor(newSessionForm.get('authorName')!.value)">
+        <div *ngIf="formSubmitted && newSessionForm.get('paperName')!.invalid" class="text-danger">
+          Paper Name is required.
+        </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+        <button type="button" class="btn btn-secondary" (click)="closeAddSessionModal(modal)">Cancel</button>
+        <button type="submit" class="btn btn-primary">Add</button>
       </div>
-    </ng-template>
- -->
+    </form>
+  </div>
+</ng-template>

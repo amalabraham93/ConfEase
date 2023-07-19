@@ -21,6 +21,8 @@ export class ConfAttenttePresentationComponent implements OnInit {
 
   ngOnInit(): void {
     this.agoraClient = AgoraRTC.createClient({ mode: 'live', codec: 'vp8' });
+    console.log(this.agoraClient,'clinenttttttttttttttttttttttttttttttt');
+    
     this.joinAgoraChannel();
     const remotePlayerContainer = document.createElement("div");
   }
