@@ -1,6 +1,6 @@
 export const environment = {
     production: false,
-    apiUrl: 'https://confease.site/',
+    apiUrl: 'https://confease.site',
 
     stripe:{
         publishableKey:'pk_test_51NG0h2SCNmb3oUKP0o93xHMq8khLhDi6GA1IFymQ2UMiN4EUTgTpVC8grDwvp1TRNssV4rvOYcFaOku40eS2ts9B00dzZrgdlQ',
