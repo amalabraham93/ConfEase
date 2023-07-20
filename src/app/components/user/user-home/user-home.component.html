@@ -11,8 +11,8 @@
             <div class="carousel-caption">
               <h2>{{ conference.name }}</h2>
               <p>Conference description goes here.</p>
-              <a *ngIf="role.user.role === 'author'" class="btn btn-primary" routerLink="/conference/{{conference._id}}/home">Register</a>
-              <a *ngIf="role.user.role === 'attendee'" class="btn btn-primary" routerLink="/conference/{{conference._id}}/attentte-buy-tickets">Buy Ticket</a>
+              <a *ngIf="role.user?.role === 'author'" class="btn btn-primary" routerLink="/conference/{{conference._id}}/home">Register</a>
+              <a *ngIf="role.user?.role === 'attendee'" class="btn btn-primary" routerLink="/conference/{{conference._id}}/attentte-buy-tickets">Buy Ticket</a>
             </div>
           </div>
         </div>
