@@ -12,23 +12,27 @@ export class AuthOrganizationInterceptor implements HttpInterceptor {
 
   constructor(private _cookie: CookieService, private _spinner: SpinnerService) { }
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token = localStorage.getItem('jwt-organizer');
-    let authReq: HttpRequest<any>;
-
+    
     if (token) {
-      authReq = request.clone({ setHeaders: { Authorization: token }, withCredentials: true });
-    } else {
-      authReq = request.clone();
-    }
+      // Add "Bearer" prefix to the token
+      const modifiedHeaders = request.headers.set('Authorization', 'Bearer ' + token);
+      // Clone the request with the modified headers
+      const authReq = request.clone({ headers: modifiedHeaders, withCredentials: true });
 
-    this._spinner.requestStarted();
-    return this.handler(next, authReq);
+      this._spinner.requestStarted();
+      return this.handler(next, authReq);
+    } else {
+      this._spinner.requestStarted();
+      return this.handler(next, request);
+    }
   }
 
   handler(next: HttpHandler, request: HttpRequest<any>) {
     return next.handle(request)
-      .pipe(tap(
+      .pipe(
+        tap(
           (event) => {
             if (event instanceof HttpResponse) {
               this._spinner.requestEnded();
