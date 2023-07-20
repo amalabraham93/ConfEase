@@ -27,6 +27,8 @@ export class UserHomeComponent implements OnInit, OnDestroy {
     this._auth.isLoggedInn();
     this.activeSubscription = this._auth.active().subscribe((response: any) => {
       this.role = response;
+      console.log(this.role);
+      
     });
 
     this._auth.isStoredAuthenticationValid();
