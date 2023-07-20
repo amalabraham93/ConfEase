@@ -27,6 +27,7 @@ import { conferenceReducer } from './store/conference/conference.reducer';
 import { StripeModule } from "stripe-angular"
 import { environment } from 'src/environments/environment';
 import { ToastrModule } from 'ngx-toastr';
+import { NotfoundComponent } from './components/notfound/notfound/notfound.component';
 
 
 
@@ -34,6 +35,7 @@ import { ToastrModule } from 'ngx-toastr';
   declarations: [
     AppComponent,
     SpinnerComponent,
+    NotfoundComponent,
    
   ],
   imports: [
