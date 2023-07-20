@@ -13,7 +13,7 @@ export class UsersService {
 
   getUser(): Observable<any>{
     
-    return this._http.get<any>(`${this.api}/users/get-user-by-id`,{withCredentials:true})
+    return this._http.get<any>(`${this.api}/users/get-user-by-id`)
   }
 
   verifyUser(token:string): Observable<any>{
