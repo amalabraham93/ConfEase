@@ -1,11 +1,19 @@
 <app-conf-nav></app-conf-nav>
 
 <div class="container">
-    <img src="https://img.freepik.com/free-vector/ecological-press-conference-member-speaking-stage-before-audience-presenting-graphs-with-earth_74855-14011.jpg?w=1060&t=st=1688666666~exp=1688667266~hmac=70d48b797eb415eef30a68cebfd113f0650ad103b187d11c2dbb03bd8c9a244b" alt="Conference Image" class="conference-image">
-    <h1>Join Conference</h1>
-    <div *ngIf="showErrorMessage" class="error-message">
-      <p>You have not submitted a paper to this conference.</p>
-    </div>
-    <button class="btn btn-primary" (click)="joinConference()" [disabled]="showErrorMessage">Join Conference</button>
-    <div id="jitsi-container"></div>
+  <img
+    src="https://img.freepik.com/free-vector/ecological-press-conference-member-speaking-stage-before-audience-presenting-graphs-with-earth_74855-14011.jpg?w=1060&t=st=1688666666~exp=1688667266~hmac=70d48b797eb415eef30a68cebfd113f0650ad103b187d11c2dbb03bd8c9a244b"
+    alt="Conference Image" class="conference-image"
+  >
+  <h1>Join Conference</h1>
+  <div *ngIf="showErrorMessage && roomId" class="error-message">
+    <p>You have not submitted a paper to this conference.</p>
   </div>
+  <div *ngIf="!roomId" class="error-message">
+    <p>Conference not started.</p>
+  </div>
+  <button class="btn btn-primary" (click)="joinConference()" [disabled]="showErrorMessage || !roomId">
+    Join Conference
+  </button>
+  <div id="jitsi-container"></div>
+</div>

@@ -11,14 +11,18 @@ declare var JitsiMeetExternalAPI: any;
   styleUrls: ['./conf-presentations.component.css']
 })
 export class ConfPresentationsComponent implements OnInit {
-conferenceId: string = '';
-user:any;
-paper:any;
-showErrorMessage: boolean = false;
-roomId:string = '';
- constructor( private _route: ActivatedRoute ,private _userService:UsersService,private _paperService:ConferenceService, private _presentaionService:RegsiterConfService) { }
+  conferenceId: string = '';
+  user: any;
+  paper: any;
+  showErrorMessage: boolean = false;
+  roomId: string = '';
 
-
+  constructor(
+    private _route: ActivatedRoute,
+    private _userService: UsersService,
+    private _paperService: ConferenceService,
+    private _presentaionService: RegsiterConfService
+  ) {}
 
   ngOnInit(): void {
     this._route.params.subscribe((params) => {
@@ -30,19 +34,17 @@ roomId:string = '';
 
       this._paperService.getPaperByConfId(this.conferenceId).subscribe((response) => {
         this.paper = response.paper;
-    
+
         this.checkUserAuthorization();
       });
     });
 
     this._presentaionService.getPresentation(this.conferenceId).subscribe((response) => {
-      console.log(response)
+      console.log(response);
       this.roomId = response.presentation.stream_key;
+      this.checkJoinAvailability();
     });
-      
   }
-
-
 
   checkUserAuthorization() {
     if (this.paper && Array.isArray(this.paper)) {
@@ -53,27 +55,30 @@ roomId:string = '';
     }
   }
 
+  checkJoinAvailability() {
+    if (!this.roomId) {
+      this.showErrorMessage = true;
+    }
+  }
 
   joinConference() {
     if (this.showErrorMessage) {
-       alert('You have not submitted a paper to this conference.');
+      alert('You have not submitted a paper to this conference.');
       return;
     }
 
     const domain = 'meet.jit.si';
-    const room = this.roomId; 
+    const room = this.roomId;
     const options = {
       roomName: room,
       // width: '100%',
       height: 900,
       parentNode: document.querySelector('#jitsi-container'),
       userInfo: {
-        displayName: `${this.user.name}` 
+        displayName: `${this.user.name}`
       }
     };
-    
-    const api = new JitsiMeetExternalAPI(domain, options);
 
-    
+    const api = new JitsiMeetExternalAPI(domain, options);
   }
 }

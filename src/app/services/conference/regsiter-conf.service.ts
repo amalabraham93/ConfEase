@@ -49,7 +49,7 @@ export class RegsiterConfService {
     
   }
   getPresentation(confId:string): Observable<any>{
-    return this._http.post<any>(`${this.api}/organizers/conference/${confId}/presentation`,{withCredentials:true})
+    return this._http.get<any>(`${this.api}/organizers/conference/${confId}/presentation`,{withCredentials:true})
     
   }
   
