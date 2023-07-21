@@ -15,7 +15,7 @@ export class AuthUserInterceptor implements HttpInterceptor {
 
     if (token) {
       // Add "Bearer" prefix to the token
-      const modifiedHeaders = request.headers.set('Authorization', 'Bearer ' + token);
+      const modifiedHeaders = request.headers.set('Authorization',  token);
       // Clone the request with the modified headers
       const authReq = request.clone({ headers: modifiedHeaders, withCredentials: true });
 
