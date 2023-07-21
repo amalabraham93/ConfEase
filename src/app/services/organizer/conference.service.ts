@@ -36,9 +36,9 @@ export class ConferenceService  {
   }
 
   getPaperByConfId(confId:string): Observable<any>{
-    return this.http.get<any>(`${this.api}/organizers/conference/${confId}/getpaper`)
+    return this.http.get<any>(`${this.api}/organizers/conference/${confId}/getpaper`,{withCredentials:true})
   }
   getPaperByUserId(): Observable<any>{
-    return this.http.get<any>(`${this.api}/organizers/conference/getpaper-user`)
+    return this.http.get<any>(`${this.api}/organizers/conference/getpaper-user`,{withCredentials:true})
   }
 }
