@@ -48,6 +48,10 @@ export class RegsiterConfService {
     return this._http.post<any>(`${this.api}/organizers/presentation/start`,{stream_key,confId})
     
   }
+  getPresentation(confId:string): Observable<any>{
+    return this._http.post<any>(`${this.api}/organizers/conference/${confId}/presentation`,{withCredentials:true})
+    
+  }
   
   getConfById(confId:string): Observable<any>{
     return this._http.get<any>(`${this.api}/organizers/conferences/${confId}`)

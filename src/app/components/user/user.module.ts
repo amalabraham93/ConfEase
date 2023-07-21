@@ -30,9 +30,9 @@ const userRoutes : Routes = [
      { path: 'home', component: UserHomeComponent ,},
      { path: 'login', component: UserLoginComponent ,canActivate: [AuthGuard]},
      { path: 'signup', component: UserSignupComponent},  
-     { path: 'conferenece', component: UserConferenceComponent ,canActivate: [AuthGuard] },  
+     { path: 'conferenece', component: UserConferenceComponent },  
      { path: 'verify-email', component: UserEmailverifyComponent },  
-     { path: 'my-conference', component: MyConferenceComponent,canActivate: [AuthGuard]  },  
+     { path: 'my-conference', component: MyConferenceComponent},  
      { path: 'profile', component: ProfileComponent,canActivate: [AuthGuard] },  
      { path: 'payment/:paperId', component: PaymentComponent, canActivate: [AuthGuard] },  
      

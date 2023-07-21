@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ConferenceService } from '../../../services/organizer/conference.service';
 import { UsersService } from '../../../services/user/users.service';
+import { RegsiterConfService } from 'src/app/services/conference/regsiter-conf.service';
 declare var JitsiMeetExternalAPI: any;
 
 @Component({
@@ -14,8 +15,8 @@ conferenceId: string = '';
 user:any;
 paper:any;
 showErrorMessage: boolean = false;
-
- constructor( private _route: ActivatedRoute ,private _userService:UsersService,private _paperService:ConferenceService) { }
+roomId:string = '';
+ constructor( private _route: ActivatedRoute ,private _userService:UsersService,private _paperService:ConferenceService, private _presentaionService:RegsiterConfService) { }
 
 
 
@@ -33,7 +34,15 @@ showErrorMessage: boolean = false;
         this.checkUserAuthorization();
       });
     });
+
+    this._presentaionService.getPresentation(this.conferenceId).subscribe((response) => {
+      console.log(response)
+      this.roomId = response.presentation.stream_key;
+    });
+      
   }
+
+
 
   checkUserAuthorization() {
     if (this.paper && Array.isArray(this.paper)) {
@@ -52,7 +61,7 @@ showErrorMessage: boolean = false;
     }
 
     const domain = 'meet.jit.si';
-    const room = `vpaas-magic-cookie-126f74bcc1c941a883de6197e188a8bd/${this.conferenceId}`; 
+    const room = this.roomId; 
     const options = {
       roomName: room,
       // width: '100%',
