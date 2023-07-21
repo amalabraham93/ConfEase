@@ -41,7 +41,7 @@ export class ConfPresentationsComponent implements OnInit {
 
     this._presentaionService.getPresentation(this.conferenceId).subscribe((response) => {
       console.log(response);
-      this.roomId = response.presentation.stream_key;
+      this.roomId = response[0].stream_key;
       this.checkJoinAvailability();
     });
   }
