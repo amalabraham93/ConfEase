@@ -63,8 +63,8 @@ export class AuthService {
     // Implement logic to check if stored authentication is valid
     // Return true if valid, false otherwise
     
-    const allCookies: {} = this._cookie.getAll();
-    const jwt = this._cookie.get("jwt-user")
+    // const allCookies: {} = this._cookie.getAll();
+    const jwt = localStorage.getItem("jwt-user")
      
      
      if (jwt) {

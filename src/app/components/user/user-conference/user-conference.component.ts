@@ -36,7 +36,7 @@ export class UserConferenceComponent implements OnInit, OnDestroy {
     private toastr: ToastrService,
     private _conference:RegsiterConfService
   ) { }
-
+  
   ngOnInit(): void {
     this.getConference();
 
