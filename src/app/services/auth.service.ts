@@ -69,7 +69,8 @@ export class AuthService {
      
      if (jwt) {
         
-       
+      this._router.navigate(['/user/home']);
+
         return true;
       }
     return false;

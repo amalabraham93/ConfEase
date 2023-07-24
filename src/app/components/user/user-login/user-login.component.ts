@@ -18,6 +18,11 @@ export class UserLoginComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder, private _auth: AuthService, private _router: Router,private _cookie:CookieService) { }
 
   ngOnInit() {
+
+  this._auth.isStoredAuthenticationValid()
+
+
+
     this.loginForm = this._formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
