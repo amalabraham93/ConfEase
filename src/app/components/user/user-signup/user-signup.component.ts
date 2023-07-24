@@ -10,21 +10,17 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class UserSignupComponent implements OnInit {
   signupForm!: FormGroup;
-  public loader:boolean = true
+  public loader: boolean = true;
   errorMessage: string = '';
-  constructor(private formBuilder: FormBuilder, private _auth: AuthService,private _router:Router) {}
-  
+
+  constructor(private formBuilder: FormBuilder, private _auth: AuthService, private _router: Router) {}
+
   ngOnInit() {
-    // setTimeout(() => {
-    //   this.loader = false
-    // }, 2000);
-
-
     this.signupForm = this.formBuilder.group(
       {
-        name: ['', [Validators.required]],
-        email: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required]],
+        name: ['', [Validators.required, Validators.pattern('^[A-Za-z\s]+$')]], // Restrict numbers in name
+        email: ['', [Validators.required, Validators.email, Validators.pattern(/^\S*$/)]], // No spaces allowed in email
+        password: ['', [Validators.required, Validators.minLength(5), Validators.pattern('^[^\s]+$')]], // At least 5 characters, no spaces
         role: ['author', [Validators.required]],
         confirmPassword: ['', [Validators.required]],
       },
@@ -53,12 +49,10 @@ export class UserSignupComponent implements OnInit {
       const { name, email, password, role } = this.signupForm.value;
       this._auth.signup(name, email, password, role).subscribe(
         (response) => {
-         
-          this._router.navigate(['/user/verify-email'])
+          this._router.navigate(['/user/verify-email']);
         },
         (error) => {
-
-          this.errorMessage = error.error.error; 
+          this.errorMessage = error.error.error;
         }
       );
     } else {
@@ -70,11 +64,7 @@ export class UserSignupComponent implements OnInit {
     const passwordControl = formGroup.get('password');
     const confirmPasswordControl = formGroup.get('confirmPassword');
 
-    if (
-      passwordControl &&
-      confirmPasswordControl &&
-      passwordControl.value !== confirmPasswordControl.value
-    ) {
+    if (passwordControl && confirmPasswordControl && passwordControl.value !== confirmPasswordControl.value) {
       confirmPasswordControl.setErrors({ passwordMismatch: true });
     } else {
       confirmPasswordControl?.setErrors(null);
