@@ -57,3 +57,66 @@
     color: #888;
     font-size: 14px;
 }
+
+
+
+.trusted-crowdfunding-platform {
+  margin-bottom: 20px;
+}
+.trusted-crowdfunding-platform li {
+  padding: 10px 0;
+}
+.trusted-crowdfunding-platform li i {
+  margin-right: 10px;
+}
+.trusted-crowdfunding-platform .second-section {
+  margin-top: 10px;
+}
+.icons {
+  font-size: 30px;
+  color: #333;
+}
+.raised {
+  color: #0069d9;
+}
+.backers {
+  color: #7cb342;
+}
+.campaigns {
+  color: #f39c12;
+}
+
+.fa {
+  font-size: 25px;
+  color: #ce2427;
+  margin-top: -2px;
+}
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+  list-style: none;
+}
+
+
+.stats .icons {
+  background: url("https://res.cloudinary.com/djs2xizpt/image/upload/v1690632489/icon-stats_n9ljhs.png") no-repeat;
+  height: 90px;
+  width: 90px;
+  display: block;
+  margin: 0 auto;
+}
+
+.icons {
+  width: 18px;
+  height: 18px;
+  position: relative;
+  top: 4px;
+  left: -4px;
+}
+
+
+.stats .backers {
+  background-position: -95px 0;
+  width: 95px;
+}

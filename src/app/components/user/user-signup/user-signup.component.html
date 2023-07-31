@@ -62,11 +62,21 @@
                       </div>
                     </div>
   
-                    <!-- Role -->
-                    <div class="form-outline mb-4">
-                      <label class="form-label">Role:</label><br />
-                      <!-- ... Existing code ... -->
+                  <!-- Role -->
+                  <div class="form-outline mb-4">
+                    <label class="form-label">Role:</label><br />
+                    <input type="radio" id="authorRadio" class="form-radio form-radio-lg ml-5" formControlName="role"
+                      value="author" />
+                    <label class="form-label ml-2" for="authorRadio">Author</label>
+                    <input type="radio" id="attendeeRadio" class="form-radio form-radio-lg ml-2" formControlName="role"
+                      value="attendee" />
+                    <label class="form-label ml-2" for="attendeeRadio">Attendee</label>
+                    <div *ngIf="role?.touched && role?.errors" class="text-danger">
+                      <div *ngIf="role?.errors?.['required']">
+                        Role is required
+                      </div>
                     </div>
+                  </div>
   
                     <!-- Password -->
                     <div class="form-outline mb-4">
